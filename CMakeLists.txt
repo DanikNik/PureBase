@@ -3,4 +3,4 @@ project(PureBase)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(PureBase main.cpp)
+add_executable(PureBase main.cpp main.cpp)
