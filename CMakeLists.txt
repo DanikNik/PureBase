@@ -3,4 +3,5 @@ project(PureBase)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(PureBase main.cpp main.cpp)
+add_executable(PureBase main.cpp Query/query.cc Query/query.h)
+target_link_libraries(PureBase pistache pthread)

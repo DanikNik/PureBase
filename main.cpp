@@ -1,9 +1,25 @@
-//
-// Created by daniknik on 28.10.18.
-//
+/*
+   Mathieu Stefani, 13 février 2016
 
-#include <iostream>
+   Example of an hello world server
+*/
+
+
+#include "pistache/endpoint.h"
+
+using namespace Pistache;
+
+class HelloHandler : public Http::Handler {
+public:
+
+HTTP_PROTOTYPE(HelloHandler)
+
+    void onRequest(const Http::Request& request, Http::ResponseWriter response) {
+        UNUSED(request);
+        response.send(Pistache::Http::Code::Ok, "Hello World\n");
+    }
+};
 
 int main() {
-  return 0;
+    Http::listenAndServe<HelloHandler>("*:9080");
 }
