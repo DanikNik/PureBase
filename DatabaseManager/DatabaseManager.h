@@ -1,0 +1,8 @@
+//
+// Created by semyon on 29.10.18.
+//
+
+#ifndef PUREBASE_DATABASEMANAGER_H
+#define PUREBASE_DATABASEMANAGER_H
+
+#endif //PUREBASE_DATABASEMANAGER_H
