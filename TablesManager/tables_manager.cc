@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "TablesManager.h"
+#include "tables_manager.h"
 
 TablesManager::TablesManager() {
     curTable = nullptr;
@@ -86,4 +86,4 @@ void TablesManager::deleteTable(std::string tableName) {
 }
 
 void TablesManager::printColumns() {
-}
+}ls
