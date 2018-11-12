@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(pre_work)
+project(PureBase)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -20,7 +20,7 @@ add_subdirectory(sys/)
 
 add_library(libs STATIC ${SOURCE_LIB})
 
-add_executable(pre_work main.cpp)
+add_executable(PureBase main.cpp)
 
-target_link_libraries(pre_work libs)
+target_link_libraries(PureBase libs)
 
