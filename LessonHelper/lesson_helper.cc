@@ -1,34 +1,42 @@
 //
-// Created by semyon on 11.11.18.
+// Created by semyon on 16.11.18.
 //
 
 #include "lesson_helper.h"
+#include <iostream>
 
-bool LessonHelper::createLesson(Query) {
-    std::cout<<"Lesson creator worked...\n";
-    return true;
+void LessonHelper::create(std::string LessonName) {
+    std::cout<<"Document Helper worked..."<<std::endl;
 }
 
-bool LessonHelper::updateLesson(Query) {
-    std::cout<<"Lesson updater worked...\n";
-    return true;
+void LessonHelper::changeName(std::string LessonName) {
+    std::cout<<"Changed name..."<<std::endl;
 }
 
-bool LessonHelper::DeleteLesson(Query) {
-    std::cout<<"Lesson deleter worked...\n";
-    return true;
+void LessonHelper::changeTeacher(std::string TeacherName) {
+    std::cout<<"Changed name..."<<std::endl;
 }
 
-std::vector<Query> LessonHelper::SelectByTag(Query,std::string Tag) {
-    std::vector<Query> queryset;
-    std::cout<<"Lesson tag selector worked...\n";
-    return queryset;
+void LessonHelper::changeSubject(std::string changeSubject) {
+    std::cout<<"Changed name..."<<std::endl;
 }
 
-std::vector<Query> LessonHelper::Select(Query) {
-    std::vector<Query> queryset;
-    std::cout<<"Lesson selector worked...\n";
-    return queryset;
+void LessonHelper::changeTheme(std::string theme) {
+    std::cout<<"Changed name..."<<std::endl;
 }
 
+void LessonHelper::deleteRow(std::string LessonName) {
+    std::cout<<"Row deleter..."<<std::endl;
+}
 
+void LessonHelper::showTables(std::string TableName) {
+    std::cout<<"Showing tables..."<<std::endl;
+}
+
+std::vector<std::string> LessonHelper::select(std::vector<std::string> parametrs) {
+    std::cout<<"selecting..."<<std::endl;
+}
+
+std::vector<std::string> LessonHelper::selectByTag(std::vector<std::string> parametrs, std::string tag) {
+    std::cout<<"selecting by tag..."
+}

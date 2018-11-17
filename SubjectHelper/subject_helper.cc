@@ -1,32 +1,34 @@
 //
-// Created by semyon on 11.11.18.
+// Created by semyon on 16.11.18.
 //
 
 #include "subject_helper.h"
+#include <iostream>
 
-bool SubjectHelper::createSubject(Query) {
-    std::cout<<"Subject creator worked...\n";
-    return true;
+void SubjectHelper::create(std::string SubjectName) {
+    std::cout<<"Document Helper worked..."<<std::endl;
 }
 
-bool SubjectHelper::updateSubject(Query) {
-    std::cout<<"Subject updater worked...\n";
-    return true;
+void SubjectHelper::changeName(std::string SubjectName) {
+    std::cout<<"Changed name..."<<std::endl;
 }
 
-bool SubjectHelper::DeleteSubject(Query) {
-    std::cout<<"Subject deleter worked...\n";
-    return true;
+void SubjectHelper::changeDescription(std::string Description) {
+    std::cout<<"Changed name..."<<std::endl;
 }
 
-std::vector<Query> SubjectHelper::SelectByTag(Query,std::string Tag) {
-    std::vector<Query> queryset;
-    std::cout<<"Subject tag selector worked...\n";
-    return queryset;
+void SubjectHelper::deleteRow(std::string SubjectName) {
+    std::cout<<"Row deleter..."<<std::endl;
 }
 
-std::vector<Query> SubjectHelper::Select(Query) {
-    std::vector<Query> queryset;
-    std::cout<<"Subject selector worked...\n";
-    return queryset;
+void SubjectHelper::showTables(std::string TableName) {
+    std::cout<<"Showing tables..."<<std::endl;
+}
+
+std::vector<std::string> LessonHelper::select(std::vector<std::string> parametrs) {
+    std::cout<<"selecting..."<<std::endl;
+}
+
+std::vector<std::string> SubjectHelper::selectByTag(std::vector<std::string> parametrs, std::string tag) {
+    std::cout<<"selecting by tag...";
 }

@@ -1,25 +1,25 @@
 //
-// Created by semyon on 11.11.18.
+// Created by semyon on 16.11.18.
 //
 
 #ifndef PUREBASE_LESSON_HELPER_H
 #define PUREBASE_LESSON_HELPER_H
 
+#include "../Helper/helper.h"
+#include "../Adapter/adapter.h"
 
-#include "../Query/query.h"
-#include <vector>
-#include <iostream>
-#include <string>
-
-class LessonHelper {
+class LessonHelper : public Helper {
 public:
-    bool createLesson(Query query);
-    bool updateLesson(Query query);
-    std::vector<Query> SelectByTag(Query query,std::string Tag);
-    std::vector<Query> Select(Query query);
-    bool deleteLesson(Query query);
+    void create(std::string);
+    void changeName(std::string);
+    std::vector<std::string> select(std::vector<std::string>);
+    std::vector<std::string> selectByTag(std::vector<std::string>, std::string);
+    void deleteRow(std::string);
+    void changeTeacher(std::string);
+    void changeSubject(std::string);
+    void changeTheme(std::string);
+    void showTables(std::string);
 };
-
 
 
 #endif //PUREBASE_LESSON_HELPER_H

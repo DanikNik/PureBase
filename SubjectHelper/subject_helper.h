@@ -1,26 +1,22 @@
 //
-// Created by semyon on 11.11.18.
+// Created by semyon on 16.11.18.
 //
 
-#ifndef PUREBASE_SUBJECT_HELPER_H
-#define PUREBASE_SUBJECT_HELPER_H
+#ifndef PUREBASE_SUBJECT_H
+#define PUREBASE_SUBJECT_H
 
+#include "../Helper/helper.h"
 
-#include "../Query/query.h"
-#include <vector>
-#include <string>
-#include <iostream>
-
-class SubjectHelper {
+class Subject : public Helper {
 public:
-    SubjectHelper() = default;
-    bool createSubject(Query);
-    bool updateSubject(Query);
-    std::vector<Query> SelectByTag(Query, std::string Tag);
-    std::vector<Query> Select(Query);
-    bool DeleteSubject(Query);
+    void createTable(std::string);
+    void changeName(std::string);
+    std::vector<std::string> select(std::vector<std::string> param);
+    std::vector<std::string> selectByTag(std::vector<std::string> param, std::string tag);
+    void deleteRow(std::string name);
+    void changeDescription(std::string);
+    void showTables(std::string);
 };
 
 
-
-#endif //PUREBASE_SUBJECT_HELPER_H
+#endif //PUREBASE_SUBJECT_H

@@ -1,33 +1,34 @@
 //
-// Created by semyon on 11.11.18.
+// Created by semyon on 16.11.18.
 //
 
 #include "teacher_helper.h"
+#include <iostream>
 
-bool TeacherHelper::createTeacher(Query query) {
-    std::cout<<"Teacher creator worked...\n";
-    return true;
+void TeacherHelper::create(std::string TeacherName) {
+    std::cout<<"Document Helper worked..."<<std::endl;
 }
 
-bool TeacherHelper::updateTeacher(Query query) {
-    std::cout<<"Teacher updater worked...\n";
-    return true;
+void TeacherHelper::changeName(std::string TeacherName) {
+    std::cout<<"Changed name..."<<std::endl;
 }
 
-bool TeacherHelper::deleteTeacher(Query query) {
-    std::cout<<"Teacher deleter worked...\n";
-    return true;
+void TeacherHelper::changeSpecialization(std::string Description) {
+    std::cout<<"Changed name..."<<std::endl;
 }
 
-std::vector<Query> TeacherHelper::SelectByTag(Query query,std::string Tag) {
-    std::vector<Query> queryset;
-    std::cout<<"Teacher tag selector worked...\n";
-    return queryset;
+void TeacherHelper::deleteRow(std::string TeacherName) {
+    std::cout<<"Row deleter..."<<std::endl;
 }
 
-std::vector<Query> TeacherHelper::Select(Query query) {
-    std::vector<Query> queryset;
-    std::cout<<"TeacherSelector worked...\n";
-    return queryset;
+void TeacherHelper::showTables(std::string TableName) {
+    std::cout<<"Showing tables..."<<std::endl;
 }
 
+std::vector<std::string> TeacherHelper::select(std::vector<std::string> parametrs) {
+    std::cout<<"selecting..."<<std::endl;
+}
+
+std::vector<std::string> TeacherHelper::selectByTag(std::vector<std::string> parametrs, std::string tag) {
+    std::cout<<"selecting by tag...";
+}
