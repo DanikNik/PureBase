@@ -1,7 +1,3 @@
-//
-// Created by daniknik on 29.10.18.
-//
-
 #ifndef PUREBASE_QUERY_H
 #define PUREBASE_QUERY_H
 #include <string>
@@ -84,6 +80,13 @@ class SelectTableQuery : public AbstractQuery {
   SelectTableQuery();
   ~SelectTableQuery();
   void Execute() override;
+};
+
+// Пока заглушка
+class Query {
+public:
+    Query() = default;
+    void Execute();
 };
 
 #endif //PUREBASE_QUERY_H

@@ -1,7 +1,3 @@
-//
-// Created by daniknik on 29.10.18.
-//
-
 #include "query.h"
 AbstractQuery::AbstractQuery() {
 
@@ -71,4 +67,11 @@ SelectTableQuery::~SelectTableQuery() {
 }
 void SelectTableQuery::Execute() {
   AbstractQuery::Execute();
+}
+
+//Пока заглушка
+#include <iostream>
+
+void Query::Execute() {
+    std::cout<<"execute method"<<std::endl;
 }
