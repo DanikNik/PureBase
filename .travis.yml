@@ -33,7 +33,9 @@ install:
 
 script:
 # скрипт сборки и тестирования проекта:
+- pwd
+- ls
 - mkdir build
 - cd build
-- cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
-- make 
+- cmake ../CMakeLists.txt -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
+- make
