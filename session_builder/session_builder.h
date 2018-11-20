@@ -5,7 +5,7 @@
 #ifndef PRE_WORK_SESSION_BUILDER_H
 #define PRE_WORK_SESSION_BUILDER_H
 
-#include "session.h"
+#include "../session/session.h"
 
 class SessionBuilder {
  public:
