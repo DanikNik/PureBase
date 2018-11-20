@@ -23,3 +23,12 @@ make
 sudo make install
 
 cd ../..
+
+git clone https://github.com/Tencent/rapidjson.git
+cd rapidjson
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+cd ../..
