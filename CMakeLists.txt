@@ -81,7 +81,7 @@ add_subdirectory(session_by_name/)
 add_subdirectory(session_director/)
 add_subdirectory(sys/)
 
-add_library(session_libs STATIC ${SESSILON_LIB_SOURCE})
+add_library(session_libs STATIC ${SESSION_LIB_SOURCE})
 ########################################################################################################################
 #BUILD TARGETS
 
