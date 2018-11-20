@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+sudo apt update
+sudo apt install make
+
 git clone https://github.com/oktal/pistache.git
 git submodule update --init
 cd pistache

@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+brew update
+brew install make
+
 git clone https://github.com/oktal/pistache.git
 git submodule update --init
 cd pistache
