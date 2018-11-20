@@ -3,13 +3,13 @@
 //
 
 #include "query.h"
-Query::Query() {
+AbstractQuery::AbstractQuery() {
 
 }
-Query::~Query() {
+AbstractQuery::~AbstractQuery() {
 
 }
-void Query::Execute() {
+void AbstractQuery::Execute() {
 
 }
 
@@ -20,7 +20,7 @@ CreateDBQuery::~CreateDBQuery() {
 
 }
 void CreateDBQuery::Execute() {
-  Query::Execute();
+  AbstractQuery::Execute();
 }
 
 DeleteDBQuery::DeleteDBQuery() {
@@ -30,7 +30,7 @@ DeleteDBQuery::~DeleteDBQuery() {
 
 }
 void DeleteDBQuery::Execute() {
-  Query::Execute();
+  AbstractQuery::Execute();
 }
 
 CreateTableQuery::CreateTableQuery() {
@@ -40,7 +40,7 @@ CreateTableQuery::~CreateTableQuery() {
 
 }
 void CreateTableQuery::Execute() {
-  Query::Execute();
+  AbstractQuery::Execute();
 }
 
 DropTableQuery::DropTableQuery() {
@@ -50,7 +50,7 @@ DropTableQuery::~DropTableQuery() {
 
 }
 void DropTableQuery::Execute() {
-  Query::Execute();
+  AbstractQuery::Execute();
 }
 
 UpdateTableQuery::UpdateTableQuery() {
@@ -60,7 +60,7 @@ UpdateTableQuery::~UpdateTableQuery() {
 
 }
 void UpdateTableQuery::Execute() {
-  Query::Execute();
+  AbstractQuery::Execute();
 }
 
 SelectTableQuery::SelectTableQuery() {
@@ -70,5 +70,5 @@ SelectTableQuery::~SelectTableQuery() {
 
 }
 void SelectTableQuery::Execute() {
-  Query::Execute();
+  AbstractQuery::Execute();
 }

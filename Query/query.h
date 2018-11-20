@@ -6,41 +6,42 @@
 #define PUREBASE_QUERY_H
 #include <string>
 #include <vector>
-#include "DatabaseManager/DatabaseManager.h"
+#include "../DatabaseManager/database_manager.h"
 
+//using namespace std;
 
-class Query {
+class AbstractQuery {
  private:
   std::string query;
  public:
-  Query();
-  ~Query();
+  AbstractQuery();
+  ~AbstractQuery();
   virtual void Execute();
 };
 
-class CreateDBQuery : public Query {
+class CreateDBQuery : public AbstractQuery {
  private:
-  DataBaseManager* data_base_manager;
+  DatabaseManager* data_base_manager;
   std::string db_name;
  public:
   CreateDBQuery();
-  ~CreateDBQuery()();
+  ~CreateDBQuery();
   void Execute() override;
 };
 
-class DeleteDBQuery : public Query {
+class DeleteDBQuery : public AbstractQuery {
  private:
-  DataBaseManager* data_base_manager;
+  DatabaseManager* data_base_manager;
   std::string db_name;
  public:
   DeleteDBQuery();
-  ~DeleteDBQuery()
+  ~DeleteDBQuery();
   void Execute() override;
 };
 
-class CreateTableQuery : public Query {
+class CreateTableQuery : public AbstractQuery {
  private:
-  DataBaseManager* data_base_manager;
+  DatabaseManager* data_base_manager;
   std::string db_name;
   std::string table_name;
   std::vector<std::string> attributes;
@@ -50,9 +51,9 @@ class CreateTableQuery : public Query {
   void Execute() override;
 };
 
-class DropTableQuery : public Query {
+class DropTableQuery : public AbstractQuery {
  private:
-  DataBaseManager* data_base_manager;
+  DatabaseManager* data_base_manager;
   std::string db_name;
   std::string table_name;
  public:
@@ -61,9 +62,9 @@ class DropTableQuery : public Query {
   void Execute() override;
 };
 
-class UpdateTableQuery : public Query {
+class UpdateTableQuery : public AbstractQuery {
  private:
-  DataBaseManager* data_base_manager;
+  DatabaseManager* data_base_manager;
   std::string db_name;
   std::string table_name;
   std::vector<std::string> values;
@@ -73,9 +74,9 @@ class UpdateTableQuery : public Query {
   void Execute() override;
 };
 
-class SelectTableQuery : public Query {
+class SelectTableQuery : public AbstractQuery {
  private:
-  DataBaseManager* data_base_manager;
+  DatabaseManager* data_base_manager;
   std::string db_name;
   std::string table_name;
   std::vector<std::string> selection_options;
