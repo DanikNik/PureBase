@@ -12,7 +12,7 @@ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
 make
 sudo make install
 
-cd
+cd ../..
 
 git clone https://github.com/abseil/googletest.git
 cd googletest
@@ -22,4 +22,4 @@ cmake ..  # Generate native build scripts.
 make
 sudo make install
 
-cd
+cd ../..
