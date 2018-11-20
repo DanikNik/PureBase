@@ -8,7 +8,7 @@
 
 class Adapter {
 public:
-    virtual void create()
+    virtual void create();
 };
 
 

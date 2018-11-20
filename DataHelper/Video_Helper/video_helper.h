@@ -14,7 +14,7 @@ public:
     std::vector<std::string> select(std::vector<std::string>);
     std::vector<std::string> selectByTag(std::vector<std::string>, std::string);
     void deleteRow(std::string);
-    void showTavles(std::string);
+    void showTables(std::string);
     void putFiles(std::string);
 };
 

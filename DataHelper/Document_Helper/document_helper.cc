@@ -30,5 +30,5 @@ std::vector<std::string> DocumentHelper::select(std::vector<std::string> paramet
 }
 
 std::vector<std::string> DocumentHelper::selectByTag(std::vector<std::string> parametrs, std::string tag) {
-    std::cout<<"selecting by tag..."
+    std::cout<<"selecting by tag...";
 }
