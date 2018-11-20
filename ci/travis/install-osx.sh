@@ -21,3 +21,5 @@ cd build
 cmake ..  # Generate native build scripts.
 make
 sudo make install
+
+cd
