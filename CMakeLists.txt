@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 ########################################################################################################################
 #APPLYING LIBRARIES
 
+
 set(QUERIES_LIB_SOURCE
         Query/query.h
         Query/query.cc
