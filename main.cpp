@@ -1,9 +1,18 @@
+
+#include "ApiEndpoint/api_endpoint.h"
 //#include <iostream>
 //#include "session_by_name.h"
 //#include "session_director.h"
 //#include "sys.h"
 
-int main() {
+
+int main(int argc, char** argv) {
+  Port port(9080);
+  Address addr(Ipv4::any(), port);
+  ApiEndpoint endpoint(addr);
+  endpoint.init(1);
+  endpoint.start();
+  endpoint.shutdown();
 //  Sys *system_table = Sys::get_instance();
 //
 //  system_table->add_user("abcd", "Ivan", 0);
@@ -25,7 +34,5 @@ int main() {
 //  } else {
 //    std::cout << "Пользователя с такими токеном не существует" << std::endl;
 //  }
-
-
   return 0;
 }
