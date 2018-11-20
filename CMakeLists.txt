@@ -65,15 +65,16 @@ add_library(lessonhelper_lib STATIC ${LESSONHELPER_LIB_SOURCE})
 add_library(subjecthelper_lib STATIC ${SUBJECTHELPER_LIB_SOURCE})
 add_library(teacherhelper_lib STATIC ${TEACHERHELPER_LIB_SOURCE})
 
-set(SESSION_LIB_SOURCE session/session.cc
+set(SESSION_LIB_SOURCE 
+        session/session.h
+        session/session.cc
+        session_by_name/session_by_name.h
         session_by_name/session_by_name.cc
+        session_director/session_director.h
         session_director/session_director.cc
-        sys/sys.cc)
-
-include_directories(session/
-        session_by_name/
-        session_director/
-        sys/)
+        sys/sys.h
+        sys/sys.cc
+        )
 
 add_subdirectory(session/)
 add_subdirectory(session_by_name/)
