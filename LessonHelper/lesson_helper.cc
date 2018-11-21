@@ -38,5 +38,5 @@ std::vector<std::string> LessonHelper::select(std::vector<std::string> parametrs
 }
 
 std::vector<std::string> LessonHelper::selectByTag(std::vector<std::string> parametrs, std::string tag) {
-    std::cout<<"selecting by tag..."
+    std::cout<<"selecting by tag...";
 }

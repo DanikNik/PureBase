@@ -5,7 +5,7 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
-#include "session.h"
+#include "../session.h"
 
 TEST(Session, create_user) {
   Session session;

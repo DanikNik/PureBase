@@ -5,7 +5,7 @@
 #include "subject_helper.h"
 #include <iostream>
 
-void SubjectHelper::create(std::string SubjectName) {
+void SubjectHelper::createTable(std::string SubjectName) {
     std::cout<<"Document Helper worked..."<<std::endl;
 }
 
@@ -25,7 +25,7 @@ void SubjectHelper::showTables(std::string TableName) {
     std::cout<<"Showing tables..."<<std::endl;
 }
 
-std::vector<std::string> LessonHelper::select(std::vector<std::string> parametrs) {
+std::vector<std::string> SubjectHelper::select(std::vector<std::string> parametrs) {
     std::cout<<"selecting..."<<std::endl;
 }
 

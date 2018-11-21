@@ -7,7 +7,7 @@
 
 #include "../Helper/helper.h"
 
-class Subject : public Helper {
+class SubjectHelper : public Helper {
 public:
     void createTable(std::string);
     void changeName(std::string);

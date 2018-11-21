@@ -6,7 +6,7 @@
 #define PRE_WORK_SESSION_DIRECTOR_H
 
 #include "../session_builder/session_builder.h"
-#include "session.h"
+#include "../session/session.h"
 #include <vector>
 
 class SessionDirector {
