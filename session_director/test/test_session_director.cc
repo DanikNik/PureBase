@@ -29,7 +29,7 @@
 //  session.create_user("abcd34");
 //
 //  EXPECT_EQ(session.get_user_token(), "abcd34") << "User token must be abcd34";
-}
+//}
 
 
 
