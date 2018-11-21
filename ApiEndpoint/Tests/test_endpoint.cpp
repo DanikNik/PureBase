@@ -4,7 +4,7 @@
 
 #include "gtest/gtest.h"
 
-//#include "../api_endpoint.h"
+#include "../api_endpoint.h"
 
 
 #include <pistache/net.h>

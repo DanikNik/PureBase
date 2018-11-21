@@ -14,6 +14,7 @@
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
+
 using namespace Pistache;
 using namespace rapidjson;
 
@@ -21,7 +22,6 @@ class JSONParser {
  public:
   JSONParser() = default;
   ~JSONParser() = default;
-
 };
 //
 //class Query {
