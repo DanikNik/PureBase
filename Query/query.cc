@@ -73,5 +73,5 @@ void SelectTableQuery::Execute() {
 #include <iostream>
 
 void Query::Execute() {
-    std::cout<<"execute method"<<std::endl;
+  std::cout << "execute method" << std::endl;
 }

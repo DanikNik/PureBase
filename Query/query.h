@@ -17,7 +17,7 @@ class AbstractQuery {
 
 class CreateDBQuery : public AbstractQuery {
  private:
-  DatabaseManager* data_base_manager;
+  DatabaseManager *data_base_manager;
   std::string db_name;
  public:
   CreateDBQuery();
@@ -27,7 +27,7 @@ class CreateDBQuery : public AbstractQuery {
 
 class DeleteDBQuery : public AbstractQuery {
  private:
-  DatabaseManager* data_base_manager;
+  DatabaseManager *data_base_manager;
   std::string db_name;
  public:
   DeleteDBQuery();
@@ -37,7 +37,7 @@ class DeleteDBQuery : public AbstractQuery {
 
 class CreateTableQuery : public AbstractQuery {
  private:
-  DatabaseManager* data_base_manager;
+  DatabaseManager *data_base_manager;
   std::string db_name;
   std::string table_name;
   std::vector<std::string> attributes;
@@ -49,7 +49,7 @@ class CreateTableQuery : public AbstractQuery {
 
 class DropTableQuery : public AbstractQuery {
  private:
-  DatabaseManager* data_base_manager;
+  DatabaseManager *data_base_manager;
   std::string db_name;
   std::string table_name;
  public:
@@ -60,7 +60,7 @@ class DropTableQuery : public AbstractQuery {
 
 class UpdateTableQuery : public AbstractQuery {
  private:
-  DatabaseManager* data_base_manager;
+  DatabaseManager *data_base_manager;
   std::string db_name;
   std::string table_name;
   std::vector<std::string> values;
@@ -72,7 +72,7 @@ class UpdateTableQuery : public AbstractQuery {
 
 class SelectTableQuery : public AbstractQuery {
  private:
-  DatabaseManager* data_base_manager;
+  DatabaseManager *data_base_manager;
   std::string db_name;
   std::string table_name;
   std::vector<std::string> selection_options;
@@ -84,9 +84,9 @@ class SelectTableQuery : public AbstractQuery {
 
 // Пока заглушка
 class Query {
-public:
-    Query() = default;
-    void Execute();
+ public:
+  Query() = default;
+  void Execute();
 };
 
 #endif //PUREBASE_QUERY_H

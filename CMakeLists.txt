@@ -7,6 +7,12 @@ set(CMAKE_CXX_STANDARD 17)
 ########################################################################################################################
 #APPLYING LIBRARIES
 
+find_package(GTest REQUIRED)
+find_package(RapidJSON REQUIRED)
+find_package(Pistache REQUIRED)
+include_directories(${PISTACHE_INCLUDE_DIRS})
+include_directories(${RAPIDJSON_INCLUDE_DIRS})
+include_directories(${GTEST_INCLUDE_DIRS})
 
 set(QUERIES_LIB_SOURCE
         Query/query.h
@@ -14,22 +20,12 @@ set(QUERIES_LIB_SOURCE
         )
 add_library(queries_lib STATIC ${QUERIES_LIB_SOURCE})
 
-#Stub class
-##set(DB_MANAGER_LIB_SOURCE
-#        DatabaseManager/database_manager.h
-#        DatabaseManager/database_manager.cc
-#        )
-##add_library(database_manager_lib ${DB_MANAGER_LIB_SOURCE})
-
 set(API_SERVER_LIB_SOURCE
         ApiEndpoint/api_endpoint.h
         ApiEndpoint/api_endpoint.cc
         )
-add_library(api_server_lib ${API_SERVER_LIB_SOURCE})
-link_libraries(api_server_lib pistache pthread)
-
-find_library(GTEST_LIB NAMES gtest gmock PATHS /usr/local/lib)
-find_package(RapidJSON)
+add_library(api_server_lib STATIC ${API_SERVER_LIB_SOURCE})
+target_link_libraries(api_server_lib pistache pthread)
 
 set(HELPER_LIB_SOURCE
         Helper/helper.h
@@ -76,28 +72,50 @@ set(SESSION_LIB_SOURCE
         sys/sys.h
         sys/sys.cc
         )
-
-add_subdirectory(session/)
-add_subdirectory(session_by_name/)
-add_subdirectory(session_director/)
-add_subdirectory(sys/)
-
 add_library(session_libs STATIC ${SESSION_LIB_SOURCE})
+
+#add_subdirectory(session/)
+#add_subdirectory(session_by_name/)
+#add_subdirectory(session_director/)
+#add_subdirectory(sys/)
 ########################################################################################################################
 #BUILD TARGETS
 
 add_executable(PureBase main.cpp)
 target_link_libraries(PureBase)
-target_link_libraries(PureBase session_libs)
-target_link_libraries(PureBase helper_lib datahelper_lib lessonhelper_lib subjecthelper_lib teacherhelper_lib session_libs)
-target_link_libraries(PureBase api_server_lib)
+target_link_libraries(PureBase
+        helper_lib
+        datahelper_lib
+        lessonhelper_lib
+        subjecthelper_lib
+        teacherhelper_lib
+        session_libs
+        api_server_lib
+        )
 
 add_executable(test_queries Query/Tests/test_queries.cpp)
-target_link_libraries(test_queries ${GTEST_LIB} pthread)
+target_link_libraries(test_queries ${GTEST_LIBRARIES} pthread)
 target_link_libraries(test_queries queries_lib)
 
 add_executable(test_endpoint ApiEndpoint/Tests/test_endpoint.cpp)
-target_link_libraries(test_endpoint ${GTEST_LIB} pthread)
-#target_link_libraries(test_endpoint api_server_lib)
+target_link_libraries(test_endpoint ${GTEST_LIBRARIES} pthread)
+target_link_libraries(test_endpoint api_server_lib ${PISTACHE_LIBRARIES})
 
+add_executable(test_session session/test/test_session.cc)
+target_link_libraries(test_session ${GTEST_LIBRARIES} pthread)
+target_link_libraries(test_session session_libs)
+
+add_executable(test_session_director session_director/test/test_session_director.cc)
+target_link_libraries(test_session_director ${GTEST_LIBRARIES} pthread)
+target_link_libraries(test_session_director session_libs)
+
+add_executable(test_session_by_name session_by_name/test/test_session_by_name.cc)
+target_link_libraries(test_session_by_name ${GTEST_LIBRARIES} pthread)
+target_link_libraries(test_session_by_name session_libs)
+
+add_executable(test_sys sys/test/test_sys.cc)
+target_link_libraries(test_sys ${GTEST_LIBRARIES} pthread)
+target_link_libraries(test_sys session_libs)
 ########################################################################################################################
+
+
