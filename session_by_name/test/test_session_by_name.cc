@@ -5,7 +5,7 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
-#include "session_by_name.h"
+#include "../session_by_name.h"
 
 TEST(SessionByName, get_connection) {
   //Sys *system_table = Sys::get_instance();

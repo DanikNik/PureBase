@@ -5,7 +5,7 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
-#include "sys.h"
+#include "../sys.h"
 
 TEST(Sys, add_user) {
   Sys *system_table = Sys::get_instance();
