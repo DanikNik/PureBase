@@ -1,10 +1,23 @@
+
+//int main(){
+//  return 0;
+//}
+
+
+#include <iostream>
+
+#include "Server/server.h"
+using namespace std;
+
+int main(int argc, char *argv[]) {
+  Server().start();
 #include <iostream>
 //#include "Application/application.h"
 //#include "CreateDBCommand/create_db_command.h"
 //#include "LessonHelper/lesson_helper.h"
 //#include "CreateTableCommand/create_table_command.h"
 
-int main(int argc, char **argv) {
+//int main(int argc, char **argv) {
 
 //  Helper *lesson_helper;
 //  Application *app = new Application();
@@ -19,6 +32,5 @@ int main(int argc, char **argv) {
 //
 //
 //  app->setCommand(create_table_command);
-
   return 0;
 }
