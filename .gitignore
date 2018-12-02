@@ -37,3 +37,4 @@ Thumbs.db
 .idea
 *.json
 task_spread
+cmake-build-debug/
