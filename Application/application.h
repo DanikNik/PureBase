@@ -6,8 +6,10 @@
 #define PUREBASE_APPLICATION_H
 
 #include "../Command/command.h"
+#include <iostream>
 #include <vector>
 #include <thread>
+#include <queue>
 
 class Application {
  public:
@@ -17,7 +19,7 @@ class Application {
 
  private:
   Command *_command;
-  std::vector<Command*> _commandQueue;
+  std::queue<Command*> _commandQueue;
 
 
 };

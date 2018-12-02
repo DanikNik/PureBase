@@ -23,6 +23,8 @@ string
 -
 iostream
 -
+../sys/sys.h
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys/sys.h
 
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Helper/helper.h
 iostream
@@ -30,5 +32,23 @@ iostream
 string
 -
 vector
+-
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys/sys.h
+../user/User.h
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/user/User.h
+../sys_base/sys_base.h
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys_base/sys_base.h
+vector
+-
+iostream
+-
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys_base/sys_base.h
+iostream
+-
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/user/User.h
+string
 -
 

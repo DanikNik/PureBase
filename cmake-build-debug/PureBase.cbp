@@ -17,6 +17,16 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="test_sys">
 				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/test_sys" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
@@ -281,11 +291,45 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
+			<Target title="subjecthelper_lib">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libsubjecthelper_lib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option type="4"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 subjecthelper_lib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="subjecthelper_lib/fast">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libsubjecthelper_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 subjecthelper_lib/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -330,6 +374,50 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 delete_db_command_lib/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="update_table_command_lib">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libupdate_table_command_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 update_table_command_lib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="update_table_command_lib/fast">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libupdate_table_command_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 update_table_command_lib/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -423,8 +511,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="drop_table_command_lib">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libdrop_table_command_lib.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="server_lib">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libserver_lib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
@@ -439,14 +527,14 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 drop_table_command_lib"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 server_lib"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="drop_table_command_lib/fast">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libdrop_table_command_lib.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="server_lib/fast">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libserver_lib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
@@ -461,95 +549,17 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 drop_table_command_lib/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 server_lib/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="application_lib">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libapplication_lib.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="edit_cache">
 				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 application_lib"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="application_lib/fast">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libapplication_lib.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 application_lib/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="lessonhelper_lib">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/liblessonhelper_lib.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 lessonhelper_lib"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="lessonhelper_lib/fast">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/liblessonhelper_lib.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 lessonhelper_lib/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -599,6 +609,94 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="drop_table_command_lib">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libdrop_table_command_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 drop_table_command_lib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="drop_table_command_lib/fast">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libdrop_table_command_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 drop_table_command_lib/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lessonhelper_lib">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/liblessonhelper_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 lessonhelper_lib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lessonhelper_lib/fast">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/liblessonhelper_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 lessonhelper_lib/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="datahelper_lib">
 				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libdatahelper_lib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
@@ -638,6 +736,50 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 datahelper_lib/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="queries_lib">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libqueries_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 queries_lib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="queries_lib/fast">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libqueries_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 queries_lib/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -819,8 +961,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="subjecthelper_lib">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libsubjecthelper_lib.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="application_lib">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libapplication_lib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
@@ -835,14 +977,14 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 subjecthelper_lib"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 application_lib"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="subjecthelper_lib/fast">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libsubjecthelper_lib.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="application_lib/fast">
+				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libapplication_lib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
@@ -857,105 +999,7 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 subjecthelper_lib/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="update_table_command_lib">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libupdate_table_command_lib.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 update_table_command_lib"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="update_table_command_lib/fast">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libupdate_table_command_lib.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 update_table_command_lib/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="queries_lib">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libqueries_lib.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 queries_lib"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="queries_lib/fast">
-				<Option output="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/libqueries_lib.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 queries_lib/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 application_lib/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -1043,6 +1087,12 @@
 		<Unit filename="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/SelectTableCommand/select_table_command.h">
 			<Option target="select_table_command_lib"/>
 		</Unit>
+		<Unit filename="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Server/server.cc">
+			<Option target="server_lib"/>
+		</Unit>
+		<Unit filename="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Server/server.h">
+			<Option target="server_lib"/>
+		</Unit>
 		<Unit filename="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/SubjectHelper/subject_helper.cc">
 			<Option target="subjecthelper_lib"/>
 		</Unit>
@@ -1090,6 +1140,12 @@
 		</Unit>
 		<Unit filename="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session_director/test/test_session_director.cc">
 			<Option target="test_session_director"/>
+		</Unit>
+		<Unit filename="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/socket/socket.cpp">
+			<Option target="server_lib"/>
+		</Unit>
+		<Unit filename="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/socket/socket.hpp">
+			<Option target="server_lib"/>
 		</Unit>
 		<Unit filename="/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys/sys.cc">
 			<Option target="session_libs"/>

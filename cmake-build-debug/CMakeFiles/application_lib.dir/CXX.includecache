@@ -13,9 +13,13 @@ application.h
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Application/application.h
 ../Command/command.h
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Command/command.h
+iostream
+-
 vector
 -
 thread
+-
+queue
 -
 
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Command/command.h

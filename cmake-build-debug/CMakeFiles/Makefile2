@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-
 CMakeFiles/test_sys.dir/all: CMakeFiles/session_libs.dir/all
 	$(MAKE) -f CMakeFiles/test_sys.dir/build.make CMakeFiles/test_sys.dir/depend
 	$(MAKE) -f CMakeFiles/test_sys.dir/build.make CMakeFiles/test_sys.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=44,45 "Built target test_sys"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=47,48 "Built target test_sys"
 .PHONY : CMakeFiles/test_sys.dir/all
 
 # Include target in all.
@@ -108,7 +108,7 @@ clean: CMakeFiles/test_sys.dir/clean
 CMakeFiles/test_session_by_name.dir/all: CMakeFiles/session_libs.dir/all
 	$(MAKE) -f CMakeFiles/test_session_by_name.dir/build.make CMakeFiles/test_session_by_name.dir/depend
 	$(MAKE) -f CMakeFiles/test_session_by_name.dir/build.make CMakeFiles/test_session_by_name.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=40,41 "Built target test_session_by_name"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=43,44 "Built target test_session_by_name"
 .PHONY : CMakeFiles/test_session_by_name.dir/all
 
 # Include target in all.
@@ -145,7 +145,7 @@ clean: CMakeFiles/test_session_by_name.dir/clean
 CMakeFiles/test_session.dir/all: CMakeFiles/session_libs.dir/all
 	$(MAKE) -f CMakeFiles/test_session.dir/build.make CMakeFiles/test_session.dir/depend
 	$(MAKE) -f CMakeFiles/test_session.dir/build.make CMakeFiles/test_session.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=38,39 "Built target test_session"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=41,42 "Built target test_session"
 .PHONY : CMakeFiles/test_session.dir/all
 
 # Include target in all.
@@ -182,7 +182,7 @@ clean: CMakeFiles/test_session.dir/clean
 CMakeFiles/test_queries.dir/all: CMakeFiles/queries_lib.dir/all
 	$(MAKE) -f CMakeFiles/test_queries.dir/build.make CMakeFiles/test_queries.dir/depend
 	$(MAKE) -f CMakeFiles/test_queries.dir/build.make CMakeFiles/test_queries.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=36,37 "Built target test_queries"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=39,40 "Built target test_queries"
 .PHONY : CMakeFiles/test_queries.dir/all
 
 # Include target in all.
@@ -217,19 +217,20 @@ clean: CMakeFiles/test_queries.dir/clean
 
 # All Build rule for target.
 CMakeFiles/PureBase.dir/all: CMakeFiles/session_libs.dir/all
+CMakeFiles/PureBase.dir/all: CMakeFiles/subjecthelper_lib.dir/all
 CMakeFiles/PureBase.dir/all: CMakeFiles/delete_db_command_lib.dir/all
+CMakeFiles/PureBase.dir/all: CMakeFiles/update_table_command_lib.dir/all
 CMakeFiles/PureBase.dir/all: CMakeFiles/create_db_command_lib.dir/all
 CMakeFiles/PureBase.dir/all: CMakeFiles/select_table_command_lib.dir/all
-CMakeFiles/PureBase.dir/all: CMakeFiles/drop_table_command_lib.dir/all
-CMakeFiles/PureBase.dir/all: CMakeFiles/application_lib.dir/all
-CMakeFiles/PureBase.dir/all: CMakeFiles/lessonhelper_lib.dir/all
+CMakeFiles/PureBase.dir/all: CMakeFiles/server_lib.dir/all
 CMakeFiles/PureBase.dir/all: CMakeFiles/teacherhelper_lib.dir/all
+CMakeFiles/PureBase.dir/all: CMakeFiles/drop_table_command_lib.dir/all
+CMakeFiles/PureBase.dir/all: CMakeFiles/lessonhelper_lib.dir/all
 CMakeFiles/PureBase.dir/all: CMakeFiles/datahelper_lib.dir/all
 CMakeFiles/PureBase.dir/all: CMakeFiles/create_table_command_lib.dir/all
 CMakeFiles/PureBase.dir/all: CMakeFiles/command_lib.dir/all
 CMakeFiles/PureBase.dir/all: CMakeFiles/helper_lib.dir/all
-CMakeFiles/PureBase.dir/all: CMakeFiles/subjecthelper_lib.dir/all
-CMakeFiles/PureBase.dir/all: CMakeFiles/update_table_command_lib.dir/all
+CMakeFiles/PureBase.dir/all: CMakeFiles/application_lib.dir/all
 	$(MAKE) -f CMakeFiles/PureBase.dir/build.make CMakeFiles/PureBase.dir/depend
 	$(MAKE) -f CMakeFiles/PureBase.dir/build.make CMakeFiles/PureBase.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target PureBase"
@@ -242,7 +243,7 @@ all: CMakeFiles/PureBase.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PureBase.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 38
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PureBase.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PureBase.dir/rule
@@ -269,7 +270,7 @@ clean: CMakeFiles/PureBase.dir/clean
 CMakeFiles/session_libs.dir/all:
 	$(MAKE) -f CMakeFiles/session_libs.dir/build.make CMakeFiles/session_libs.dir/depend
 	$(MAKE) -f CMakeFiles/session_libs.dir/build.make CMakeFiles/session_libs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=27,28,29,30,31 "Built target session_libs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=30,31,32,33,34 "Built target session_libs"
 .PHONY : CMakeFiles/session_libs.dir/all
 
 # Include target in all.
@@ -296,6 +297,43 @@ CMakeFiles/session_libs.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/session_libs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/subjecthelper_lib.dir
+
+# All Build rule for target.
+CMakeFiles/subjecthelper_lib.dir/all:
+	$(MAKE) -f CMakeFiles/subjecthelper_lib.dir/build.make CMakeFiles/subjecthelper_lib.dir/depend
+	$(MAKE) -f CMakeFiles/subjecthelper_lib.dir/build.make CMakeFiles/subjecthelper_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=35,36 "Built target subjecthelper_lib"
+.PHONY : CMakeFiles/subjecthelper_lib.dir/all
+
+# Include target in all.
+all: CMakeFiles/subjecthelper_lib.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/subjecthelper_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/subjecthelper_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/subjecthelper_lib.dir/rule
+
+# Convenience name for target.
+subjecthelper_lib: CMakeFiles/subjecthelper_lib.dir/rule
+
+.PHONY : subjecthelper_lib
+
+# clean rule for target.
+CMakeFiles/subjecthelper_lib.dir/clean:
+	$(MAKE) -f CMakeFiles/subjecthelper_lib.dir/build.make CMakeFiles/subjecthelper_lib.dir/clean
+.PHONY : CMakeFiles/subjecthelper_lib.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/subjecthelper_lib.dir/clean
 
 .PHONY : clean
 
@@ -333,6 +371,43 @@ CMakeFiles/delete_db_command_lib.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/delete_db_command_lib.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/update_table_command_lib.dir
+
+# All Build rule for target.
+CMakeFiles/update_table_command_lib.dir/all:
+	$(MAKE) -f CMakeFiles/update_table_command_lib.dir/build.make CMakeFiles/update_table_command_lib.dir/depend
+	$(MAKE) -f CMakeFiles/update_table_command_lib.dir/build.make CMakeFiles/update_table_command_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=49,50 "Built target update_table_command_lib"
+.PHONY : CMakeFiles/update_table_command_lib.dir/all
+
+# Include target in all.
+all: CMakeFiles/update_table_command_lib.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/update_table_command_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/update_table_command_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/update_table_command_lib.dir/rule
+
+# Convenience name for target.
+update_table_command_lib: CMakeFiles/update_table_command_lib.dir/rule
+
+.PHONY : update_table_command_lib
+
+# clean rule for target.
+CMakeFiles/update_table_command_lib.dir/clean:
+	$(MAKE) -f CMakeFiles/update_table_command_lib.dir/build.make CMakeFiles/update_table_command_lib.dir/clean
+.PHONY : CMakeFiles/update_table_command_lib.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/update_table_command_lib.dir/clean
 
 .PHONY : clean
 
@@ -411,6 +486,80 @@ clean: CMakeFiles/select_table_command_lib.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/server_lib.dir
+
+# All Build rule for target.
+CMakeFiles/server_lib.dir/all:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/depend
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=27,28,29 "Built target server_lib"
+.PHONY : CMakeFiles/server_lib.dir/all
+
+# Include target in all.
+all: CMakeFiles/server_lib.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/server_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/server_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/server_lib.dir/rule
+
+# Convenience name for target.
+server_lib: CMakeFiles/server_lib.dir/rule
+
+.PHONY : server_lib
+
+# clean rule for target.
+CMakeFiles/server_lib.dir/clean:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/clean
+.PHONY : CMakeFiles/server_lib.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/server_lib.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/teacherhelper_lib.dir
+
+# All Build rule for target.
+CMakeFiles/teacherhelper_lib.dir/all:
+	$(MAKE) -f CMakeFiles/teacherhelper_lib.dir/build.make CMakeFiles/teacherhelper_lib.dir/depend
+	$(MAKE) -f CMakeFiles/teacherhelper_lib.dir/build.make CMakeFiles/teacherhelper_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=37,38 "Built target teacherhelper_lib"
+.PHONY : CMakeFiles/teacherhelper_lib.dir/all
+
+# Include target in all.
+all: CMakeFiles/teacherhelper_lib.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/teacherhelper_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/teacherhelper_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/teacherhelper_lib.dir/rule
+
+# Convenience name for target.
+teacherhelper_lib: CMakeFiles/teacherhelper_lib.dir/rule
+
+.PHONY : teacherhelper_lib
+
+# clean rule for target.
+CMakeFiles/teacherhelper_lib.dir/clean:
+	$(MAKE) -f CMakeFiles/teacherhelper_lib.dir/build.make CMakeFiles/teacherhelper_lib.dir/clean
+.PHONY : CMakeFiles/teacherhelper_lib.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/teacherhelper_lib.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/drop_table_command_lib.dir
 
 # All Build rule for target.
@@ -444,43 +593,6 @@ CMakeFiles/drop_table_command_lib.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/drop_table_command_lib.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/application_lib.dir
-
-# All Build rule for target.
-CMakeFiles/application_lib.dir/all:
-	$(MAKE) -f CMakeFiles/application_lib.dir/build.make CMakeFiles/application_lib.dir/depend
-	$(MAKE) -f CMakeFiles/application_lib.dir/build.make CMakeFiles/application_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target application_lib"
-.PHONY : CMakeFiles/application_lib.dir/all
-
-# Include target in all.
-all: CMakeFiles/application_lib.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/application_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/application_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/application_lib.dir/rule
-
-# Convenience name for target.
-application_lib: CMakeFiles/application_lib.dir/rule
-
-.PHONY : application_lib
-
-# clean rule for target.
-CMakeFiles/application_lib.dir/clean:
-	$(MAKE) -f CMakeFiles/application_lib.dir/build.make CMakeFiles/application_lib.dir/clean
-.PHONY : CMakeFiles/application_lib.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/application_lib.dir/clean
 
 .PHONY : clean
 
@@ -522,43 +634,6 @@ clean: CMakeFiles/lessonhelper_lib.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/teacherhelper_lib.dir
-
-# All Build rule for target.
-CMakeFiles/teacherhelper_lib.dir/all:
-	$(MAKE) -f CMakeFiles/teacherhelper_lib.dir/build.make CMakeFiles/teacherhelper_lib.dir/depend
-	$(MAKE) -f CMakeFiles/teacherhelper_lib.dir/build.make CMakeFiles/teacherhelper_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=34,35 "Built target teacherhelper_lib"
-.PHONY : CMakeFiles/teacherhelper_lib.dir/all
-
-# Include target in all.
-all: CMakeFiles/teacherhelper_lib.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/teacherhelper_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/teacherhelper_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/teacherhelper_lib.dir/rule
-
-# Convenience name for target.
-teacherhelper_lib: CMakeFiles/teacherhelper_lib.dir/rule
-
-.PHONY : teacherhelper_lib
-
-# clean rule for target.
-CMakeFiles/teacherhelper_lib.dir/clean:
-	$(MAKE) -f CMakeFiles/teacherhelper_lib.dir/build.make CMakeFiles/teacherhelper_lib.dir/clean
-.PHONY : CMakeFiles/teacherhelper_lib.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/teacherhelper_lib.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/datahelper_lib.dir
 
 # All Build rule for target.
@@ -592,6 +667,43 @@ CMakeFiles/datahelper_lib.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/datahelper_lib.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/queries_lib.dir
+
+# All Build rule for target.
+CMakeFiles/queries_lib.dir/all:
+	$(MAKE) -f CMakeFiles/queries_lib.dir/build.make CMakeFiles/queries_lib.dir/depend
+	$(MAKE) -f CMakeFiles/queries_lib.dir/build.make CMakeFiles/queries_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=23,24 "Built target queries_lib"
+.PHONY : CMakeFiles/queries_lib.dir/all
+
+# Include target in all.
+all: CMakeFiles/queries_lib.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/queries_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/queries_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/queries_lib.dir/rule
+
+# Convenience name for target.
+queries_lib: CMakeFiles/queries_lib.dir/rule
+
+.PHONY : queries_lib
+
+# clean rule for target.
+CMakeFiles/queries_lib.dir/clean:
+	$(MAKE) -f CMakeFiles/queries_lib.dir/build.make CMakeFiles/queries_lib.dir/clean
+.PHONY : CMakeFiles/queries_lib.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/queries_lib.dir/clean
 
 .PHONY : clean
 
@@ -676,7 +788,7 @@ clean: CMakeFiles/command_lib.dir/clean
 CMakeFiles/test_session_director.dir/all: CMakeFiles/session_libs.dir/all
 	$(MAKE) -f CMakeFiles/test_session_director.dir/build.make CMakeFiles/test_session_director.dir/depend
 	$(MAKE) -f CMakeFiles/test_session_director.dir/build.make CMakeFiles/test_session_director.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=42,43 "Built target test_session_director"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=45,46 "Built target test_session_director"
 .PHONY : CMakeFiles/test_session_director.dir/all
 
 # Include target in all.
@@ -744,113 +856,39 @@ clean: CMakeFiles/helper_lib.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/subjecthelper_lib.dir
+# Target rules for target CMakeFiles/application_lib.dir
 
 # All Build rule for target.
-CMakeFiles/subjecthelper_lib.dir/all:
-	$(MAKE) -f CMakeFiles/subjecthelper_lib.dir/build.make CMakeFiles/subjecthelper_lib.dir/depend
-	$(MAKE) -f CMakeFiles/subjecthelper_lib.dir/build.make CMakeFiles/subjecthelper_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=32,33 "Built target subjecthelper_lib"
-.PHONY : CMakeFiles/subjecthelper_lib.dir/all
+CMakeFiles/application_lib.dir/all:
+	$(MAKE) -f CMakeFiles/application_lib.dir/build.make CMakeFiles/application_lib.dir/depend
+	$(MAKE) -f CMakeFiles/application_lib.dir/build.make CMakeFiles/application_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target application_lib"
+.PHONY : CMakeFiles/application_lib.dir/all
 
 # Include target in all.
-all: CMakeFiles/subjecthelper_lib.dir/all
+all: CMakeFiles/application_lib.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/subjecthelper_lib.dir/rule: cmake_check_build_system
+CMakeFiles/application_lib.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/subjecthelper_lib.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/application_lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/subjecthelper_lib.dir/rule
+.PHONY : CMakeFiles/application_lib.dir/rule
 
 # Convenience name for target.
-subjecthelper_lib: CMakeFiles/subjecthelper_lib.dir/rule
+application_lib: CMakeFiles/application_lib.dir/rule
 
-.PHONY : subjecthelper_lib
-
-# clean rule for target.
-CMakeFiles/subjecthelper_lib.dir/clean:
-	$(MAKE) -f CMakeFiles/subjecthelper_lib.dir/build.make CMakeFiles/subjecthelper_lib.dir/clean
-.PHONY : CMakeFiles/subjecthelper_lib.dir/clean
+.PHONY : application_lib
 
 # clean rule for target.
-clean: CMakeFiles/subjecthelper_lib.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/update_table_command_lib.dir
-
-# All Build rule for target.
-CMakeFiles/update_table_command_lib.dir/all:
-	$(MAKE) -f CMakeFiles/update_table_command_lib.dir/build.make CMakeFiles/update_table_command_lib.dir/depend
-	$(MAKE) -f CMakeFiles/update_table_command_lib.dir/build.make CMakeFiles/update_table_command_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=46,47 "Built target update_table_command_lib"
-.PHONY : CMakeFiles/update_table_command_lib.dir/all
-
-# Include target in all.
-all: CMakeFiles/update_table_command_lib.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/update_table_command_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/update_table_command_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/update_table_command_lib.dir/rule
-
-# Convenience name for target.
-update_table_command_lib: CMakeFiles/update_table_command_lib.dir/rule
-
-.PHONY : update_table_command_lib
+CMakeFiles/application_lib.dir/clean:
+	$(MAKE) -f CMakeFiles/application_lib.dir/build.make CMakeFiles/application_lib.dir/clean
+.PHONY : CMakeFiles/application_lib.dir/clean
 
 # clean rule for target.
-CMakeFiles/update_table_command_lib.dir/clean:
-	$(MAKE) -f CMakeFiles/update_table_command_lib.dir/build.make CMakeFiles/update_table_command_lib.dir/clean
-.PHONY : CMakeFiles/update_table_command_lib.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/update_table_command_lib.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/queries_lib.dir
-
-# All Build rule for target.
-CMakeFiles/queries_lib.dir/all:
-	$(MAKE) -f CMakeFiles/queries_lib.dir/build.make CMakeFiles/queries_lib.dir/depend
-	$(MAKE) -f CMakeFiles/queries_lib.dir/build.make CMakeFiles/queries_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles --progress-num=23,24 "Built target queries_lib"
-.PHONY : CMakeFiles/queries_lib.dir/all
-
-# Include target in all.
-all: CMakeFiles/queries_lib.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/queries_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/queries_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/queries_lib.dir/rule
-
-# Convenience name for target.
-queries_lib: CMakeFiles/queries_lib.dir/rule
-
-.PHONY : queries_lib
-
-# clean rule for target.
-CMakeFiles/queries_lib.dir/clean:
-	$(MAKE) -f CMakeFiles/queries_lib.dir/build.make CMakeFiles/queries_lib.dir/clean
-.PHONY : CMakeFiles/queries_lib.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/queries_lib.dir/clean
+clean: CMakeFiles/application_lib.dir/clean
 
 .PHONY : clean
 

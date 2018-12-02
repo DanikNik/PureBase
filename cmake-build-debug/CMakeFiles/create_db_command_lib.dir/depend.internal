@@ -6,3 +6,6 @@ CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o
  /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/CreateDBCommand/create_db_command.cc
  /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/CreateDBCommand/create_db_command.h
  /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Helper/helper.h
+ /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys/sys.h
+ /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys_base/sys_base.h
+ /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/user/User.h

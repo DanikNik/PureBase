@@ -5,13 +5,12 @@
 #include "application.h"
 
 void Application::setCommand(Command *command) {
-  _commandQueue.push_back(command);
-  checkQueue();
+  _commandQueue.push(command);
 }
 
 void Application::checkQueue() {
-  for(int i = 0; i < _commandQueue.size(); ++i) {
-    _commandQueue[i]->execute();
-    _commandQueue.pop_back();
+  while (!_commandQueue.empty()) {
+    _commandQueue.front()->execute();
+    _commandQueue.pop();
   }
 }

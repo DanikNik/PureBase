@@ -85,6 +85,8 @@ PureBase: liblessonhelper_lib.a
 PureBase: libsubjecthelper_lib.a
 PureBase: libteacherhelper_lib.a
 PureBase: libsession_libs.a
+PureBase: /usr/local/lib/libboost_system.dylib
+PureBase: libserver_lib.a
 PureBase: libcommand_lib.a
 PureBase: libapplication_lib.a
 PureBase: libcreate_table_command_lib.a
