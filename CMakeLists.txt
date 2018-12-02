@@ -17,13 +17,6 @@ find_package(Boost 1.67 REQUIRED COMPONENTS system)
 include_directories(${Boost_INCLUDE_DIRS})
 
 
-set(QUERIES_LIB_SOURCE
-        Query/query.h
-        Query/query.cc
-        )
-add_library(queries_lib STATIC ${QUERIES_LIB_SOURCE})
-
-
 set(SERVER_LIB_SOURCE
         Server/server.h
         Server/server.cc
@@ -127,6 +120,12 @@ set(SESSION_LIB_SOURCE
         )
 add_library(session_libs STATIC ${SESSION_LIB_SOURCE})
 
+set(SYS_LIB_SOURCE
+        sys/sys.h
+        sys/sys.cc
+        sys_base/sys_base.h)
+add_library(sys_lib ${SYS_LIB_SOURCE})
+
 #add_subdirectory(session/)
 #add_subdirectory(session_by_name/)
 #add_subdirectory(session_director/)
@@ -149,6 +148,7 @@ target_link_libraries(PureBase
         parser_lib
         server_lib
         application_lib
+        sys_lib
 
         command_lib
         create_table_command_lib
@@ -159,9 +159,6 @@ target_link_libraries(PureBase
         delete_db_command_lib
         )
 
-add_executable(test_queries Query/Tests/test_queries.cpp)
-target_link_libraries(test_queries ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_queries queries_lib)
 
 
 #add_executable(test_endpoint Server/Tests/test_endpoint.cpp)
