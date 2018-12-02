@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libcreate_db_command_lib.a  CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libcreate_db_command_lib.a

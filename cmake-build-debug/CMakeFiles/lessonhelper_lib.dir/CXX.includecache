@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Adapter/adapter.h
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Helper/helper.h
+iostream
+-
+string
+-
+vector
+-
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/LessonHelper/lesson_helper.cc
+lesson_helper.h
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/LessonHelper/lesson_helper.h
+iostream
+-
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/LessonHelper/lesson_helper.h
+../Helper/helper.h
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Helper/helper.h
+../Adapter/adapter.h
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Adapter/adapter.h
+

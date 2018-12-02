@@ -1,38 +1,24 @@
+#include <iostream>
+//#include "Application/application.h"
+//#include "CreateDBCommand/create_db_command.h"
+//#include "LessonHelper/lesson_helper.h"
+//#include "CreateTableCommand/create_table_command.h"
 
-#include "ApiEndpoint/api_endpoint.h"
-//#include <iostream>
-//#include "session_by_name.h"
-//#include "session_director.h"
-//#include "sys.h"
+int main(int argc, char **argv) {
 
+//  Helper *lesson_helper;
+//  Application *app = new Application();
+//
+//  CreateDBCommand *create_db_command = new CreateDBCommand(lesson_helper, "DatabaseName");
+//
+//  app->setCommand(create_db_command);
+//  std::cout << std::endl;
+//  std::vector<std::string> attr = {"attr1", "attr2"};
+//  CreateTableCommand *create_table_command = new CreateTableCommand(lesson_helper, "DatabbaseName", "Tablename", attr);
+//
+//
+//
+//  app->setCommand(create_table_command);
 
-int main(int argc, char** argv) {
-  Port port(9080);
-  Address addr(Ipv4::any(), port);
-  ApiEndpoint endpoint(addr);
-  endpoint.init(1);
-  endpoint.start();
-  endpoint.shutdown();
-//  Sys *system_table = Sys::get_instance();
-//
-//  system_table->add_user("abcd", "Ivan", 0);
-//  system_table->add_user("qwerty", "Name", 1);
-//  system_table->add_user("thcp", "John", 5);
-//
-//  SessionType type = SBN;
-//  std::string token = "abcd";
-//
-//  SessionByName sba_session;
-//  SessionDirector director(&sba_session);
-//  director.create_session(token, type);
-//
-//  auto ses = sba_session.get_result();
-//
-//  if(sba_session.get_result()->is_connect()) {
-//    std::cout << ses->get_user_token() << " " << ses->get_user_name() << " "
-//              << ses->get_user_permissions();
-//  } else {
-//    std::cout << "Пользователя с такими токеном не существует" << std::endl;
-//  }
   return 0;
 }

@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/test_session_by_name.dir/session_by_name/test/test_session_by_name.cc.o  -o test_session_by_name /usr/local/lib/libgtest.a -lpthread libsession_libs.a 

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Application/application.cc
+application.h
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Application/application.h
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Application/application.h
+../Command/command.h
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Command/command.h
+vector
+-
+thread
+-
+
+/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/Command/command.h
+

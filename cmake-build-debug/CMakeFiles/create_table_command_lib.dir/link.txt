@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libcreate_table_command_lib.a  CMakeFiles/create_table_command_lib.dir/CreateTableCommand/create_table_command.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libcreate_table_command_lib.a
