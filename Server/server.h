@@ -8,24 +8,22 @@
 #include <iostream>
 #include <stdexcept>
 #include <thread>
-#include "../socket/socket.hpp"
-
-#include <thread>
 #include <condition_variable>
 #include <mutex>
 #include <queue>
 #include <chrono>
-#include "../sys/sys.h"
-
-#include "../CreateDBCommand/create_db_command.h"
-#include "../LessonHelper/lesson_helper.h"
+#include "../socket/socket.hpp"
 #include "../Application/application.h"
-
+#include "../Helper/helper.h"
+#include "../DataHelper/Document_Helper/document_helper.h"
+#include "../Parser/parser.h"
+#include "../sys/sys.h"
 using namespace std;
 
 class Server {
  private:
-  int port = 8090;
+  int port;
+    Parser *parser;
   LessonHelper *lesson_helper;
   Application *app = new Application();
   std::queue<std::string> produced_nums;
@@ -34,7 +32,8 @@ class Server {
   bool notified = false;
 
  public:
-  Server() = default;
+  Server(): port(8090), app(new Application()), parser(new Parser()), helper(new DocumentHelper()){}
+  Server(int _port): port(_port), app(new Application()), parser(new Parser()), helper(new DocumentHelper()){}
   virtual ~Server() = default;
 
   void client_work(std::shared_ptr<Socket> client) {
@@ -88,15 +87,6 @@ class Server {
         std::cerr << "child: " << getpid() << std::endl;
       }
 
-      while (true) {
-        std::shared_ptr<Socket> client = s.accept();
-        client_work(client);
-      }
-    }
-    catch (const std::exception &e) {
-      std::cerr << e.what() << std::endl;
-    }
-  }
 
 };
 

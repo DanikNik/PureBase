@@ -11,7 +11,7 @@
 
 class Helper {
 public:
-    virtual void create(std::string) = 0;
+    virtual void createTable(std::string) = 0;
     virtual void changeName(std::string) = 0;
     virtual std::vector<std::string> select(std::vector<std::string> param) = 0;
     virtual std::vector<std::string> selectByTag(std::vector<std::string> param, std::string tag) = 0;
