@@ -2,6 +2,7 @@
 // Created by Иван Морозов on 02.12.2018.
 //
 
+#include <cassert>
 #include "create_db_command.h"
 
 CreateDBCommand::CreateDBCommand(Helper *helper, std::string dbName) :
@@ -10,5 +11,6 @@ CreateDBCommand::CreateDBCommand(Helper *helper, std::string dbName) :
   {}
 
 void CreateDBCommand::execute() {
-  std::cout << "Create Database: " << _dbName;
+  assert(!_dbName.empty());
+  std::cout << "Create Database: " << _dbName << std::endl;
 }

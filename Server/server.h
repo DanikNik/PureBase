@@ -8,63 +8,32 @@
 #include <iostream>
 #include <stdexcept>
 #include <thread>
-#include "../socket/socket.hpp"
-
-#include <thread>
 #include <condition_variable>
 #include <mutex>
 #include <queue>
 #include <chrono>
-using namespace std;
+
+#include "../socket/socket.hpp"
+#include "../Application/application.h"
+#include "../Helper/helper.h"
+#include "../DataHelper/Document_Helper/document_helper.h"
+#include "../Parser/parser.h"
 
 class Server {
  private:
-  int port = 8090;
-
-  std::string query(std::string query){
-    return query;
-  }
-
+  int port;
+  Application * app;
+  Parser *parser;
+  Helper* helper;
 
  public:
-  Server() = default;
+  Server(): port(8080), app(new Application()), parser(new Parser()), helper(new DocumentHelper()){}
+  Server(int _port): port(_port), app(new Application()), parser(new Parser()), helper(new DocumentHelper()){}
   virtual ~Server() = default;
 
-  void client_work(std::shared_ptr<Socket> client) {
-    client->setRcvTimeout(/*sec*/30, /*microsec*/0);
-    while (true)
-      try {
-        std::string line = client->recv();
-        std::string ret = query(line);
-        client->send("response: " + ret + '\n');
-      }
-      catch (const std::exception &e) {
-        std::cerr << "exception: " << e.what() << std::endl;
-        return;
-      }
-  }
+  void client_work(std::shared_ptr<Socket> client);
 
-  void start() {
-    try {
-      Socket s;
-      s.createServerSocket(port, 25);
-
-      pid_t pid = fork();
-      if (pid > 0) {
-        std::cerr << "parent: " << getpid() << std::endl;
-      } else {
-        std::cerr << "child: " << getpid() << std::endl;
-      }
-
-      while (true) {
-        std::shared_ptr<Socket> client = s.accept();
-        client_work(client);
-      }
-    }
-    catch (const std::exception &e) {
-      std::cerr << e.what() << std::endl;
-    }
-  }
+  void start();
 
 };
 

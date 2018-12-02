@@ -33,6 +33,11 @@ set(SERVER_LIB_SOURCE
 add_library(server_lib STATIC ${SERVER_LIB_SOURCE})
 target_link_libraries(server_lib pthread)
 
+set(PARSER_LIB_SOURCE
+        Parser/parser.h
+        Parser/parser.cc
+        )
+add_library(parser_lib STATIC ${PARSER_LIB_SOURCE})
 
 set(HELPER_LIB_SOURCE
         Helper/helper.h
@@ -131,18 +136,21 @@ add_library(session_libs STATIC ${SESSION_LIB_SOURCE})
 
 add_executable(PureBase main.cpp)
 target_link_libraries(PureBase
+        ${Boost_LIBRARIES}
+
         helper_lib
         datahelper_lib
         lessonhelper_lib
         subjecthelper_lib
         teacherhelper_lib
+
         session_libs
 
-        ${Boost_LIBRARIES}
+        parser_lib
         server_lib
+        application_lib
 
         command_lib
-        application_lib
         create_table_command_lib
         drop_table_command_lib
         update_table_command_lib

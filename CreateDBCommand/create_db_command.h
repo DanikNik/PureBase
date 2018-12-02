@@ -15,7 +15,6 @@ class CreateDBCommand : public Command {
  public:
   CreateDBCommand(Helper *helper, std::string dbName);
   void execute() override;
-
  private:
   Helper *_helper;
   std::string _dbName;
