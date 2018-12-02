@@ -189,6 +189,19 @@ session_libs/fast:
 .PHONY : session_libs/fast
 
 #=============================================================================
+# Target rules for targets named subjecthelper_lib
+
+# Build rule for target.
+subjecthelper_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 subjecthelper_lib
+.PHONY : subjecthelper_lib
+
+# fast build rule for target.
+subjecthelper_lib/fast:
+	$(MAKE) -f CMakeFiles/subjecthelper_lib.dir/build.make CMakeFiles/subjecthelper_lib.dir/build
+.PHONY : subjecthelper_lib/fast
+
+#=============================================================================
 # Target rules for targets named delete_db_command_lib
 
 # Build rule for target.
@@ -200,6 +213,19 @@ delete_db_command_lib: cmake_check_build_system
 delete_db_command_lib/fast:
 	$(MAKE) -f CMakeFiles/delete_db_command_lib.dir/build.make CMakeFiles/delete_db_command_lib.dir/build
 .PHONY : delete_db_command_lib/fast
+
+#=============================================================================
+# Target rules for targets named update_table_command_lib
+
+# Build rule for target.
+update_table_command_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 update_table_command_lib
+.PHONY : update_table_command_lib
+
+# fast build rule for target.
+update_table_command_lib/fast:
+	$(MAKE) -f CMakeFiles/update_table_command_lib.dir/build.make CMakeFiles/update_table_command_lib.dir/build
+.PHONY : update_table_command_lib/fast
 
 #=============================================================================
 # Target rules for targets named create_db_command_lib
@@ -228,43 +254,17 @@ select_table_command_lib/fast:
 .PHONY : select_table_command_lib/fast
 
 #=============================================================================
-# Target rules for targets named drop_table_command_lib
+# Target rules for targets named server_lib
 
 # Build rule for target.
-drop_table_command_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 drop_table_command_lib
-.PHONY : drop_table_command_lib
+server_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 server_lib
+.PHONY : server_lib
 
 # fast build rule for target.
-drop_table_command_lib/fast:
-	$(MAKE) -f CMakeFiles/drop_table_command_lib.dir/build.make CMakeFiles/drop_table_command_lib.dir/build
-.PHONY : drop_table_command_lib/fast
-
-#=============================================================================
-# Target rules for targets named application_lib
-
-# Build rule for target.
-application_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 application_lib
-.PHONY : application_lib
-
-# fast build rule for target.
-application_lib/fast:
-	$(MAKE) -f CMakeFiles/application_lib.dir/build.make CMakeFiles/application_lib.dir/build
-.PHONY : application_lib/fast
-
-#=============================================================================
-# Target rules for targets named lessonhelper_lib
-
-# Build rule for target.
-lessonhelper_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lessonhelper_lib
-.PHONY : lessonhelper_lib
-
-# fast build rule for target.
-lessonhelper_lib/fast:
-	$(MAKE) -f CMakeFiles/lessonhelper_lib.dir/build.make CMakeFiles/lessonhelper_lib.dir/build
-.PHONY : lessonhelper_lib/fast
+server_lib/fast:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/build
+.PHONY : server_lib/fast
 
 #=============================================================================
 # Target rules for targets named teacherhelper_lib
@@ -280,6 +280,32 @@ teacherhelper_lib/fast:
 .PHONY : teacherhelper_lib/fast
 
 #=============================================================================
+# Target rules for targets named drop_table_command_lib
+
+# Build rule for target.
+drop_table_command_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 drop_table_command_lib
+.PHONY : drop_table_command_lib
+
+# fast build rule for target.
+drop_table_command_lib/fast:
+	$(MAKE) -f CMakeFiles/drop_table_command_lib.dir/build.make CMakeFiles/drop_table_command_lib.dir/build
+.PHONY : drop_table_command_lib/fast
+
+#=============================================================================
+# Target rules for targets named lessonhelper_lib
+
+# Build rule for target.
+lessonhelper_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lessonhelper_lib
+.PHONY : lessonhelper_lib
+
+# fast build rule for target.
+lessonhelper_lib/fast:
+	$(MAKE) -f CMakeFiles/lessonhelper_lib.dir/build.make CMakeFiles/lessonhelper_lib.dir/build
+.PHONY : lessonhelper_lib/fast
+
+#=============================================================================
 # Target rules for targets named datahelper_lib
 
 # Build rule for target.
@@ -291,6 +317,19 @@ datahelper_lib: cmake_check_build_system
 datahelper_lib/fast:
 	$(MAKE) -f CMakeFiles/datahelper_lib.dir/build.make CMakeFiles/datahelper_lib.dir/build
 .PHONY : datahelper_lib/fast
+
+#=============================================================================
+# Target rules for targets named queries_lib
+
+# Build rule for target.
+queries_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 queries_lib
+.PHONY : queries_lib
+
+# fast build rule for target.
+queries_lib/fast:
+	$(MAKE) -f CMakeFiles/queries_lib.dir/build.make CMakeFiles/queries_lib.dir/build
+.PHONY : queries_lib/fast
 
 #=============================================================================
 # Target rules for targets named create_table_command_lib
@@ -345,43 +384,17 @@ helper_lib/fast:
 .PHONY : helper_lib/fast
 
 #=============================================================================
-# Target rules for targets named subjecthelper_lib
+# Target rules for targets named application_lib
 
 # Build rule for target.
-subjecthelper_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 subjecthelper_lib
-.PHONY : subjecthelper_lib
+application_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 application_lib
+.PHONY : application_lib
 
 # fast build rule for target.
-subjecthelper_lib/fast:
-	$(MAKE) -f CMakeFiles/subjecthelper_lib.dir/build.make CMakeFiles/subjecthelper_lib.dir/build
-.PHONY : subjecthelper_lib/fast
-
-#=============================================================================
-# Target rules for targets named update_table_command_lib
-
-# Build rule for target.
-update_table_command_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 update_table_command_lib
-.PHONY : update_table_command_lib
-
-# fast build rule for target.
-update_table_command_lib/fast:
-	$(MAKE) -f CMakeFiles/update_table_command_lib.dir/build.make CMakeFiles/update_table_command_lib.dir/build
-.PHONY : update_table_command_lib/fast
-
-#=============================================================================
-# Target rules for targets named queries_lib
-
-# Build rule for target.
-queries_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 queries_lib
-.PHONY : queries_lib
-
-# fast build rule for target.
-queries_lib/fast:
-	$(MAKE) -f CMakeFiles/queries_lib.dir/build.make CMakeFiles/queries_lib.dir/build
-.PHONY : queries_lib/fast
+application_lib/fast:
+	$(MAKE) -f CMakeFiles/application_lib.dir/build.make CMakeFiles/application_lib.dir/build
+.PHONY : application_lib/fast
 
 Application/application.o: Application/application.cc.o
 
@@ -761,6 +774,33 @@ SelectTableCommand/select_table_command.cc.s:
 	$(MAKE) -f CMakeFiles/select_table_command_lib.dir/build.make CMakeFiles/select_table_command_lib.dir/SelectTableCommand/select_table_command.cc.s
 .PHONY : SelectTableCommand/select_table_command.cc.s
 
+Server/server.o: Server/server.cc.o
+
+.PHONY : Server/server.o
+
+# target to build an object file
+Server/server.cc.o:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/Server/server.cc.o
+.PHONY : Server/server.cc.o
+
+Server/server.i: Server/server.cc.i
+
+.PHONY : Server/server.i
+
+# target to preprocess a source file
+Server/server.cc.i:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/Server/server.cc.i
+.PHONY : Server/server.cc.i
+
+Server/server.s: Server/server.cc.s
+
+.PHONY : Server/server.s
+
+# target to generate assembly for a file
+Server/server.cc.s:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/Server/server.cc.s
+.PHONY : Server/server.cc.s
+
 SubjectHelper/subject_helper.o: SubjectHelper/subject_helper.cc.o
 
 .PHONY : SubjectHelper/subject_helper.o
@@ -1031,6 +1071,33 @@ session_director/test/test_session_director.cc.s:
 	$(MAKE) -f CMakeFiles/test_session_director.dir/build.make CMakeFiles/test_session_director.dir/session_director/test/test_session_director.cc.s
 .PHONY : session_director/test/test_session_director.cc.s
 
+socket/socket.o: socket/socket.cpp.o
+
+.PHONY : socket/socket.o
+
+# target to build an object file
+socket/socket.cpp.o:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/socket/socket.cpp.o
+.PHONY : socket/socket.cpp.o
+
+socket/socket.i: socket/socket.cpp.i
+
+.PHONY : socket/socket.i
+
+# target to preprocess a source file
+socket/socket.cpp.i:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/socket/socket.cpp.i
+.PHONY : socket/socket.cpp.i
+
+socket/socket.s: socket/socket.cpp.s
+
+.PHONY : socket/socket.s
+
+# target to generate assembly for a file
+socket/socket.cpp.s:
+	$(MAKE) -f CMakeFiles/server_lib.dir/build.make CMakeFiles/server_lib.dir/socket/socket.cpp.s
+.PHONY : socket/socket.cpp.s
+
 sys/sys.o: sys/sys.cc.o
 
 .PHONY : sys/sys.o
@@ -1091,29 +1158,30 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... rebuild_cache"
 	@echo "... test_sys"
 	@echo "... test_session_by_name"
 	@echo "... test_session"
 	@echo "... test_queries"
 	@echo "... PureBase"
 	@echo "... session_libs"
-	@echo "... rebuild_cache"
+	@echo "... subjecthelper_lib"
 	@echo "... delete_db_command_lib"
+	@echo "... update_table_command_lib"
 	@echo "... create_db_command_lib"
 	@echo "... select_table_command_lib"
-	@echo "... drop_table_command_lib"
-	@echo "... application_lib"
-	@echo "... lessonhelper_lib"
+	@echo "... server_lib"
+	@echo "... edit_cache"
 	@echo "... teacherhelper_lib"
+	@echo "... drop_table_command_lib"
+	@echo "... lessonhelper_lib"
 	@echo "... datahelper_lib"
+	@echo "... queries_lib"
 	@echo "... create_table_command_lib"
 	@echo "... command_lib"
 	@echo "... test_session_director"
 	@echo "... helper_lib"
-	@echo "... subjecthelper_lib"
-	@echo "... edit_cache"
-	@echo "... update_table_command_lib"
-	@echo "... queries_lib"
+	@echo "... application_lib"
 	@echo "... Application/application.o"
 	@echo "... Application/application.i"
 	@echo "... Application/application.s"
@@ -1156,6 +1224,9 @@ help:
 	@echo "... SelectTableCommand/select_table_command.o"
 	@echo "... SelectTableCommand/select_table_command.i"
 	@echo "... SelectTableCommand/select_table_command.s"
+	@echo "... Server/server.o"
+	@echo "... Server/server.i"
+	@echo "... Server/server.s"
 	@echo "... SubjectHelper/subject_helper.o"
 	@echo "... SubjectHelper/subject_helper.i"
 	@echo "... SubjectHelper/subject_helper.s"
@@ -1186,6 +1257,9 @@ help:
 	@echo "... session_director/test/test_session_director.o"
 	@echo "... session_director/test/test_session_director.i"
 	@echo "... session_director/test/test_session_director.s"
+	@echo "... socket/socket.o"
+	@echo "... socket/socket.i"
+	@echo "... socket/socket.s"
 	@echo "... sys/sys.o"
 	@echo "... sys/sys.i"
 	@echo "... sys/sys.s"

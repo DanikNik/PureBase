@@ -5,4 +5,7 @@ CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o: ../
 CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o: ../CreateDBCommand/create_db_command.cc
 CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o: ../CreateDBCommand/create_db_command.h
 CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o: ../Helper/helper.h
+CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o: ../sys/sys.h
+CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o: ../sys_base/sys_base.h
+CMakeFiles/create_db_command_lib.dir/CreateDBCommand/create_db_command.cc.o: ../user/User.h
 

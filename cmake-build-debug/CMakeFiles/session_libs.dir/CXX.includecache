@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session/session.cc
-session.h
-/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session/session.h
-
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session/session.h
 ../user/User.h
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/user/User.h
@@ -32,18 +28,6 @@ session_by_name.h
 ../sys/sys.h
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys/sys.h
 
-/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session_director/session_director.cc
-session_director.h
-/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session_director/session_director.h
-
-/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session_director/session_director.h
-../session_builder/session_builder.h
-/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session_builder/session_builder.h
-../session/session.h
-/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/session/session.h
-vector
--
-
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys/sys.cc
 sys.h
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys/sys.h
@@ -59,6 +43,8 @@ iostream
 -
 
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/sys_base/sys_base.h
+iostream
+-
 
 /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/user/User.h
 string

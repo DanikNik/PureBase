@@ -21,6 +21,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles/subjecthelper_lib.dir/DependInfo.cmake"
   "/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles/teacherhelper_lib.dir/DependInfo.cmake"
   "/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles/session_libs.dir/DependInfo.cmake"
+  "/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles/server_lib.dir/DependInfo.cmake"
   "/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles/command_lib.dir/DependInfo.cmake"
   "/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles/application_lib.dir/DependInfo.cmake"
   "/Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug/CMakeFiles/create_table_command_lib.dir/DependInfo.cmake"

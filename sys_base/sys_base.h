@@ -5,6 +5,8 @@
 #ifndef PRE_WORK_SYSBASE_H
 #define PRE_WORK_SYSBASE_H
 
+#include <iostream>
+
 class SysBase {
  public:
   virtual bool add_user(std::string token, std::string user_name, int permissions) = 0;
