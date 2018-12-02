@@ -1,7 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase
--- Boost version: 1.68.0
--- Found the following Boost libraries:
---   system
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/ivanmorozov/BMSTU/technopark/cpp/PureBase/cmake-build-debug

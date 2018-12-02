@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libteacherhelper_lib.a  CMakeFiles/teacherhelper_lib.dir/TeacherHelper/teacher_helper.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libteacherhelper_lib.a

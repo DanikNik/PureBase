@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libupdate_table_command_lib.a  CMakeFiles/update_table_command_lib.dir/UpdateTableCommand/update_table_command.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libupdate_table_command_lib.a
