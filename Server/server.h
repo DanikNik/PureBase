@@ -1,7 +1,3 @@
-//
-// Created by daniknik on 02.12.18.
-//
-
 #ifndef PUREBASE_SERVER_H
 #define PUREBASE_SERVER_H
 
