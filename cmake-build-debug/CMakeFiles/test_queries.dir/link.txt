@@ -1,1 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/test_queries.dir/Query/Tests/test_queries.cpp.o  -o test_queries /usr/local/lib/libgtest.a -lpthread libqueries_lib.a 
