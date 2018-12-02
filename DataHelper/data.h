@@ -15,7 +15,7 @@ public:
     virtual std::vector<std::string> selectByTag(std::vector<std::string> param, std::string tag) = 0;
     virtual void deleteRow(std::string name) = 0;
     virtual void showTables(std::string) = 0;
-    virtual void putFile(std::string) = 0;
+    virtual void putFiles(std::string) = 0;
 };
 
 

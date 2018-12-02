@@ -5,7 +5,7 @@
 #include "document_helper.h"
 #include <iostream>
 
-void DocumentHelper::create(std::string documentName) {
+void DocumentHelper::createTable(std::string documentName) {
     std::cout<<"Document Helper worked..."<<std::endl;
 }
 
