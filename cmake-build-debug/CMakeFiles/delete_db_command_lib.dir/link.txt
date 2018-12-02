@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libdelete_db_command_lib.a  CMakeFiles/delete_db_command_lib.dir/DeleteDBCommand/delete_db_command.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libdelete_db_command_lib.a

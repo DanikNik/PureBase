@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libdatahelper_lib.a  CMakeFiles/datahelper_lib.dir/DataHelper/data.cc.o CMakeFiles/datahelper_lib.dir/DataHelper/Document_Helper/document_helper.cc.o CMakeFiles/datahelper_lib.dir/DataHelper/Video_Helper/video_helper.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libdatahelper_lib.a

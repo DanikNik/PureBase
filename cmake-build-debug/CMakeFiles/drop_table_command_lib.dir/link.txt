@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libdrop_table_command_lib.a  CMakeFiles/drop_table_command_lib.dir/DropTableCommand/drop_table_command.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libdrop_table_command_lib.a
