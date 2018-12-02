@@ -8,11 +8,11 @@ set(CMAKE_CXX_STANDARD 17)
 #APPLYING LIBRARIES
 
 find_package(GTest REQUIRED)
-find_package(RapidJSON REQUIRED)
-find_package(Pistache REQUIRED)
-include_directories(${PISTACHE_INCLUDE_DIRS})
-include_directories(${RAPIDJSON_INCLUDE_DIRS})
 include_directories(${GTEST_INCLUDE_DIRS})
+
+find_package(Boost 1.67 REQUIRED COMPONENTS system)
+include_directories(${Boost_INCLUDE_DIRS})
+
 
 set(QUERIES_LIB_SOURCE
         Query/query.h
@@ -20,12 +20,14 @@ set(QUERIES_LIB_SOURCE
         )
 add_library(queries_lib STATIC ${QUERIES_LIB_SOURCE})
 
-set(API_SERVER_LIB_SOURCE
-        ApiEndpoint/api_endpoint.h
-        ApiEndpoint/api_endpoint.cc
+set(SERVER_LIB_SOURCE
+        Server/server.h
+        Server/server.cc
+        socket/socket.hpp
+        socket/socket.cpp
         )
-add_library(api_server_lib STATIC ${API_SERVER_LIB_SOURCE})
-target_link_libraries(api_server_lib pistache pthread)
+add_library(server_lib STATIC ${SERVER_LIB_SOURCE})
+target_link_libraries(server_lib pthread)
 
 set(HELPER_LIB_SOURCE
         Helper/helper.h
@@ -62,7 +64,7 @@ add_library(lessonhelper_lib STATIC ${LESSONHELPER_LIB_SOURCE})
 add_library(subjecthelper_lib STATIC ${SUBJECTHELPER_LIB_SOURCE})
 add_library(teacherhelper_lib STATIC ${TEACHERHELPER_LIB_SOURCE})
 
-set(SESSION_LIB_SOURCE 
+set(SESSION_LIB_SOURCE
         session/session.h
         session/session.cc
         session_by_name/session_by_name.h
@@ -82,7 +84,6 @@ add_library(session_libs STATIC ${SESSION_LIB_SOURCE})
 #BUILD TARGETS
 
 add_executable(PureBase main.cpp)
-target_link_libraries(PureBase)
 target_link_libraries(PureBase
         helper_lib
         datahelper_lib
@@ -90,16 +91,17 @@ target_link_libraries(PureBase
         subjecthelper_lib
         teacherhelper_lib
         session_libs
-        api_server_lib
+        ${Boost_LIBRARIES}
+        server_lib
         )
 
 add_executable(test_queries Query/Tests/test_queries.cpp)
 target_link_libraries(test_queries ${GTEST_LIBRARIES} pthread)
 target_link_libraries(test_queries queries_lib)
 
-add_executable(test_endpoint ApiEndpoint/Tests/test_endpoint.cpp)
-target_link_libraries(test_endpoint ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_endpoint api_server_lib ${PISTACHE_LIBRARIES})
+#add_executable(test_endpoint Server/Tests/test_endpoint.cpp)
+#target_link_libraries(test_endpoint ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_endpoint api_server_lib ${PISTACHE_LIBRARIES})
 
 add_executable(test_session session/test/test_session.cc)
 target_link_libraries(test_session ${GTEST_LIBRARIES} pthread)
