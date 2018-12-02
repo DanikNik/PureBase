@@ -1,9 +1,3 @@
-
-//int main(){
-//  return 0;
-//}
-
-
 #include <iostream>
 
 #include "Server/server.h"

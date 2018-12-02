@@ -12,5 +12,9 @@ SelectTableCommand::SelectTableCommand(Helper *helper,
       _attributes(attributes) {}
 
 void SelectTableCommand::execute() {
-  std::cout << "Make select from table" << _tableName << "from database" << _dbName;
+  if (!_dbName.empty() && !_tableName.empty() && _helper && !_attributes.empty()) {
+    std::cout << "Make select from table" << _tableName << "from database" << _dbName;
+  } else {
+    throw std::invalid_argument("Empty names or helper nullptr");
+  }
 }

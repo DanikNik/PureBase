@@ -14,5 +14,9 @@ UpdateTableCommand::UpdateTableCommand(Helper *helper,
     _attributes(attributes) {}
 
 void UpdateTableCommand::execute() {
-  std::cout << "Update table" << _tableName << " in Database" << _dbName;
+  if (!_dbName.empty() && !_tableName.empty() && _helper && !_attributes.empty()) {
+    std::cout << "Update table" << _tableName << " in Database" << _dbName;
+  } else {
+    throw std::invalid_argument("Empty names or helper nullptr");
+  }
 }

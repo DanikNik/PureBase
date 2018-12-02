@@ -10,7 +10,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "../sys/sys.h"
 
 class CreateDBCommand : public Command {
  public:

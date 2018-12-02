@@ -10,5 +10,9 @@ DeleteDBCommand::DeleteDBCommand(Helper *helper, std::string dbName) :
   {}
 
 void DeleteDBCommand::execute() {
+  if (!_dbName.empty() && _helper) {
   std::cout << "Delete Database" << _dbName;
+  } else {
+    throw std::invalid_argument("Empty names or helper nullptr");
+  }
 }

@@ -11,5 +11,9 @@ DropTableCommand::DropTableCommand(Helper *helper, std::string tableName, std::s
 {}
 
 void DropTableCommand::execute() {
-  std::cout << "Drop table" << _tableName << "in database" << _dbName;
+  if (!_dbName.empty() && _helper && !_tableName.empty()) {
+    std::cout << "Drop table" << _tableName << "in database" << _dbName;
+  } else {
+    throw std::invalid_argument("Empty names or helper nullptr");
+  }
 }

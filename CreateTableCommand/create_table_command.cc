@@ -14,5 +14,9 @@ CreateTableCommand::CreateTableCommand(Helper *helper,
       _attributes(attributes) {}
 
 void CreateTableCommand::execute() {
-  std::cout << "Create Table: " << _dbName << " " << "with name: " << _tableName;
+  if (!_dbName.empty() && !_tableName.empty() && _helper && !_attributes.empty()) {
+    std::cout << "Create Table: " << _dbName << " " << "with name: " << _tableName;
+  } else {
+    throw std::invalid_argument("Empty names or helper nullptr");
+  }
 }
