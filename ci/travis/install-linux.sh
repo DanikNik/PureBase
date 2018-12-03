@@ -2,8 +2,8 @@
 
 sudo apt update
 sudo apt install make
-
-cd ../..
+sudo apt install
+sudo apt install libboost-all-dev
 
 git clone https://github.com/abseil/googletest.git
 git submodule update --init
@@ -13,6 +13,4 @@ cd build
 cmake ..  # Generate native build scripts.
 make
 sudo make install
-
 cd ../..
-
