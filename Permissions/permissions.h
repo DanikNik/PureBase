@@ -7,12 +7,13 @@
 
 #include "../PermissionsBase/permissions_base.h"
 #include <iostream>
+#include <algorithm>
 
 struct Permissions : public PermissionBase {
  public:
-  Permissions() {}
+  Permissions() = default;
   Permissions(bool can_write, bool can_read);
-  enum permissions {CAN_READ, CAN_WRITE};
+  enum permissions { CAN_READ, CAN_WRITE };
   bool can_write() override;
   bool can_read() override;
   void set_write();
