@@ -3,7 +3,7 @@
 sudo apt update
 sudo apt install make
 sudo apt install
-sudo apt install libboost-dev libboost-program-options-dev
+sudo apt install libboost1.62-all-dev
 
 git clone https://github.com/abseil/googletest.git
 git submodule update --init
