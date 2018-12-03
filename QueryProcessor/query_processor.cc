@@ -24,7 +24,7 @@ Command* QueryProcessor::ProcessJSONToCommand(std::string query) {
   }
   catch(pt::json_parser_error &e){
     std::cerr << e.what() << std::endl;
-    std::cerr << "PROPERTY TREE PIZDEC" << std::endl;
+    std::cerr << "PROPERTY TREE FAILURE" << std::endl;
     return nullptr;
   }
 }
