@@ -4,10 +4,11 @@
 
 #include "drop_table_command.h"
 
-DropTableCommand::DropTableCommand(Helper *helper, std::string tableName, std::string dbName) :
+DropTableCommand::DropTableCommand(SessionBuilder *session, Helper *helper, std::string tableName, std::string dbName) :
   _helper(helper),
   _dbName(dbName),
-  _tableName(tableName)
+  _tableName(tableName),
+  _session(session)
 {}
 
 void DropTableCommand::execute() {

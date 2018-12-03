@@ -4,13 +4,14 @@
 
 #include "create_table_command.h"
 
-CreateTableCommand::CreateTableCommand(Helper *helper,
+CreateTableCommand::CreateTableCommand(SessionBuilder *session, Helper *helper,
                                        std::string tableName,
                                        std::string dbName,
-                                       std::vector<std::string> attributes)
+                                       std::vector<std::pair<std::string, std::string>> attributes)
     : _helper(helper),
       _tableName(tableName),
       _dbName(dbName),
+      _session(session),
       _attributes(attributes) {}
 
 void CreateTableCommand::execute() {

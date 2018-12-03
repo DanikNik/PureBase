@@ -7,16 +7,18 @@
 
 #include "../Command/command.h"
 #include "../Helper/helper.h"
+#include "../session_builder/session_builder.h"
 #include <vector>
 #include <string>
 #include <iostream>
 
 class DeleteDBCommand : public Command{
  public:
-  DeleteDBCommand(Helper *helper, std::string dbName);
+  DeleteDBCommand(SessionBuilder *session, Helper *helper, std::string dbName);
   void execute() override;
 
  private:
+  SessionBuilder *_session;
   Helper *_helper;
   std::string _dbName;
 

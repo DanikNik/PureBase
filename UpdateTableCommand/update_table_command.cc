@@ -4,14 +4,16 @@
 
 #include "update_table_command.h"
 
-UpdateTableCommand::UpdateTableCommand(Helper *helper,
+UpdateTableCommand::UpdateTableCommand(SessionBuilder *session, Helper *helper,
                                        std::string tableName,
                                        std::string dbName,
-                                       std::vector<std::string> attributes) :
+                                       std::vector<std::pair<std::string, std::string>> attributes) :
     _helper(helper),
     _tableName(tableName),
     _dbName(dbName),
-    _attributes(attributes) {}
+    _attributes(attributes),
+    _session(session)
+    {}
 
 void UpdateTableCommand::execute() {
   if (!_dbName.empty() && !_tableName.empty() && _helper && !_attributes.empty()) {

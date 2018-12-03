@@ -5,9 +5,10 @@
 #include <cassert>
 #include "create_db_command.h"
 
-CreateDBCommand::CreateDBCommand(Helper *helper, std::string dbName) :
+CreateDBCommand::CreateDBCommand(SessionBuilder *session, Helper *helper, std::string dbName) :
   _helper(helper),
-  _dbName(dbName)
+  _dbName(dbName),
+  _session(session)
   {}
 
 void CreateDBCommand::execute() {

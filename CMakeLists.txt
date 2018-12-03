@@ -189,32 +189,32 @@ target_link_libraries(PureBase
 #add_executable(test_sys sys/test/test_sys.cc)
 #target_link_libraries(test_sys ${GTEST_LIBRARIES} pthread)
 #target_link_libraries(test_sys session_libs)
-
-add_executable(test_application application/Tests/test_application.cc)
-target_link_libraries(test_application ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_application application_lib)
-
-add_executable(test_create_table_command CreateTableCommand/Test/test_create_table_command.cc)
-target_link_libraries(test_create_table_command ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_create_table_command create_table_command_lib)
-
-add_executable(test_create_db_command CreateDBCommand/Tests/create_db_command_test.cc)
-target_link_libraries(test_create_db_command ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_create_db_command create_db_command_lib)
-
-add_executable(test_delete_db_command DeleteDBCommand/Tests/test_delete_db_command.cc)
-target_link_libraries(test_delete_db_command ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_delete_db_command delete_db_command_lib)
-
-add_executable(test_drop_table_command DropTableCommand/Tests/test_drop_table_command.cc)
-target_link_libraries(test_drop_table_command ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_drop_table_command drop_table_command_lib)
-
-add_executable(test_select_table_command SelectTableCommand/Tests/test_select_table_command.cc)
-target_link_libraries(test_select_table_command ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_select_table_command select_table_command_lib)
-
-add_executable(test_update_table_command UpdateTableCommand/Tests/test_update_table_command.cc)
-target_link_libraries(test_update_table_command ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_update_table_command update_table_command_lib)
+#
+#add_executable(test_application application/Tests/test_application.cc)
+#target_link_libraries(test_application ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_application application_lib)
+#
+#add_executable(test_create_table_command CreateTableCommand/Test/test_create_table_command.cc)
+#target_link_libraries(test_create_table_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_create_table_command create_table_command_lib)
+#
+#add_executable(test_create_db_command CreateDBCommand/Tests/create_db_command_test.cc)
+#target_link_libraries(test_create_db_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_create_db_command create_db_command_lib)
+#
+#add_executable(test_delete_db_command DeleteDBCommand/Tests/test_delete_db_command.cc)
+#target_link_libraries(test_delete_db_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_delete_db_command delete_db_command_lib)
+#
+#add_executable(test_drop_table_command DropTableCommand/Tests/test_drop_table_command.cc)
+#target_link_libraries(test_drop_table_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_drop_table_command drop_table_command_lib)
+#
+#add_executable(test_select_table_command SelectTableCommand/Tests/test_select_table_command.cc)
+#target_link_libraries(test_select_table_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_select_table_command select_table_command_lib)
+#
+#add_executable(test_update_table_command UpdateTableCommand/Tests/test_update_table_command.cc)
+#target_link_libraries(test_update_table_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_update_table_command update_table_command_lib)
 ########################################################################################################################

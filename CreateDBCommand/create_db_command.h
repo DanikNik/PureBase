@@ -7,17 +7,19 @@
 
 #include "../Command/command.h"
 #include "../Helper/helper.h"
+#include "../session_by_name/session_by_name.h"
 #include <vector>
 #include <string>
 #include <iostream>
 
 class CreateDBCommand : public Command {
  public:
-  CreateDBCommand(Helper *helper, std::string dbName);
+  CreateDBCommand(SessionBuilder *session, Helper *helper, std::string dbName);
   void execute() override;
  private:
   Helper *_helper;
   std::string _dbName;
+  SessionBuilder *_session;
 
 };
 

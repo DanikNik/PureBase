@@ -4,9 +4,10 @@
 
 #include "delete_db_command.h"
 
-DeleteDBCommand::DeleteDBCommand(Helper *helper, std::string dbName) :
+DeleteDBCommand::DeleteDBCommand(SessionBuilder *session, Helper *helper, std::string dbName) :
   _helper(helper),
-  _dbName(dbName)
+  _dbName(dbName),
+  _session(session)
   {}
 
 void DeleteDBCommand::execute() {

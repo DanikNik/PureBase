@@ -4,12 +4,13 @@
 
 #include "select_table_command.h"
 
-SelectTableCommand::SelectTableCommand(Helper *helper,
+SelectTableCommand::SelectTableCommand(SessionBuilder *session, Helper *helper,
                                        std::string tableName,
                                        std::string dbName,
-                                       std::vector<std::string> attributes)
+                                       std::vector<std::pair<std::string, std::string>> attributes)
     : _helper(helper), _tableName(tableName), _dbName(dbName),
-      _attributes(attributes) {}
+      _attributes(attributes),
+      _session(session) {}
 
 void SelectTableCommand::execute() {
   if (!_dbName.empty() && !_tableName.empty() && _helper && !_attributes.empty()) {
