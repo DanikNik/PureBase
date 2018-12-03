@@ -4,6 +4,7 @@
 
 #include "query_processor.h"
 
+//TODO заменить все типы на boost optional
 
 Command* QueryProcessor::ProcessJSONToCommand(std::string query) {
   try {
