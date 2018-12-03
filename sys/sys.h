@@ -12,11 +12,11 @@
 
 class Sys : public SysBase {
  public:
-  bool add_user(std::string token, std::string user_name, int permissions);
+  bool add_user(std::string token, std::string user_name, Permissions permissions);
   bool delete_user(std::string token);
   bool has_user(std::string token);
   std::string get_user_name(std::string token);
-  int get_user_permissions(std::string token);
+  Permissions get_user_permissions(std::string token);
   static Sys *get_instance() {
     if(!p_instance) p_instance = new Sys();
 
