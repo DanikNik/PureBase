@@ -18,7 +18,13 @@ public:
     void changeTeacher(std::string);
     void changeSubject(std::string);
     void changeTheme(std::string);
-    void showTables(std::string);
+    void showTables(std::string) override;
+
+ private:
+  std::string _table_name;
+  std::string _db_name;
+  std::string _db_type;
+  std::string _user_name;
 };
 
 

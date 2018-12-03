@@ -127,7 +127,14 @@ set(SYS_LIB_SOURCE
         sys/sys.h
         sys/sys.cc
         sys_base/sys_base.h)
+
+set(PERM_LIB_SOURCE
+        Permissions/permissions.cc
+        Permissions/permissions.h
+        PermissionsBase/permissions_base.h)
+
 add_library(sys_lib ${SYS_LIB_SOURCE})
+add_library(perm_lib ${PERM_LIB_SOURCE})
 
 set(PARSER_LIB_SOURCE
         QueryProcessor/query_processor.h
@@ -160,6 +167,7 @@ target_link_libraries(PureBase
         server_lib
         application_lib
         sys_lib
+        perm_lib
 
         command_lib
         create_table_command_lib
@@ -171,22 +179,54 @@ target_link_libraries(PureBase
         )
 
 
-add_executable(test_session session/test/test_session.cc)
-target_link_libraries(test_session ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_session session_libs)
-
-add_executable(test_session_director session_director/test/test_session_director.cc)
-target_link_libraries(test_session_director ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_session_director session_libs)
-
-add_executable(test_session_by_name session_by_name/test/test_session_by_name.cc)
-target_link_libraries(test_session_by_name ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_session_by_name session_libs)
-
-add_executable(test_sys sys/test/test_sys.cc)
-target_link_libraries(test_sys ${GTEST_LIBRARIES} pthread)
-target_link_libraries(test_sys session_libs)
 ########################################################################################################################
 
+#add_executable(test_endpoint Server/Tests/test_endpoint.cpp)
 
-#add_subdirectory(Client)
+#target_link_libraries(test_endpoint ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_endpoint api_server_lib ${PISTACHE_LIBRARIES})
+
+#add_executable(test_session session/test/test_session.cc)
+#target_link_libraries(test_session ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_session session_libs)
+#
+#add_executable(test_session_director session_director/test/test_session_director.cc)
+#target_link_libraries(test_session_director ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_session_director session_libs)
+#
+#add_executable(test_session_by_name session_by_name/test/test_session_by_name.cc)
+#target_link_libraries(test_session_by_name ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_session_by_name session_libs)
+
+#add_executable(test_sys sys/test/test_sys.cc)
+#target_link_libraries(test_sys ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_sys session_libs)
+#
+#add_executable(test_application application/Tests/test_application.cc)
+#target_link_libraries(test_application ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_application application_lib)
+#
+#add_executable(test_create_table_command CreateTableCommand/Test/test_create_table_command.cc)
+#target_link_libraries(test_create_table_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_create_table_command create_table_command_lib)
+#
+#add_executable(test_create_db_command CreateDBCommand/Tests/create_db_command_test.cc)
+#target_link_libraries(test_create_db_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_create_db_command create_db_command_lib)
+#
+#add_executable(test_delete_db_command DeleteDBCommand/Tests/test_delete_db_command.cc)
+#target_link_libraries(test_delete_db_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_delete_db_command delete_db_command_lib)
+#
+#add_executable(test_drop_table_command DropTableCommand/Tests/test_drop_table_command.cc)
+#target_link_libraries(test_drop_table_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_drop_table_command drop_table_command_lib)
+#
+#add_executable(test_select_table_command SelectTableCommand/Tests/test_select_table_command.cc)
+#target_link_libraries(test_select_table_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_select_table_command select_table_command_lib)
+#
+#add_executable(test_update_table_command UpdateTableCommand/Tests/test_update_table_command.cc)
+#target_link_libraries(test_update_table_command ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_update_table_command update_table_command_lib)
+########################################################################################################################

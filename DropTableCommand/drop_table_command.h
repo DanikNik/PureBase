@@ -7,13 +7,15 @@
 
 #include "../Command/command.h"
 #include "../Helper/helper.h"
+#include "../session_builder/session_builder.h"
 #include <iostream>
 
 class DropTableCommand : public Command{
  public:
-  DropTableCommand(Helper *helper, std::string tableName, std::string dbName);
+  DropTableCommand(SessionBuilder *session, Helper *helper, std::string tableName, std::string dbName);
   void execute() override;
  private:
+  SessionBuilder *_session;
   Helper *_helper;
   std::string _tableName;
   std::string _dbName;

@@ -7,20 +7,25 @@
 
 #include "../Command/command.h"
 #include "../Helper/helper.h"
+#include "../session_builder/session_builder.h"
 #include <vector>
 #include <string>
 #include <iostream>
 
 class SelectTableCommand : public Command {
  public:
-  SelectTableCommand(Helper *helper, std::string tableName, std::string dbName, std::vector<std::string> attributes);
+  SelectTableCommand(SessionBuilder *session, Helper *helper,
+                     std::string tableName,
+                     std::string dbName,
+                     std::vector<std::pair<std::string, std::string>> attributes);
   void execute() override;
 
  private:
+  SessionBuilder *_session;
   Helper *_helper;
   std::string _tableName;
   std::string _dbName;
-  std::vector<std::string> _attributes;
+  std::vector<std::pair<std::string, std::string>> _attributes;
 
 };
 

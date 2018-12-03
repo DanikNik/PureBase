@@ -4,15 +4,21 @@
 
 #include "update_table_command.h"
 
-UpdateTableCommand::UpdateTableCommand(Helper *helper,
+UpdateTableCommand::UpdateTableCommand(SessionBuilder *session, Helper *helper,
                                        std::string tableName,
                                        std::string dbName,
-                                       std::vector<std::string> attributes) :
+                                       std::vector<std::pair<std::string, std::string>> attributes) :
     _helper(helper),
     _tableName(tableName),
     _dbName(dbName),
-    _attributes(attributes) {}
+    _attributes(attributes),
+    _session(session)
+    {}
 
 void UpdateTableCommand::execute() {
-  std::cout << "Update table" << _tableName << " in Database" << _dbName;
+  if (!_dbName.empty() && !_tableName.empty() && _helper && !_attributes.empty()) {
+    std::cout << "Update table" << _tableName << " in Database" << _dbName;
+  } else {
+    throw std::invalid_argument("Empty names or helper nullptr");
+  }
 }

@@ -4,13 +4,18 @@
 
 #include "select_table_command.h"
 
-SelectTableCommand::SelectTableCommand(Helper *helper,
+SelectTableCommand::SelectTableCommand(SessionBuilder *session, Helper *helper,
                                        std::string tableName,
                                        std::string dbName,
-                                       std::vector<std::string> attributes)
+                                       std::vector<std::pair<std::string, std::string>> attributes)
     : _helper(helper), _tableName(tableName), _dbName(dbName),
-      _attributes(attributes) {}
+      _attributes(attributes),
+      _session(session) {}
 
 void SelectTableCommand::execute() {
-  std::cout << "Make select from table" << _tableName << "from database" << _dbName;
+  if (!_dbName.empty() && !_tableName.empty() && _helper && !_attributes.empty()) {
+    std::cout << "Make select from table" << _tableName << "from database" << _dbName;
+  } else {
+    throw std::invalid_argument("Empty names or helper nullptr");
+  }
 }
