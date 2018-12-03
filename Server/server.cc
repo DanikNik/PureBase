@@ -6,14 +6,18 @@ void Server::client_work(std::shared_ptr<Socket> client) {
     try {
 
       std::string line = client->recv();
-
+//      std::promise
       std::thread producer([&]() {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         std::unique_lock<std::mutex> lock(m);
         Command *command = parser->ProcessJSONToCommand(line);
-        app->setCommand(command);
-        notified = true;
-        cond_var.notify_all();
+        if(command) {
+          app->setCommand(command);
+          notified = true;
+          cond_var.notify_all();
+        }
+//        std:cout << "BAD INPUT" << std::endl;
+        line = "BAD INPUT";
       });
 
       std::thread consumer([&]() {

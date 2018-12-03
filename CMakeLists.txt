@@ -179,6 +179,8 @@ target_link_libraries(PureBase
         )
 
 
+add_subdirectory(Client)
+
 ########################################################################################################################
 
 #add_executable(test_endpoint Server/Tests/test_endpoint.cpp)
