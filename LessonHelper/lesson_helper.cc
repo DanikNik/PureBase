@@ -5,7 +5,7 @@
 #include "lesson_helper.h"
 #include <iostream>
 
-void LessonHelper::create(std::string LessonName) {
+void LessonHelper::createTable(std::string LessonName) {
     std::cout<<"Document Helper worked..."<<std::endl;
 }
 

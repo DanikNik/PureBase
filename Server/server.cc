@@ -1,6 +1,6 @@
 #include "server.h"
 
-void Server::client_work(std::shared_ptr <Socket> client) {
+void Server::client_work(std::shared_ptr<Socket> client) {
   client->setRcvTimeout(/*sec*/30, /*microsec*/0);
   while (true)
     try {
@@ -10,7 +10,7 @@ void Server::client_work(std::shared_ptr <Socket> client) {
       std::thread producer([&]() {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         std::unique_lock<std::mutex> lock(m);
-        CreateDBCommand *command = new CreateDBCommand(helper, line);
+        Command *command = parser->ProcessJSONToCommand(line);
         app->setCommand(command);
         notified = true;
         cond_var.notify_all();
@@ -28,9 +28,7 @@ void Server::client_work(std::shared_ptr <Socket> client) {
       producer.join();
       consumer.join();
 
-      Sys *system_table = Sys::get_instance();
-
-      client->send("response:  " + system_table->get_user_name(line) + '\n');
+      client->send("response: " + std::string("JUST A DUMPTY RESPONSE") + '\n');
 
     }
     catch (const std::exception &e) {
@@ -49,14 +47,12 @@ void Server::start() {
     } else {
       std::cerr << "child: " << getpid() << std::endl;
     }
-    while(true)
-    {
+    while (true) {
       std::shared_ptr<Socket> client = s.accept();
       client_work(client);
     }
   }
-  catch(const std::exception &e)
-  {
+  catch (const std::exception &e) {
     std::cerr << e.what() << std::endl;
   }
 };

@@ -10,7 +10,7 @@
 
 class LessonHelper : public Helper {
 public:
-    void create(std::string);
+    void createTable(std::string);
     void changeName(std::string);
     std::vector<std::string> select(std::vector<std::string>);
     std::vector<std::string> selectByTag(std::vector<std::string>, std::string);
