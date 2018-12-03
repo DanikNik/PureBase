@@ -10,17 +10,11 @@
 
 class LessonHelper : public Helper {
 public:
-    LessonHelper(std::string t_name) {
-      _table_name = t_name;
-      _db_name = "purebase";
-      _db_type = "postgresql";
-      _user_name = "semyon";
-    }
-    void create(std::string);
-    void changeName(std::string) override;
-    std::vector<std::string> select(std::vector<std::string>) override;
-    std::vector<std::string> selectByTag(std::vector<std::string>, std::string) override;
-    void deleteRow(std::string) override;
+    void createTable(std::string);
+    void changeName(std::string);
+    std::vector<std::string> select(std::vector<std::string>);
+    std::vector<std::string> selectByTag(std::vector<std::string>, std::string);
+    void deleteRow(std::string);
     void changeTeacher(std::string);
     void changeSubject(std::string);
     void changeTheme(std::string);

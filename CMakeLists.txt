@@ -13,7 +13,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 #include_directories(${RAPIDJSON_INCLUDE_DIRS})
 #include_directories(${PISTACHE_INCLUDE_DIRS})
 
-find_package(Boost 1.67 REQUIRED COMPONENTS system)
+find_package(Boost 1.67 REQUIRED COMPONENTS system filesystem)
 include_directories(${Boost_INCLUDE_DIRS})
 
 
@@ -25,12 +25,6 @@ set(SERVER_LIB_SOURCE
         )
 add_library(server_lib STATIC ${SERVER_LIB_SOURCE})
 target_link_libraries(server_lib pthread)
-
-set(PARSER_LIB_SOURCE
-        Parser/parser.h
-        Parser/parser.cc
-        )
-add_library(parser_lib STATIC ${PARSER_LIB_SOURCE})
 
 set(HELPER_LIB_SOURCE
         Helper/helper.h
@@ -108,6 +102,15 @@ add_library(select_table_command_lib STATIC ${SELECT_TABLE_COMMAND_LIB_SOURCE})
 add_library(create_db_command_lib STATIC ${CREATE_DATABASE_COMMAND_LIB_SOURCE})
 add_library(delete_db_command_lib STATIC ${DELETE_DATABASE_COMMAND_LIB_SOURCE})
 
+link_libraries(command_lib
+        application_lib
+        create_table_command_lib
+        drop_table_command_lib
+        update_table_command_lib
+        select_table_command_lib
+        create_db_command_lib
+        delete_db_command_lib)
+
 set(SESSION_LIB_SOURCE
         session/session.h
         session/session.cc
@@ -132,6 +135,14 @@ set(PERM_LIB_SOURCE
 
 add_library(sys_lib ${SYS_LIB_SOURCE})
 add_library(perm_lib ${PERM_LIB_SOURCE})
+
+set(PARSER_LIB_SOURCE
+        QueryProcessor/query_processor.h
+        QueryProcessor/query_processor.cc
+        )
+add_library(parser_lib STATIC ${PARSER_LIB_SOURCE})
+link_libraries(parser_lib ${Boost_LIBRARIES} command_lib)
+link_libraries(server_lib parser_lib)
 
 #add_subdirectory(session/)
 #add_subdirectory(session_by_name/)
@@ -168,6 +179,7 @@ target_link_libraries(PureBase
         )
 
 
+########################################################################################################################
 
 #add_executable(test_endpoint Server/Tests/test_endpoint.cpp)
 

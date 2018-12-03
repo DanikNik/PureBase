@@ -19,14 +19,12 @@ class UpdateTableCommand : public Command {
                      std::string dbName,
                      std::vector<std::pair<std::string, std::string>> attributes);
   void execute() override;
-
  private:
   SessionBuilder *_session;
   Helper *_helper;
   std::string _tableName;
   std::string _dbName;
   std::vector<std::pair<std::string, std::string>> _attributes;
-
 };
 
 #endif //PUREBASE_UPDATE_TABLE_COMMAND_H
