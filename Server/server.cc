@@ -28,11 +28,16 @@ void Server::client_work(std::shared_ptr<Socket> client) {
       producer.join();
       consumer.join();
 
-      client->send("response: " + std::string("JUST A DUMPTY RESPONSE") + '\n');
+      std::stringstream ss;
+      ss << "response ";
+      ss << client->sd();
+      ss << " JUST A DUMPTY RESPONSE\n";
+      client->send(ss.str());
 
     }
     catch (const std::exception &e) {
       std::cerr << "exception: " << e.what() << std::endl;
+      client->close();
       return;
     }
 }
@@ -41,15 +46,11 @@ void Server::start() {
     Socket s;
     s.createServerSocket(port, 25);
 
-    pid_t pid = fork();
-    if (pid > 0) {
-      std::cerr << "parent: " << getpid() << std::endl;
-    } else {
-      std::cerr << "child: " << getpid() << std::endl;
-    }
     while (true) {
       std::shared_ptr<Socket> client = s.accept();
-      client_work(client);
+      std::thread thr(&Server::client_work, this, client);
+      thr.detach();
+
     }
   }
   catch (const std::exception &e) {

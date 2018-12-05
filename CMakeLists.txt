@@ -144,7 +144,7 @@ add_library(parser_lib STATIC ${PARSER_LIB_SOURCE})
 link_libraries(parser_lib ${Boost_LIBRARIES} command_lib)
 link_libraries(server_lib parser_lib)
 
-#add_subdirectory(session/)
+#add_subdirectory(Session/)
 #add_subdirectory(session_by_name/)
 #add_subdirectory(session_director/)
 #add_subdirectory(sys/)
@@ -178,7 +178,6 @@ target_link_libraries(PureBase
         delete_db_command_lib
         )
 
-
 ########################################################################################################################
 
 #add_executable(test_endpoint Server/Tests/test_endpoint.cpp)
@@ -186,7 +185,7 @@ target_link_libraries(PureBase
 #target_link_libraries(test_endpoint ${GTEST_LIBRARIES} pthread)
 #target_link_libraries(test_endpoint api_server_lib ${PISTACHE_LIBRARIES})
 
-#add_executable(test_session session/test/test_session.cc)
+#add_executable(test_session Session/test/test_session.cc)
 #target_link_libraries(test_session ${GTEST_LIBRARIES} pthread)
 #target_link_libraries(test_session session_libs)
 #

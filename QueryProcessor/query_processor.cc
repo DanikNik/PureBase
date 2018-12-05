@@ -14,7 +14,7 @@ Command* QueryProcessor::ProcessJSONToCommand(std::string query) {
     auto user_token = tree.get<std::string>("user");
     auto actions_method = tree.get<std::string>("action.method");
     std::vector<std::pair<std::string, std::string>> attributes;
-    std::cout << system_table->get_user_name(user_token) << std::endl;
+//    std::cout << system_table->get_user_name(user_token) << std::endl;
 
     BOOST_FOREACH(pt::ptree::value_type &attrib, tree.get_child("action.attribs")) {
             std::cout << attrib.second.data() << std::endl;
