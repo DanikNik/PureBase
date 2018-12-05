@@ -1,6 +1,10 @@
 #include <iostream>
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+#include "Server/server.h"
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+  Server().start();
+  return 0;
 }
