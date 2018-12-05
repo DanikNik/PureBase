@@ -13,7 +13,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 #include_directories(${RAPIDJSON_INCLUDE_DIRS})
 #include_directories(${PISTACHE_INCLUDE_DIRS})
 
-find_package(Boost REQUIRED COMPONENTS system filesystem)
+find_package(Boost REQUIRED COMPONENTS system filesystem thread)
 include_directories(${Boost_INCLUDE_DIRS})
 
 

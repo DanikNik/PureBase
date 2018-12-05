@@ -1,7 +1,7 @@
 #include "server.h"
 
 void Server::client_work(std::shared_ptr<Socket> client) {
-  client->setRcvTimeout(/*sec*/30, /*microsec*/0);
+  client->setRcvTimeout(/*sec*/15, /*microsec*/0);
   while (true)
     try {
 
@@ -44,16 +44,24 @@ void Server::client_work(std::shared_ptr<Socket> client) {
 void Server::start() {
   try {
     Socket s;
-    s.createServerSocket(port, 25);
+    s.createServerSocket(port, 64);
+
+    boost::asio::io_service::work work(io);
+    for (int j = 0; j < pool_size; ++j) {
+      thr_pool.create_thread(boost::bind(&boost::asio::io_service::run, &io));
+    }
 
     while (true) {
       std::shared_ptr<Socket> client = s.accept();
-      std::thread thr(&Server::client_work, this, client);
-      thr.detach();
-
+//      std::thread thr(&Server::client_work, this, client);
+//      thr.detach();
+      io.post(boost::bind(&Server::client_work, this, client));
+      cout << "iiiii" << endl;
     }
-  }
-  catch (const std::exception &e) {
+  } catch (const std::exception &e) {
+    io.stop();
+    thr_pool.join_all();
     std::cerr << e.what() << std::endl;
+    return;
   }
 };
