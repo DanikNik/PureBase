@@ -2,7 +2,7 @@
 
 sudo apt update
 sudo apt install make
-sudo apt install
+#sudo apt install libpqxx-4.0v5 libpq-dev
 sudo apt install libboost-all-dev
 
 git clone https://github.com/abseil/googletest.git

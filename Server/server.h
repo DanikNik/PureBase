@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <thread>
+#include <boost/asio.hpp>
+#include <boost/thread.hpp>
+#include <boost/bind.hpp>
+
 #include <condition_variable>
 #include <mutex>
 #include <queue>
@@ -20,8 +23,9 @@
 
 using namespace std;
 
-
-//TODO: Разобраться с завершением дочерних процессов при остановке сервера
+// TODO: add daemonization
+// TODO: add SIGNAL support
+// TODO: *refers to upper* add shutdown function
 
 class Server {
  private:
@@ -33,11 +37,28 @@ class Server {
   std::mutex m;
   std::condition_variable cond_var;
   bool notified = false;
+  int pool_size;
+
+  boost::asio::io_service io;
+  boost::thread_group thr_pool;
 
  public:
-  Server() : port(8090), app(new Application()), parser(new QueryProcessor()), helper(new DocumentHelper()) {}
-  Server(int _port) : port(_port), app(new Application()), parser(new QueryProcessor()), helper(new DocumentHelper()) {}
-  virtual ~Server() = default;
+  Server() : port(8090),
+             app(new Application()),
+             parser(new QueryProcessor()),
+             helper(new DocumentHelper()),
+             pool_size(10) {}
+
+  explicit Server(int _port) : port(_port),
+                      app(new Application()),
+                      parser(new QueryProcessor()),
+                      helper(new DocumentHelper()),
+                      pool_size(10) {}
+
+  virtual ~Server(){
+    io.stop();
+    thr_pool.join_all();
+  };
 
   void client_work(std::shared_ptr<Socket> client);
 
