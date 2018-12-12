@@ -1,3 +1,5 @@
+#include <utility>
+
 //
 // Created by semyon on 16.11.18.
 //
@@ -5,30 +7,44 @@
 #include "document_helper.h"
 #include <iostream>
 
-void DocumentHelper::create(std::string documentName) {
-    std::cout<<"Document Helper worked..."<<std::endl;
+DocumentHelper::DocumentHelper(std::string documentName) {
+    document_name = std::move(documentName);
+    db_name = "purebase";
+    db_type = "postgresql";
+    user_name = "semyon";
+    table_name = "document";
 }
 
-void DocumentHelper::changeName(std::string documentName) {
-    std::cout<<"Changed name..."<<std::endl;
+void DocumentHelper::Create(std::string documentName) {
+    std::cout<<"Document Helper creating..."<<std::endl;
 }
 
-void DocumentHelper::deleteRow(std::string documentName) {
-    std::cout<<"Row deleter..."<<std::endl;
+void DocumentHelper::ChangeName(std::string documentName) {
+    std::cout<<"Changed document name..."<<std::endl;
 }
 
-void DocumentHelper::showTables(std::string documentName) {
-    std::cout<<"Showing tables..."<<std::endl;
+void DocumentHelper::DeleteRow(std::string documentName) {
+    std::cout<<"Deleting document..."<<std::endl;
 }
 
-void DocumentHelper::putFiles(std::string filepath) {
-    std::cout<<"Put file..."<<std::endl;
+void DocumentHelper::ShowTables() {
+    std::cout<<"Showing document table..."<<std::endl;
 }
 
-std::vector<std::string> DocumentHelper::select(std::vector<std::string> parametrs) {
-    std::cout<<"selecting..."<<std::endl;
+bool DocumentHelper::PutFile(std::string filepath) {
+    std::cout<<"Put document file..."<<std::endl;
 }
 
-std::vector<std::string> DocumentHelper::selectByTag(std::vector<std::string> parametrs, std::string tag) {
-    std::cout<<"selecting by tag...";
+std::vector<std::string> DocumentHelper::Select(std::vector<std::string> parametrs) {
+    std::cout<<"selecting document..."<<std::endl;
+    return {"null"};
+}
+
+std::vector<std::string> DocumentHelper::SelectByTag(std::vector<std::string> parametrs, std::string tag) {
+    std::cout<<"selecting document by tag...";
+    return {"null"};
+}
+
+FILE DocumentHelper::GetFile(std::string){
+    std::cout<<"get document file\n";
 }

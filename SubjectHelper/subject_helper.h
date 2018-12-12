@@ -8,14 +8,21 @@
 #include "../Helper/helper.h"
 
 class SubjectHelper : public Helper {
+private:
+    std::string subject_name;
+    std::string db_name;
+    std::string table_name;
+    std::string db_type;
+    std::string user_name;
 public:
-    void createTable(std::string);
-    void changeName(std::string);
-    std::vector<std::string> select(std::vector<std::string> param);
-    std::vector<std::string> selectByTag(std::vector<std::string> param, std::string tag);
-    void deleteRow(std::string name);
-    void changeDescription(std::string);
-    void showTables(std::string);
+    explicit SubjectHelper(std::string);
+    void Create(std::string) override;
+    void ChangeName(std::string) override;
+    std::vector<std::string> Select(std::vector<std::string> param) override;
+    std::vector<std::string> SelectByTag(std::vector<std::string> param, std::string tag) override;
+    void DeleteRow(std::string name) override;
+    void ChangeDescription(std::string);
+    void ShowTables() override;
 };
 
 

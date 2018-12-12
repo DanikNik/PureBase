@@ -9,13 +9,19 @@
 
 class Data : public Helper {
 public:
-    virtual void createTable(std::string) = 0;
-    virtual void changeName(std::string) = 0;
-    virtual std::vector<std::string> select(std::vector<std::string> param) = 0;
-    virtual std::vector<std::string> selectByTag(std::vector<std::string> param, std::string tag) = 0;
-    virtual void deleteRow(std::string name) = 0;
-    virtual void showTables(std::string) = 0;
-    virtual void putFile(std::string) = 0;
+    void Create(std::string) override = 0;
+
+    void ChangeName(std::string) override = 0;
+
+    std::vector<std::string> Select(std::vector<std::string>) override = 0;
+
+    std::vector<std::string> SelectByTag(std::vector<std::string>, std::string) override = 0;
+
+    void DeleteRow(std::string) override = 0;
+
+    void ShowTables() override = 0;
+    virtual bool PutFile(std::string) = 0;
+    virtual FILE GetFile(std::string) = 0;
 };
 
 

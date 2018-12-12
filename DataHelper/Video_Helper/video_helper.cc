@@ -5,30 +5,39 @@
 #include "video_helper.h"
 #include <iostream>
 
-void VideoHelper::create(std::string videoName) {
-    std::cout<<"Document Helper worked..."<<std::endl;
+VideoHelper::VideoHelper(std::string) {
+    std::cout<<"Video Helper constructor worked..\n";
 }
 
-void VideoHelper::changeName(std::string videoName) {
-    std::cout<<"Changed name..."<<std::endl;
+void VideoHelper::Create(std::string videoName) {
+    std::cout<<"Video Helper created..."<<std::endl;
 }
 
-void VideoHelper::deleteRow(std::string videoName) {
-    std::cout<<"Row deleter..."<<std::endl;
+void VideoHelper::ChangeName(std::string videoName) {
+    std::cout<<"Changed name of Video..."<<std::endl;
 }
 
-void VideoHelper::showTables(std::string TableName) {
-    std::cout<<"Showing tables..."<<std::endl;
+void VideoHelper::DeleteRow(std::string videoName) {
+    std::cout<<"Deleting video..."<<std::endl;
 }
 
-void VideoHelper::putFiles(std::string filepath) {
-    std::cout<<"Put file..."<<std::endl;
+void VideoHelper::ShowTables() {
+    std::cout<<"Showing tables VIDEO..."<<std::endl;
 }
 
-std::vector<std::string> VideoHelper::select(std::vector<std::string> parametrs) {
-    std::cout<<"selecting..."<<std::endl;
+bool VideoHelper::PutFile(std::string filepath) {
+    std::cout<<"Put videofile..."<<std::endl;
 }
 
-std::vector<std::string> VideoHelper::selectByTag(std::vector<std::string> parametrs, std::string tag) {
-    std::cout<<"selecting by tag...";
+std::vector<std::string> VideoHelper::Select(std::vector<std::string> parametrs) {
+    std::cout<<"selecting video..."<<std::endl;
+    return {"null"};
+}
+
+std::vector<std::string> VideoHelper::SelectByTag(std::vector<std::string> parametrs, std::string tag) {
+    std::cout<<"selecting video by tag...";
+    return {"null"};
+}
+FILE VideoHelper::GetFile(std::string){
+    std::cout<<"get video file\n";
 }
