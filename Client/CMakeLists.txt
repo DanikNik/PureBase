@@ -10,5 +10,5 @@ set(CLIENT_LIBRARY_SOURCE
 
 add_library(client_lib STATIC ${CLIENT_LIBRARY_SOURCE})
 
-add_executable(purebase_client client.cpp)
-target_link_libraries(client_lib)
+add_executable(purebase_client main.cpp)
+target_link_libraries(purebase_client client_lib)
