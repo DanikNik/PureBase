@@ -3,7 +3,7 @@
 sudo apt update
 sudo apt install make
 sudo apt install libboost-all-dev
-sudo apt install libqt-dev
+sudo apt install libpq-dev
 
 
 git clone https://github.com/jtv/libpqxx

@@ -9,8 +9,8 @@ before_cache:
 cache:
   timeout: 10000
   directories:
-    - libpqxx/
-    - googletest/
+    - $HOME/libpqxx/
+    - $HOME/googletest/
     - $HOME/Library/Caches/Homebrew
 os:
   - linux
