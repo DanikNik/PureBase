@@ -2,16 +2,16 @@ dist: xenial
 
 language: cpp
 sudo: enabled
-
-before_cache:
-  - brew cleanup
-
-cache:
-  timeout: 10000
-  directories:
-    - $HOME/libpqxx/
-    - $HOME/googletest/
-    - $HOME/Library/Caches/Homebrew
+#
+#before_cache:
+#  - brew cleanup
+#
+#cache:
+#  timeout: 10000
+#  directories:
+#    - $HOME/libpqxx/
+#    - $HOME/googletest/
+#    - $HOME/Library/Caches/Homebrew
 os:
   - linux
   - osx
