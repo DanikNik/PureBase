@@ -14,8 +14,21 @@ TeacherHelper::TeacherHelper(std::string teacherName) {
     user_name = "semyon";
 }
 
-void TeacherHelper::Create(std::string TeacherName) {
+TeacherHelper::TeacherHelper() {
+    db_name = "purebase";
+    db_type = "postgresql";
+    user_name = "semyon";
+}
+
+TeacherHelper::TeacherHelper(int teacher_id) {
+    db_name = "purebase";
+    db_type = "postgresql";
+    user_name = "semyon";
+}
+
+int TeacherHelper::Create(std::string TeacherName) {
     std::cout<<"Document Helper worked..."<<std::endl;
+    return 0;
 }
 
 void TeacherHelper::ChangeName(std::string TeacherName) {
@@ -26,7 +39,7 @@ void TeacherHelper::ChangeSpecialization(std::string Description) {
     std::cout<<"Changed name..."<<std::endl;
 }
 
-void TeacherHelper::DeleteRow(std::string TeacherName) {
+void TeacherHelper::DeleteRow() {
     std::cout<<"Row deleter..."<<std::endl;
 }
 

@@ -5,41 +5,54 @@
 #include "lesson_helper.h"
 #include <utility>
 
-LessonHelper::LessonHelper(std::string l_name) {
-    lesson_name = std::move(l_name);
-    db_name = "purebase";
-    db_type = "postgresql";
-    user_name = "semyon";
+LessonHelper::LessonHelper() {
+    lesson = new Lesson;
 }
 
-void LessonHelper::Create(std::string LessonName) {
-    std::string init_string = "dbname = " + db_name + " user = " + user_name;
+LessonHelper::LessonHelper(std::string lessonName) {
+    lesson = new Lesson(std::move(lessonName));
+}
+
+LessonHelper::LessonHelper(int lessonID) {
+    lesson = new Lesson(lessonID);
+}
+
+LessonHelper::~LessonHelper() {
+    delete lesson;
+}
+
+int LessonHelper::Create(std::string LessonName) {
+    auto params = lesson->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
     AbstractAdapter* adapt;
     std::vector<std::string> columns = {"id", "name"};
     adapt = new PostgresAdapter();
     std::string id = adapt->GetMaximumID("lesson");
     std::vector<std::string> values  = {id, LessonName};
     adapt->Insert("lesson", columns, values);
+    return atoi(id.c_str());
 }
 
 void LessonHelper::ChangeName(std::string LessonName) {
-    std::string init_string = "dbname = " + db_name + " user = " + user_name;
+    auto params = lesson->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"]  + " user = " + params["USER"];
     AbstractAdapter* adapt;
     adapt = new PostgresAdapter();
     auto option  = std::make_pair("name", LessonName);
     std::vector<std::pair<std::string,std::string>> columns = { option };
-    auto value  = std::make_pair("name",lesson_name);
+    auto value  = std::make_pair("id",params["ID"]);
     std::vector<std::pair<std::string,std::string>> values = {value};
     adapt->Update("lesson", columns, values);
 }
 
-void LessonHelper::ChangeTeacher(std::string TeacherName) {
-    std::string init_string = "dbname = " + db_name + " user = " + user_name;
+void LessonHelper::ChangeTeacher(int TeacherID) {//Добавить проверку на существование препода
+    auto params = lesson->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"]  + " user = " + params["USER"];
     AbstractAdapter* adapt;
     adapt = new PostgresAdapter();
 
     std::vector<std::string> select_columns = {"id"};
-    auto select_option = std::make_pair("name",TeacherName);
+    auto select_option = std::make_pair("id",std::to_string(TeacherID));
     std::vector<std::pair<std::string,std::string>> select_options = {select_option};
     std::vector<std::vector<std::string>> tab = adapt->Select("teacher", select_columns, select_options);
     int teacher_id;
@@ -48,18 +61,19 @@ void LessonHelper::ChangeTeacher(std::string TeacherName) {
 
     auto option  = std::make_pair("teacher_id", tab[0][0]);
     std::vector<std::pair<std::string,std::string>> columns = { option };
-    auto value  = std::make_pair("name",lesson_name);
+    auto value  = std::make_pair("id",params["ID"]);
     std::vector<std::pair<std::string,std::string>> values = {value};
     adapt->Update("lesson", columns, values);
 }
 
-void LessonHelper::ChangeSubject(std::string ChangedSubject) {
-    std::string init_string = "dbname = " + db_name + " user = " + user_name;
+void LessonHelper::ChangeSubject(int subjectID) {
+    auto params = lesson->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"]  + " user = " + params["USER"];
     AbstractAdapter* adapt;
     adapt = new PostgresAdapter();
 
     std::vector<std::string> select_columns = {"id"};
-    auto select_option = std::make_pair("name",ChangedSubject);
+    auto select_option = std::make_pair("id",std::to_string(subjectID));
     std::vector<std::pair<std::string,std::string>> select_options = {select_option};
     std::vector<std::vector<std::string>> tab = adapt->Select("subject", select_columns, select_options);
     int teacher_id;
@@ -68,29 +82,31 @@ void LessonHelper::ChangeSubject(std::string ChangedSubject) {
 
     auto option  = std::make_pair("subject_id", tab[0][0]);
     std::vector<std::pair<std::string,std::string>> columns = { option };
-    auto value  = std::make_pair("name",lesson_name);
+    auto value  = std::make_pair("id",params["ID"]);
     std::vector<std::pair<std::string,std::string>> values = {value};
     adapt->Update("lesson", columns, values);
 }
 
 void LessonHelper::ChangeTheme(std::string Theme) {
-    std::string init_string = "dbname = " + db_name + " user = " + user_name;
+    auto params = lesson->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"]  + " user = " + params["USER"];
     AbstractAdapter* adapt;
     adapt = new PostgresAdapter();
 
     auto option  = std::make_pair("theme", Theme);
     std::vector<std::pair<std::string,std::string>> columns = { option };
-    auto value  = std::make_pair("name",lesson_name);
+    auto value  = std::make_pair("id",params["ID"]);
     std::vector<std::pair<std::string,std::string>> values = {value};
     adapt->Update("lesson", columns, values);
 }
 
-void LessonHelper::DeleteRow(std::string LessonID) {
-    std::string init_string = "dbname = " + db_name + " user = " + user_name;
+void LessonHelper::DeleteRow() {
+    auto params = lesson->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"]  + " user = " + params["USER"];
     AbstractAdapter* adapt;
     adapt = new PostgresAdapter();
 
-    auto option  = std::make_pair("id", LessonID);
+    auto option  = std::make_pair("id", params["ID"]);
     std::vector<std::pair<std::string,std::string>> options = {option};
 
     adapt->Delete("lesson", options);

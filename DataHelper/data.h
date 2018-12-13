@@ -9,7 +9,7 @@
 
 class Data : public Helper {
 public:
-    void Create(std::string) override = 0;
+    int Create(std::string) override = 0;
 
     void ChangeName(std::string) override = 0;
 
@@ -17,7 +17,7 @@ public:
 
     std::vector<std::string> SelectByTag(std::vector<std::string>, std::string) override = 0;
 
-    void DeleteRow(std::string) override = 0;
+    void DeleteRow() override = 0;
 
     void ShowTables() override = 0;
     virtual bool PutFile(std::string) = 0;

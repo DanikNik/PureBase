@@ -12,10 +12,25 @@ SubjectHelper::SubjectHelper(std::string subjectName) {
     db_name = "purebase";
     db_type = "postgresql";
     user_name = "semyon";
+    subject_id = 0;
 }
 
-void SubjectHelper::Create(std::string SubjectName) {
+SubjectHelper::SubjectHelper() {
+    db_name = "purebase";
+    db_type = "postgresql";
+    user_name = "semyon";
+    subject_id = 0;
+}
+SubjectHelper::SubjectHelper(int subjectID) {
+    db_name = "purebase";
+    db_type = "postgresql";
+    user_name = "semyon";
+    subject_id = subjectID;
+}
+
+int SubjectHelper::Create(std::string SubjectName) {
     std::cout<<"Subject Helper creating..."<<std::endl;
+    return 0;
 }
 
 void SubjectHelper::ChangeName(std::string SubjectName) {
@@ -26,7 +41,7 @@ void SubjectHelper::ChangeDescription(std::string Description) {
     std::cout<<"Changed subject description..."<<std::endl;
 }
 
-void SubjectHelper::DeleteRow(std::string SubjectName) {
+void SubjectHelper::DeleteRow() {
     std::cout<<"Deletint subject..."<<std::endl;
 }
 

@@ -15,15 +15,23 @@ DocumentHelper::DocumentHelper(std::string documentName) {
     table_name = "document";
 }
 
-void DocumentHelper::Create(std::string documentName) {
+DocumentHelper::DocumentHelper(int docID) {
+    std::cout<<"doc creating..";
+}
+DocumentHelper::DocumentHelper() {
+    std::cout<<"doc creating..";
+}
+
+int DocumentHelper::Create(std::string documentName) {
     std::cout<<"Document Helper creating..."<<std::endl;
+    return 0;
 }
 
 void DocumentHelper::ChangeName(std::string documentName) {
     std::cout<<"Changed document name..."<<std::endl;
 }
 
-void DocumentHelper::DeleteRow(std::string documentName) {
+void DocumentHelper::DeleteRow() {
     std::cout<<"Deleting document..."<<std::endl;
 }
 

@@ -34,6 +34,11 @@ find_library(PQ_LIB REQUIRED)
 #add_library(api_server_lib STATIC ${API_SERVER_LIB_SOURCE})
 #target_link_libraries(api_server_lib pistache pthread)
 
+set(LESSON_LIB_SOURCE
+        Lesson/lesson.h
+        Lesson/lesson.cc
+        )
+
 set(HELPER_LIB_SOURCE
         Helper/helper.h
         Helper/helper.cc
@@ -71,7 +76,7 @@ set(ADAPTER_LIB_SOURCE
         Adapter/PostgresAdapter/PGConnection/pg_connection.h
         )
 
-
+add_library(lesson_lib STATIC ${LESSON_LIB_SOURCE})
 add_library(datahelper_lib STATIC ${DATAHELPER_LIB_SOURCE})
 add_library(lessonhelper_lib STATIC ${LESSONHELPER_LIB_SOURCE})
 add_library(subjecthelper_lib STATIC ${SUBJECTHELPER_LIB_SOURCE})
@@ -108,6 +113,7 @@ target_link_libraries(PureBase
         subjecthelper_lib
         datahelper_lib
         teacherhelper_lib
+        lesson_lib
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}
@@ -134,6 +140,23 @@ target_link_libraries(test_lesson_helpers
 add_executable(test_postgres_connect Adapter/PostgresAdapter/PGConnection/Tests/test_connection.cc)
 target_link_libraries(test_postgres_connect ${GTEST_LIBRARIES} pthread)
 target_link_libraries(test_postgres_connect
+        adapter_lib
+        ${PQXX_LIB}
+        ${PQ_LIB}
+        )
+
+add_executable(lesson_lib_test Lesson/Tests/lesson_test.cc)
+target_link_libraries(lesson_lib_test ${GTEST_LIBRARIES} pthread)
+target_link_libraries(lesson_lib_test
+        lesson_lib
+        )
+
+add_executable(lessonhelper_lib_test LessonHelper/Tests/test_lesson_helper.cc)
+target_link_libraries(lessonhelper_lib_test ${GTEST_LIBRARIES} pthread)
+target_link_libraries(lessonhelper_lib_test
+        helper_lib
+        lesson_lib
+        lessonhelper_lib
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}

@@ -9,15 +9,24 @@ VideoHelper::VideoHelper(std::string) {
     std::cout<<"Video Helper constructor worked..\n";
 }
 
-void VideoHelper::Create(std::string videoName) {
+VideoHelper::VideoHelper() {
+    std::cout<<"Video Helper constructor worked..\n";
+}
+
+VideoHelper::VideoHelper(int videoID) {
+    std::cout<<"Video Helper constructor worked..\n";
+}
+
+int VideoHelper::Create(std::string videoName) {
     std::cout<<"Video Helper created..."<<std::endl;
+    return 0;
 }
 
 void VideoHelper::ChangeName(std::string videoName) {
     std::cout<<"Changed name of Video..."<<std::endl;
 }
 
-void VideoHelper::DeleteRow(std::string videoName) {
+void VideoHelper::DeleteRow() {
     std::cout<<"Deleting video..."<<std::endl;
 }
 
