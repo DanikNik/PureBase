@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
     LH.ChangeTheme("Theme");
     LH.ChangeTeacher(2);
     LH.ChangeSubject(1);
-    LH.DeleteRow();//Косячно реализован, пока не трогать
+//    LH.DeleteRow();//Косячно реализован, пока не трогать
 // Port port(9080);
 //  Address addr(Ipv4::any(), port);
 //  ApiEndpoint endpoint(addr);
@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
 //  }
 
 
-using namespace std;
+//using namespace std;
 
 //int main(int argc, char *argv[]) {
 //  Server().start();

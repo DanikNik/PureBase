@@ -3,26 +3,24 @@
 sudo apt update
 sudo apt install make
 sudo apt install libboost-all-dev
-sudo apt install postgresql-all
+sudo apt install libqt-dev
 
 
 git clone https://github.com/jtv/libpqxx
 cd libpqxx/
-mkdir build
-cd build/
-cmake ..
+./configure
 make -j8
 sudo make install
-cd ../..
+cd ..
 
 
 
 git clone https://github.com/abseil/googletest.git
-git submodule update --init
 cd googletest/
-mkdir build       # Create a directory to hold the build output.
+git submodule update --init
+mkdir build
 cd build
-cmake ..  # Generate native build scripts.
+cmake ..
 make -j8
 sudo make install
 cd ../..
