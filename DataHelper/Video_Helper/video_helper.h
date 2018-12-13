@@ -8,14 +8,25 @@
 #include "../data.h"
 
 class VideoHelper : public Data {
+private:
+    std::string video_name;
+    std::string db_name;
+    std::string table_name;
+    std::string db_type;
+    std::string user_name;
+    int data_id;
 public:
-    void create(std::string);
-    void changeName(std::string);
-    std::vector<std::string> select(std::vector<std::string>);
-    std::vector<std::string> selectByTag(std::vector<std::string>, std::string);
-    void deleteRow(std::string);
-    void showTables(std::string);
-    void putFiles(std::string);
+    explicit VideoHelper();
+    explicit VideoHelper(int);
+    explicit VideoHelper(std::string);
+    int Create(std::string) override;
+    void ChangeName(std::string) override;
+    std::vector<std::string> Select(std::vector<std::string>) override;
+    std::vector<std::string> SelectByTag(std::vector<std::string>, std::string) override;
+    void DeleteRow() override;
+    void ShowTables() override;
+    bool PutFile(std::string) override;
+    FILE GetFile(std::string) override;
 };
 
 

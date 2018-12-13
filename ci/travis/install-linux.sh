@@ -2,17 +2,25 @@
 
 sudo apt update
 sudo apt install make
+sudo apt install libboost-all-dev
+sudo apt install libqt-dev
 
-cd ../..
+
+git clone https://github.com/jtv/libpqxx
+cd libpqxx/
+./configure
+make -j8
+sudo make install
+cd ..
+
+
 
 git clone https://github.com/abseil/googletest.git
+cd googletest/
 git submodule update --init
-cd googletest
-mkdir build       # Create a directory to hold the build output.
+mkdir build
 cd build
-cmake ..  # Generate native build scripts.
-make
+cmake ..
+make -j8
 sudo make install
-
 cd ../..
-
