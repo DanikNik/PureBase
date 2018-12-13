@@ -7,6 +7,7 @@
 #include "document_helper.h"
 #include <iostream>
 
+
 DocumentHelper::DocumentHelper(std::string documentName) {
     document_name = std::move(documentName);
     db_name = "purebase";
@@ -29,6 +30,7 @@ int DocumentHelper::Create(std::string documentName) {
 
 void DocumentHelper::ChangeName(std::string documentName) {
     std::cout<<"Changed document name..."<<std::endl;
+
 }
 
 void DocumentHelper::DeleteRow() {

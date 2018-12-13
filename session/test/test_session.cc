@@ -37,10 +37,10 @@ TEST(Session, set_empty_user_name) {
 
 TEST(Session, set_user_permissions) {
   Session session;
+  Permissions permissions(true, false);
+  session.set_permissions(permissions);
 
-  session.set_permissions(0);
-
-  EXPECT_EQ(session.get_user_permissions(), 0) << "User permissions must be 0";
+  EXPECT_EQ(session.get_user_permissions(), permissions) << "User permissions must be 0";
 }
 
 TEST(Session, connect) {

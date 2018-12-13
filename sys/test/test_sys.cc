@@ -2,15 +2,17 @@
 // Created by Иван Морозов on 12.11.2018.
 //
 
+#include <tclDecls.h>
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
 #include "../sys.h"
+#include "../../Permissions/permissions.h"
 
 TEST(Sys, add_user) {
   Sys *system_table = Sys::get_instance();
-
-  system_table->add_user("abcd", "Ivan", 0);
+  Permissions permissions(true, false);
+  system_table->add_user("abcd", "Ivan", permissions);
 
   EXPECT_EQ(system_table->get_user_name("abcd"), "Ivan") << "User name must be Ivan";
 }
@@ -23,32 +25,26 @@ TEST(Sys, get_user_name) {
 
 TEST(Sys, get_user_permissions) {
   Sys *system_table = Sys::get_instance();
-
-  EXPECT_EQ(system_table->get_user_permissions("abcd"), 0) << "User permissions must be 0";
-}
-
-TEST(Sys, get_empty_user_permissions) {
-  Sys *system_table = Sys::get_instance();
-
-  EXPECT_EQ(system_table->get_user_permissions(""), -1) << "User permissions must be -1 because token is empty";
+  Permissions permissions(true, false);
+  EXPECT_EQ(system_table->get_user_permissions("abcd"), permissions) << "User permissions must be 0";
 }
 
 TEST(Sys, add_empty_token_user) {
   Sys *system_table = Sys::get_instance();
-
-  ASSERT_THROW(system_table->add_user("", "Mike", 0);, std::invalid_argument);
+  Permissions permissions(true, false);
+  ASSERT_THROW(system_table->add_user("", "Mike", permissions), std::invalid_argument);
 }
 
 TEST(Sys, add_empty_user_name_user) {
   Sys *system_table = Sys::get_instance();
-
-  ASSERT_THROW(system_table->add_user("abcd", "", 0);, std::invalid_argument);
+  Permissions permissions(true, false);
+  ASSERT_THROW(system_table->add_user("abcd", "", permissions), std::invalid_argument);
 }
 
 TEST(Sys, add_empty_user) {
   Sys *system_table = Sys::get_instance();
-
-  ASSERT_THROW(system_table->add_user("", "", 0);, std::invalid_argument);
+  Permissions permissions(true, false);
+  ASSERT_THROW(system_table->add_user("", "", permissions);, std::invalid_argument);
 }
 
 TEST(Sys, has_user_false) {

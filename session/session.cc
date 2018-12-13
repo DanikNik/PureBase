@@ -32,7 +32,7 @@ void Session::set_user_name(std::string user_name) {
 
 }
 
-void Session::set_permissions(int permissions) {
+void Session::set_permissions(Permissions permissions) {
 
   _user->permissions = permissions;
 
@@ -60,6 +60,6 @@ std::string Session::get_user_token() {
   return _user->token;
 }
 
-int Session::get_user_permissions() {
+Permissions Session::get_user_permissions() {
   return _user->permissions;
 }
