@@ -1,3 +1,5 @@
+#include <utility>
+
 //
 // Created by semyon on 16.11.18.
 //
@@ -5,30 +7,54 @@
 #include "subject_helper.h"
 #include <iostream>
 
-void SubjectHelper::createTable(std::string SubjectName) {
-    std::cout<<"Document Helper worked..."<<std::endl;
+SubjectHelper::SubjectHelper(std::string subjectName) {
+    subject_name = std::move(subjectName);
+    db_name = "purebase";
+    db_type = "postgresql";
+    user_name = "semyon";
+    subject_id = 0;
 }
 
-void SubjectHelper::changeName(std::string SubjectName) {
-    std::cout<<"Changed name..."<<std::endl;
+SubjectHelper::SubjectHelper() {
+    db_name = "purebase";
+    db_type = "postgresql";
+    user_name = "semyon";
+    subject_id = 0;
+}
+SubjectHelper::SubjectHelper(int subjectID) {
+    db_name = "purebase";
+    db_type = "postgresql";
+    user_name = "semyon";
+    subject_id = subjectID;
 }
 
-void SubjectHelper::changeDescription(std::string Description) {
-    std::cout<<"Changed name..."<<std::endl;
+int SubjectHelper::Create(std::string SubjectName) {
+    std::cout<<"Subject Helper creating..."<<std::endl;
+    return 0;
 }
 
-void SubjectHelper::deleteRow(std::string SubjectName) {
-    std::cout<<"Row deleter..."<<std::endl;
+void SubjectHelper::ChangeName(std::string SubjectName) {
+    std::cout<<"Changed subject name..."<<std::endl;
 }
 
-void SubjectHelper::showTables(std::string TableName) {
-    std::cout<<"Showing tables..."<<std::endl;
+void SubjectHelper::ChangeDescription(std::string Description) {
+    std::cout<<"Changed subject description..."<<std::endl;
 }
 
-std::vector<std::string> SubjectHelper::select(std::vector<std::string> parametrs) {
-    std::cout<<"selecting..."<<std::endl;
+void SubjectHelper::DeleteRow() {
+    std::cout<<"Deletint subject..."<<std::endl;
 }
 
-std::vector<std::string> SubjectHelper::selectByTag(std::vector<std::string> parametrs, std::string tag) {
-    std::cout<<"selecting by tag...";
+void SubjectHelper::ShowTables() {
+    std::cout<<"Showing subject table..."<<std::endl;
+}
+
+std::vector<std::string> SubjectHelper::Select(std::vector<std::string> parametrs) {
+    std::cout<<"selecting subjects..."<<std::endl;
+    return {"null"};
+}
+
+std::vector<std::string> SubjectHelper::SelectByTag(std::vector<std::string> parametrs, std::string tag) {
+    std::cout<<"selecting subject by tag...";
+    return {"null"};
 }
