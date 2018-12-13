@@ -1,3 +1,5 @@
+#include <utility>
+
 //
 // Created by daniknik on 03.12.18.
 //
@@ -13,12 +15,13 @@
 class Client {
  private:
   int work();
-  std::string host;
-  int port;
+  std::string _host = "localhost";
+  int _port = 8090;
+  void process_command();
 
  public:
   Client() = default;
-  Client(std::string _host, int _port):host(_host), port(_port){}
+  explicit Client(std::string host, int port):_host(std::move(host)), _port(port){}
  ~Client() = default;
 
  void start();

@@ -5,14 +5,14 @@
 #include "simple_cmd_client.h"
 
 int main(int argc, char *argv[]) {
-  if (argc != 3) {
-    std::cerr << "usage: " << argv[0] << " host port" << std::endl;
-    return 0;
-  }
+//  if (argc != 3) {
+//    std::cerr << "usage: " << argv[0] << " host port" << std::endl;
+//    return 0;
+//  }
   try {
-    std::string host(argv[1]);
-    int port = std::stoi(argv[2]);
-    Client client(host, port) ;
+//    std::string host(argv[1]);
+//    int port = std::stoi(argv[2]);
+    Client client ;
     client.start();
   }
   catch (const std::exception &e) {

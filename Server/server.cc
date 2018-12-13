@@ -1,7 +1,7 @@
 #include "server.h"
 
 void Server::client_work(std::shared_ptr<Socket> client) {
-  client->setRcvTimeout(/*sec*/15, /*microsec*/0);
+  client->setRcvTimeout(/*sec*/200, /*microsec*/0);
   while (true)
     try {
 
@@ -49,6 +49,8 @@ void Server::start() {
   try {
     Socket s;
     s.createServerSocket(port, 64);
+    std::cout << "[+] RUNNING SERVER ON PORT " << port << std::endl;
+    std::cout << "[+] MAXIMUM CONNECTIONS AT MOMENT - " << pool_size << std::endl;
 
     boost::asio::io_service::work work(io);
     for (int j = 0; j < pool_size; ++j) {
