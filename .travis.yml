@@ -4,7 +4,7 @@ language: cpp
 sudo: enabled
 
 os:
-#- linux
+- linux
 - osx
 
 compiler:
