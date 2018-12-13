@@ -4,8 +4,8 @@ language: cpp
 sudo: enabled
 
 os:
-- linux
-#- osx
+#- linux
+- osx
 
 compiler:
 - gcc
@@ -18,15 +18,15 @@ env:
 - TARGET_CPU=x86 BUILD_CONFIGURATION=Release
 
 matrix:
-#  exclude:
-#  - os:       osx
-#    compiler: gcc
-#
-#  - os:  osx
-#    env: TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
-#
-#  - os:  osx
-#    env: TARGET_CPU=x86 BUILD_CONFIGURATION=Release
+  exclude:
+  - os:       osx
+    compiler: gcc
+
+  - os:  osx
+    env: TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
+
+  - os:  osx
+    env: TARGET_CPU=x86 BUILD_CONFIGURATION=Release
 
 install:
 - source ci/travis/install-$TRAVIS_OS_NAME.sh
