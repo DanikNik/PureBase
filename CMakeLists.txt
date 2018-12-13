@@ -10,12 +10,21 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
+#link_directories(/usr/local/lib)
+#link_directories(/usr/lib)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpqxx -lpq")
+#
 
-set(PQXX /usr/local/include)
-find_library(PQXX_LIB REQUIRED)
-find_library(PQ_LIB REQUIRED)
+#find_package(LIBPQXX REQUIRED)
+#include_directories(${LIBPQXX_INCLUDE_DIRS})
+#set(PQXX /usr/local/include)
+find_library(PQXX_LIB pqxx REQUIRED)
+find_library(PQ_LIB pq REQUIRED)
+
+#find_package(LIBPQXX REQUIRED)
+#include_directories(${LIBPQXX_INCLUDE_DIRS})
+#set(PQXX_LIB ${LIBPQXX_LIBRARIES})
 
 set(LESSON_LIB_SOURCE
         Lesson/lesson.h
@@ -187,6 +196,7 @@ target_link_libraries(PureBase
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}
+#        ${LIBPQXX_LIBRARIES}
         session_libs
 
         parser_lib
@@ -213,6 +223,7 @@ target_link_libraries(test_lesson_helpers
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}
+#        ${LIBPQXX_LIBRARIES}
         )
 
 
@@ -226,6 +237,7 @@ target_link_libraries(test_postgres_connect
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}
+#        ${LIBPQXX_LIBRARIES}
         )
 
 add_executable(lesson_lib_test Lesson/Tests/lesson_test.cc)
@@ -243,6 +255,7 @@ target_link_libraries(lessonhelper_lib_test
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}
+#        ${LIBPQXX_LIBRARIES}
         )
 
 #add_executable(test_queries Query/Tests/test_queries.cpp)
