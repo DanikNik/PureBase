@@ -179,6 +179,7 @@ link_libraries(server_lib parser_lib)
 #add_subdirectory(session_by_name/)
 #add_subdirectory(session_director/)
 #add_subdirectory(sys/)
+add_subdirectory(Client)
 ########################################################################################################################
 #BUILD TARGETS
 
@@ -212,7 +213,7 @@ target_link_libraries(PureBase
         create_db_command_lib
         delete_db_command_lib
         )
-
+########################################################################################################################
 
 #add_executable(test_lesson_helpers LessonHelper/Tests/test_lesson_helper.cc)
 #target_link_libraries(test_lesson_helpers ${GTEST_LIBRARIES} pthread)
@@ -277,8 +278,6 @@ target_link_libraries(PureBase
 #add_executable(test_sys sys/test/test_sys.cc)
 #target_link_libraries(test_sys ${GTEST_LIBRARIES} pthread)
 #target_link_libraries(test_sys session_libs)
-
-########################################################################################################################
 
 #add_executable(test_endpoint Server/Tests/test_endpoint.cpp)
 

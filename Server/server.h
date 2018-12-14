@@ -26,12 +26,12 @@ using namespace std;
 // TODO: add daemonization
 // TODO: add SIGNAL support
 // TODO: *refers to upper* add shutdown function
+// TODO add handshake to authorize
 
 class Server {
  private:
   int port;
   QueryProcessor *parser;
-  Helper *helper;
   Application *app;
   std::queue<std::string> produced_nums;
   std::mutex m;
@@ -46,13 +46,11 @@ class Server {
   Server() : port(8090),
              app(new Application()),
              parser(new QueryProcessor()),
-             helper(new DocumentHelper()),
              pool_size(10) {}
 
   explicit Server(int _port) : port(_port),
                       app(new Application()),
                       parser(new QueryProcessor()),
-                      helper(new DocumentHelper()),
                       pool_size(10) {}
 
   virtual ~Server(){
