@@ -10,21 +10,10 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-#link_directories(/usr/local/lib)
-#link_directories(/usr/lib)
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpqxx -lpq")
-#
 
-#find_package(LIBPQXX REQUIRED)
-#include_directories(${LIBPQXX_INCLUDE_DIRS})
-#set(PQXX /usr/local/include)
 find_library(PQXX_LIB pqxx REQUIRED)
 find_library(PQ_LIB pq REQUIRED)
-
-#find_package(LIBPQXX REQUIRED)
-#include_directories(${LIBPQXX_INCLUDE_DIRS})
-#set(PQXX_LIB ${LIBPQXX_LIBRARIES})
 
 set(LESSON_LIB_SOURCE
         Lesson/lesson.h
