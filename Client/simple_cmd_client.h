@@ -14,10 +14,11 @@
 
 class Client {
  private:
-  int work();
-  std::string _host = "localhost";
-  int _port = 8090;
+  int send_file(std::string path);
+  std::string _host = "localhost"; //default host of PureBase server TODO deprecate
+  int _port = 8090; // default port of the PureBase server
   void process_command();
+  Socket socket;
 
  public:
   Client() = default;
