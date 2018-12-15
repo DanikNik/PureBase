@@ -49,7 +49,6 @@ class Server {
   void parse_config_file(std::string filepath);
 
  public:
-
   Server() : port(8000),
              app(new Application()),
              parser(new QueryProcessor()),

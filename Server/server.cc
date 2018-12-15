@@ -80,7 +80,6 @@ void Server::parse_config_file(std::string filepath) {
 
     pool_size = tree.get("concurency", 1000);
     port = tree.get("port", 8090);
-
   } catch (pt::info_parser_error &e) {
     std::cerr << e.what() << std::endl;
   }
