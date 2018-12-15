@@ -7,6 +7,10 @@
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
 
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/info_parser.hpp>
+#include <boost/foreach.hpp>
+
 #include <condition_variable>
 #include <mutex>
 #include <queue>
@@ -42,8 +46,10 @@ class Server {
   boost::asio::io_service io;
   boost::thread_group thr_pool;
 
+  void parse_config_file(std::string filepath);
+
  public:
-  Server() : port(8090),
+  Server() : port(8000),
              app(new Application()),
              parser(new QueryProcessor()),
              pool_size(10) {}
