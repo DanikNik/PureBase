@@ -6,7 +6,7 @@
 
 Sys *Sys::p_instance = 0;
 
-bool Sys::add_user(std::string token, std::string user_name, int permissions) {
+bool Sys::add_user(std::string token, std::string user_name, Permissions permissions) {
 
   if (user_table.empty()) {
     User user;
@@ -79,7 +79,7 @@ std::string Sys::get_user_name(std::string token) {
   return "";
 }
 
-int Sys::get_user_permissions(std::string token) {
+Permissions Sys::get_user_permissions(std::string token) {
   int i = 0;
   for (; user_table[i].token != token && i < user_table.size(); ++i);
 
@@ -87,5 +87,6 @@ int Sys::get_user_permissions(std::string token) {
     return user_table[i].permissions;
   }
 
-  return -1;
+  Permissions perm(false, false);
+  return perm;
 }

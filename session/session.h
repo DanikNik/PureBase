@@ -8,6 +8,7 @@
 #include "../user/User.h"
 #include <string>
 #include <iostream>
+#include "../Permissions/permissions.h"
 
 const int EmptyTokent = -2;
 
@@ -21,13 +22,13 @@ class Session {
   Session();
   void create_user(std::string token);
   void set_user_name(std::string user_name);
-  void set_permissions(int permissions);
+  void set_permissions(Permissions permissions);
   void connect();
   void false_connect();
   bool is_connect();
   std::string get_user_name();
   std::string get_user_token();
-  int get_user_permissions();
+  Permissions get_user_permissions();
   ~Session();
 
  private:

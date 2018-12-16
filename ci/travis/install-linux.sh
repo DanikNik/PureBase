@@ -2,17 +2,8 @@
 
 sudo apt update
 sudo apt install make
-
-git clone https://github.com/oktal/pistache.git
-git submodule update --init
-cd pistache
-mkdir build
-cd build
-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
-make
-sudo make install
-
-cd ../..
+#sudo apt install libpqxx-4.0v5 libpq-dev
+sudo apt install libboost-all-dev
 
 git clone https://github.com/abseil/googletest.git
 git submodule update --init
@@ -20,17 +11,6 @@ cd googletest
 mkdir build       # Create a directory to hold the build output.
 cd build
 cmake ..  # Generate native build scripts.
-make
-sudo make install
-
-cd ../..
-
-git clone https://github.com/Tencent/rapidjson.git
-git submodule update --init
-cd rapidjson
-mkdir build
-cd build
-cmake ..
 make
 sudo make install
 cd ../..

@@ -11,8 +11,8 @@
 class SessionByName : public SessionBuilder {
  public:
   SessionByName();
-  void set_user(std::string token);
-  void set_connection();
+  void set_user(std::string token) override;
+  void set_connection() override;
 };
 
 #endif //PRE_WORK_SESSION_BY_NAME_H
