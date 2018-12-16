@@ -106,19 +106,30 @@ void LessonHelper::DeleteRow() {
     AbstractAdapter* adapt;
     adapt = new PostgresAdapter();
 
-    auto option  = std::make_pair("id", params["ID"]);
+    auto option = std::make_pair("id", params["ID"]);
     std::vector<std::pair<std::string,std::string>> options = {option};
 
     adapt->Delete("lesson", options);
 }
 
 void LessonHelper::ShowTables() {
+    auto params = lesson->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"]  + " user = " + params["USER"];
+    AbstractAdapter* adapt;
+    adapt = new PostgresAdapter();
+    auto result = adapt->ShowTable("lesson");
     std::cout<<"Showing tables..."<<std::endl;
 }
 
 std::vector<std::string> LessonHelper::Select(std::vector<std::string> parametrs) {
-    std::cout<<"selecting..."<<std::endl;
-    return {"null"};
+    auto params = lesson->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+    AbstractAdapter *adapt;
+    adapt = new PostgresAdapter();
+    auto idOption = std::make_pair("id", params["ID"]);
+    std::vector<std::pair<std::string,std::string>> options = {idOption};
+    auto result = adapt->Select(DEFAULT_LESSON_NAME,parametrs,options);
+    return result[0];
 }
 
 std::vector<std::string> LessonHelper::SelectByTag(std::vector<std::string> parametrs, std::string tag) {

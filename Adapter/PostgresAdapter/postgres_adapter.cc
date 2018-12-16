@@ -29,6 +29,23 @@ bool PostgresAdapter::Insert(std::string tablename, std::vector<std::string> col
     wrk.commit();
 }
 
+std::vector<std::vector<std::string>> PostgresAdapter::ShowTable(std::string tableName){
+    std::string query;
+    pqxx::work wrk(Connect);
+    query = "select * from " + tableName + ";";
+    auto res = wrk.exec(query);
+    std::vector<std::vector<std::string>> response;
+    for(int i = 0; i < res.size();i++){
+        std::vector<std::string> str;
+        for(int j = 0; j < res[i].size() ; j++) {
+            str.emplace_back(res[i][j].c_str());
+       }
+        response.push_back(str);
+    }
+    wrk.commit();
+    return response;
+}
+
 std::vector<std::vector<std::string>> PostgresAdapter::Select(std::string tablename,std::vector<std::string> columns ,std::vector<std::pair<std::string,std::string>> options) {
     std::string query;
     pqxx::work wrk(Connect);
@@ -122,7 +139,12 @@ std::string PostgresAdapter::GetMaximumID(std::string tablename) {
     pqxx::work wrk(Connect);
     query = "select max(id) from " + tablename + ";";
     pqxx::result res = wrk.exec(query);
-    int int_res = res[0][0].as<int>() + 1;
+    int int_res;
+    try{
+        int_res = res[0][0].as<int>() + 1;
+    } catch (std::exception e) {
+        int_res = 0;
+    }
     std::string rs = std::to_string(int_res);
     wrk.commit();
     return rs;

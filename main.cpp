@@ -5,16 +5,16 @@
 //#include "session_director.h"
 //#include "sys.h"
 
-//#include <vector>
-//#include "LessonHelper/lesson_helper.h"
-//#include "SubjectHelper/subject_helper.h"
-//#include "DataHelper/Document_Helper/document_helper.h"
-//#include "DataHelper/data.h"
-//#include "TeacherHelper/teacher_helper.h"
-//#include "DataHelper/Video_Helper/video_helper.h"
-//#include "Helper/helper.h"
-//#include "DataHelper/Video_Helper/video_helper.h"
-#include "Server/server.h"
+#include <vector>
+#include "LessonHelper/lesson_helper.h"
+#include "SubjectHelper/subject_helper.h"
+#include "DataHelper/Document_Helper/document_helper.h"
+#include "DataHelper/data.h"
+#include "TeacherHelper/teacher_helper.h"
+#include "DataHelper/Video_Helper/video_helper.h"
+#include "Helper/helper.h"
+#include "DataHelper/Video_Helper/video_helper.h"
+
 
 //int main(int argc, char** argv) {
 //    DocumentHelper DH("doc1");
@@ -81,10 +81,8 @@
 //    std::cout << "Пользователя с такими токеном не существует" << std::endl;
 //  }
 
-
-//using namespace std;
-
 int main(int argc, char *argv[]) {
   Server().start();
+
   return 0;
 }

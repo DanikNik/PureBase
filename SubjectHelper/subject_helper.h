@@ -6,19 +6,20 @@
 #define PUREBASE_SUBJECT_H
 
 #include "../Helper/helper.h"
+#include "../Adapter/abstract_adapter.h"
+#include <iostream>
+#include <vector>
+#include "../Adapter/PostgresAdapter/postgres_adapter.h"
+#include "../Subject/subject.h"
 
 class SubjectHelper : public Helper {
 private:
-    std::string subject_name;
-    std::string db_name;
-    std::string table_name;
-    std::string db_type;
-    std::string user_name;
-    int subject_id;
+    Subject *subject;
 public:
     explicit SubjectHelper();
     explicit SubjectHelper(int);
     explicit SubjectHelper(std::string);
+    ~SubjectHelper();
     int Create(std::string) override;
     void ChangeName(std::string) override;
     std::vector<std::string> Select(std::vector<std::string> param) override;
