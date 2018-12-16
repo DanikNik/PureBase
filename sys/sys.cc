@@ -68,15 +68,15 @@ bool Sys::has_user(std::string token) {
 }
 
 std::string Sys::get_user_name(std::string token) {
-
-  int i = 0;
-  for (; user_table[i].token != token && i < user_table.size(); ++i);
-
-  if (i != user_table.size()) {
-    return user_table[i].user_name;
+  if(user_table.empty()){
+    return "TABLE IS EMPTY";
   }
+    int i = 0;
+    for (; user_table[i].token != token && i < user_table.size(); ++i);
 
-  return "";
+    if (i != user_table.size()) {
+      return user_table[i].user_name;
+    }
 }
 
 Permissions Sys::get_user_permissions(std::string token) {

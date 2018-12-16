@@ -202,7 +202,7 @@ std::string Socket::recv() {
     std::string ret(buf, buf + n);
     while (ret.back() == '\r' || ret.back() == '\n')
         ret.pop_back();
-    std::cerr << "client: " << m_Sd << ", recv: " << ret << " [" << n << " bytes]" << std::endl;
+//    std::cerr << "client: " << m_Sd << ", recv: " << ret << " [" << n << " bytes]" << std::endl;
     return ret;
 }
 

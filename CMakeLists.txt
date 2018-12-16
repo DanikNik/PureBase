@@ -14,12 +14,10 @@ find_package(GTest REQUIRED)
 #include_directories(${RAPIDJSON_INCLUDE_DIRS})
 include_directories(${GTEST_INCLUDE_DIRS})
 
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpqxx -lpq")
 
-set(PQXX /usr/local/include)
-find_library(PQXX_LIB REQUIRED)
-find_library(PQ_LIB REQUIRED)
+find_library(PQXX_LIB pqxx REQUIRED)
+find_library(PQ_LIB pq REQUIRED)
 
 #set(QUERIES_LIB_SOURCE
 #        Query/query.h
@@ -124,6 +122,7 @@ add_library(adapter_lib STATIC ${ADAPTER_LIB_SOURCE})
 #add_subdirectory(session_by_name/)
 #add_subdirectory(session_director/)
 #add_subdirectory(sys/)
+add_subdirectory(Client)
 ########################################################################################################################
 #BUILD TARGETS
 
@@ -146,8 +145,7 @@ target_link_libraries(PureBase
         #session_libs
         #api_server_lib
         )
-
-
+########################################################################################################################
 add_executable(test_lesson_helpers LessonHelper/Tests/test_lesson_helper.cc)
 target_link_libraries(test_lesson_helpers ${GTEST_LIBRARIES} pthread)
 target_link_libraries(test_lesson_helpers
@@ -214,7 +212,6 @@ target_link_libraries(teacher_lib_test ${GTEST_LIBRARIES} pthread)
 target_link_libraries(teacher_lib_test
         teacher_lib
         )
-
 #add_executable(test_queries Query/Tests/test_queries.cpp)
 #target_link_libraries(test_queries ${GTEST_LIBRARIES} pthread)
 #target_link_libraries(test_queries queries_lib)
@@ -238,6 +235,8 @@ target_link_libraries(teacher_lib_test
 #add_executable(test_sys sys/test/test_sys.cc)
 #target_link_libraries(test_sys ${GTEST_LIBRARIES} pthread)
 #target_link_libraries(test_sys session_libs)
-########################################################################################################################
+#add_executable(test_endpoint Server/Tests/test_endpoint.cpp)
 
+#target_link_libraries(test_endpoint ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(test_endpoint api_server_lib ${PISTACHE_LIBRARIES})
 
