@@ -5,20 +5,22 @@
 #ifndef PUREBASE_DOCUMENT_HELPER_H
 #define PUREBASE_DOCUMENT_HELPER_H
 
+#include "../../Helper/helper.h"
+#include "../../Adapter/abstract_adapter.h"
+#include <iostream>
+#include <vector>
+#include "../../Adapter/PostgresAdapter/postgres_adapter.h"
 #include "../data.h"
+#include "../../Document/document.h"
 
 class DocumentHelper : public Data {
 private:
-    std::string document_name;
-    std::string db_name;
-    std::string table_name;
-    std::string db_type;
-    std::string user_name;
-    int data_id;
+    Document *document;
 public:
     explicit DocumentHelper();
     explicit DocumentHelper(int);
     explicit DocumentHelper(std::string);
+    ~DocumentHelper();
     int Create(std::string) override;
     void ChangeName(std::string) override;
     std::vector<std::string> Select(std::vector<std::string>) override;

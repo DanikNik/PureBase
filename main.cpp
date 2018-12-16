@@ -17,47 +17,16 @@
 
 
 int main(int argc, char** argv) {
-    DocumentHelper DH("doc1");
-    DH.Create("doc1");
-    DH.ChangeName("doc2");
-    DH.Select({"doc1"});//??
-    DH.SelectByTag({"doc1"},"tag");
-    DH.ShowTables();
-    DH.DeleteRow();
-    VideoHelper VH("video1");
-    VH.Create("video1");
-    VH.ShowTables();
-    VH.SelectByTag({"video1"}, "tag");
-    VH.Select({"video1"});
-    VH.DeleteRow();
-    VH.ChangeName("video2");
-    VH.GetFile("filepath");
-    VH.PutFile("filepath");
-    SubjectHelper SH("subjectname");
-    SH.ChangeName("subjectname2");
-    SH.DeleteRow();
-    SH.Select({"subjectname"});
-    SH.ShowTables();
-    SH.Create("subjectname3");
-    SH.SelectByTag({"subjectname3"},"tag");
-    TeacherHelper TH("name");
-    TH.SelectByTag({"name"},"tag");
-    TH.Select({"name"});
+    TeacherHelper TH("Belo");
     TH.ShowTables();
-    TH.Create("name");
-    TH.DeleteRow();
-    TH.ChangeName("name2");
-    TH.ChangeSpecialization("slut");
-    LessonHelper LH("lesson");
-    LH.ChangeName("lesson2");
-    LH.Create("lesson3");
-    LH.ShowTables();
-    LH.Select({"lesson"});
-    LH.SelectByTag({"lesson"},"tag");
-    LH.ChangeTheme("Theme");
-    LH.ChangeTeacher(2);
-    LH.ChangeSubject(1);
-    LH.DeleteRow();//Косячно реализован, пока не трогать
+    TH.ChangeName("Chun");
+    TH.ChangeSpecialization("specuha");
+    auto a = TH.Select({"specialization"});
+    SubjectHelper SH("Web11");
+    SH.ShowTables();
+    SH.ChangeName("Web");
+    SH.ChangeDescription("Web technology");
+    SH.Select({"name"});
  //Port port(9080);
   //Address addr(Ipv4::any(), port);
   //ApiEndpoint endpoint(addr);

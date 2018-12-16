@@ -6,20 +6,20 @@
 #define PUREBASE_TEACHER_H
 
 #include "../Helper/helper.h"
+#include "../Adapter/abstract_adapter.h"
+#include <iostream>
+#include <vector>
+#include "../Adapter/PostgresAdapter/postgres_adapter.h"
+#include "../Teacher/teacher.h"
 
 class TeacherHelper : public Helper {
-private:
-    std::string teacher_name;
-    std::string db_name;
-    std::string table_name;
-    std::string db_type;
-    std::string user_name;
-    int subjectID;
+ private:
+    Teacher *teacher;
  public:
     explicit TeacherHelper(std::string);
     explicit TeacherHelper();
     explicit TeacherHelper(int);
-
+    ~TeacherHelper();
     int Create(std::string) override;
     void ChangeName(std::string) override;
     std::vector<std::string> Select(std::vector<std::string>) override;

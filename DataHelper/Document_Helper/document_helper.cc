@@ -7,36 +7,68 @@
 #include "document_helper.h"
 #include <iostream>
 
-DocumentHelper::DocumentHelper(std::string documentName) {
-    document_name = std::move(documentName);
-    db_name = "purebase";
-    db_type = "postgresql";
-    user_name = "semyon";
-    table_name = "document";
+DocumentHelper::DocumentHelper() {
+    document = new Document;
 }
 
 DocumentHelper::DocumentHelper(int docID) {
-    std::cout<<"doc creating..";
+    document = new Document(docID);
 }
-DocumentHelper::DocumentHelper() {
-    std::cout<<"doc creating..";
+
+DocumentHelper::DocumentHelper(std::string documentName) {
+    document = new Document(documentName);
+    auto id = Create(std::move(documentName));
+    document->SetId(id);
 }
 
 int DocumentHelper::Create(std::string documentName) {
-    std::cout<<"Document Helper creating..."<<std::endl;
-    return 0;
+    auto params = document->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+    AbstractAdapter* adapt;
+    std::vector<std::string> columns = {"id", "name"};
+    adapt = new PostgresAdapter();
+    auto id = adapt->GetMaximumID("document");
+
+    std::vector<std::string> values  = {id, documentName};
+    adapt->Insert("document", columns, values);
+    return atoi(id.c_str());
 }
 
 void DocumentHelper::ChangeName(std::string documentName) {
-    std::cout<<"Changed document name..."<<std::endl;
+    auto params = document->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"]  + " user = " + params["USER"];
+    AbstractAdapter* adapt;
+    adapt = new PostgresAdapter();
+    auto option  = std::make_pair("name", documentName);
+    std::vector<std::pair<std::string,std::string>> columns = { option };
+    auto value  = std::make_pair("id",params["ID"]);
+    std::vector<std::pair<std::string,std::string>> values = {value};
+    adapt->Update("document", columns, values);
 }
 
 void DocumentHelper::DeleteRow() {
-    std::cout<<"Deleting document..."<<std::endl;
+    auto params = document->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"]  + " user = " + params["USER"];
+    AbstractAdapter* adapt;
+    adapt = new PostgresAdapter();
+
+    auto option = std::make_pair("id", params["ID"]);
+    std::vector<std::pair<std::string,std::string>> options = {option};
+
+    adapt->Delete("document", options);
 }
 
 void DocumentHelper::ShowTables() {
-    std::cout<<"Showing document table..."<<std::endl;
+    auto params = document->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+    AbstractAdapter *adapt;
+    adapt = new PostgresAdapter();
+    auto result = adapt->ShowTable("document");
+    for(int i = 0; i!=result.size();i++){
+        for(int j = 0; j!=result[i].size();j++)
+            std::cout<<result[i][j]<<" ";
+        std::cout<<std::endl;
+    }
 }
 
 bool DocumentHelper::PutFile(std::string filepath) {
@@ -44,8 +76,14 @@ bool DocumentHelper::PutFile(std::string filepath) {
 }
 
 std::vector<std::string> DocumentHelper::Select(std::vector<std::string> parametrs) {
-    std::cout<<"selecting document..."<<std::endl;
-    return {"null"};
+    auto params = document->GetParametrs();
+    std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+    AbstractAdapter *adapt;
+    adapt = new PostgresAdapter();
+    auto idOption = std::make_pair("id", params["ID"]);
+    std::vector<std::pair<std::string,std::string>> options = {idOption};
+    auto result = adapt->Select(DEFAULT_DOCUMENT_NAME,parametrs,options);
+    return result[0];
 }
 
 std::vector<std::string> DocumentHelper::SelectByTag(std::vector<std::string> parametrs, std::string tag) {
@@ -55,4 +93,8 @@ std::vector<std::string> DocumentHelper::SelectByTag(std::vector<std::string> pa
 
 FILE DocumentHelper::GetFile(std::string){
     std::cout<<"get document file\n";
+}
+
+DocumentHelper::~DocumentHelper() {
+    delete document;
 }

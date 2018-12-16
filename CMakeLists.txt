@@ -34,9 +34,28 @@ find_library(PQ_LIB REQUIRED)
 #add_library(api_server_lib STATIC ${API_SERVER_LIB_SOURCE})
 #target_link_libraries(api_server_lib pistache pthread)
 
+set(SUBJECT_LIB_SOURCE
+        Subject/subject.h
+        Subject/subject.cc
+        )
+
+set(TEACHER_LIB_SOURCE
+        Teacher/teacher.h
+        Teacher/teacher.cc
+        )
+
+set(VIDEO_LIB_SOURCE
+        Video/video.h
+        Video/video.cc
+        )
 set(LESSON_LIB_SOURCE
         Lesson/lesson.h
         Lesson/lesson.cc
+        )
+
+set(DOCUMENT_LIB_SOURCE
+        Document/document.h
+        Document/document.cc
         )
 
 set(HELPER_LIB_SOURCE
@@ -64,18 +83,22 @@ set(SUBJECTHELPER_LIB_SOURCE
         )
 
 set(TEACHERHELPER_LIB_SOURCE
-        TeacherHelper/teacher_helper.cc
         TeacherHelper/teacher_helper.h
+        TeacherHelper/teacher_helper.cc
         )
 set(ADAPTER_LIB_SOURCE
         Adapter/abstract_adapter.cc
         Adapter/abstract_adapter.h
         Adapter/PostgresAdapter/postgres_adapter.cc
         Adapter/PostgresAdapter/postgres_adapter.h
-        Adapter/PostgresAdapter/PGConnection/pg_connection.cc
-        Adapter/PostgresAdapter/PGConnection/pg_connection.h
+        #Adapter/PostgresAdapter/PGConnection/pg_connection.cc
+        #Adapter/PostgresAdapter/PGConnection/pg_connection.h
         )
 
+add_library(subject_lib STATIC ${SUBJECT_LIB_SOURCE})
+add_library(video_lib STATIC ${VIDEO_LIB_SOURCE})
+add_library(teacher_lib STATIC ${TEACHER_LIB_SOURCE})
+add_library(document_lib STATIC ${DOCUMENT_LIB_SOURCE})
 add_library(lesson_lib STATIC ${LESSON_LIB_SOURCE})
 add_library(datahelper_lib STATIC ${DATAHELPER_LIB_SOURCE})
 add_library(lessonhelper_lib STATIC ${LESSONHELPER_LIB_SOURCE})
@@ -83,7 +106,6 @@ add_library(subjecthelper_lib STATIC ${SUBJECTHELPER_LIB_SOURCE})
 add_library(teacherhelper_lib STATIC ${TEACHERHELPER_LIB_SOURCE})
 add_library(helper_lib STATIC ${HELPER_LIB_SOURCE})
 add_library(adapter_lib STATIC ${ADAPTER_LIB_SOURCE})
-
 
 #add_library(lessonhelper_testing_lib STATIC ${HELPER_LIB_SOURCE} ${LESSONHELPER_LIB_SOURCE} ${ADAPTER_LIB_SOURCE})
 #set(SESSION_LIB_SOURCE
@@ -114,6 +136,10 @@ target_link_libraries(PureBase
         datahelper_lib
         teacherhelper_lib
         lesson_lib
+        document_lib
+        subject_lib
+        video_lib
+        teacher_lib
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}
@@ -133,9 +159,13 @@ target_link_libraries(test_lesson_helpers
         )
 
 
-#add_executable(test_postgres Adapter/PostgresAdapter/Tests/postgres_test.cc)
-#target_link_libraries(test_postgres ${GTEST_LIBRARIES} ${PQXX_LIB} ${PQ_LIB} pthread)
-#target_link_libraries(test_postgres adapter_lib)
+add_executable(test_postgres Adapter/PostgresAdapter/Tests/postgres_test.cc)
+target_link_libraries(test_postgres ${GTEST_LIBRARIES} pthread)
+target_link_libraries(test_postgres
+        adapter_lib
+        ${PQXX_LIB}
+        ${PQ_LIB}
+        )
 
 add_executable(test_postgres_connect Adapter/PostgresAdapter/PGConnection/Tests/test_connection.cc)
 target_link_libraries(test_postgres_connect ${GTEST_LIBRARIES} pthread)
@@ -151,6 +181,12 @@ target_link_libraries(lesson_lib_test
         lesson_lib
         )
 
+add_executable(document_lib_test Document/Tests/document_tests.cc)
+target_link_libraries(document_lib_test ${GTEST_LIBRARIES} pthread)
+target_link_libraries(document_lib_test
+        document_lib
+        )
+
 add_executable(lessonhelper_lib_test LessonHelper/Tests/test_lesson_helper.cc)
 target_link_libraries(lessonhelper_lib_test ${GTEST_LIBRARIES} pthread)
 target_link_libraries(lessonhelper_lib_test
@@ -160,6 +196,23 @@ target_link_libraries(lessonhelper_lib_test
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}
+        )
+
+add_executable(documenthelper_lib_test DataHelper/Document_Helper/Tests/document_helper_test.cc)
+target_link_libraries(documenthelper_lib_test ${GTEST_LIBRARIES} pthread)
+target_link_libraries(documenthelper_lib_test
+        helper_lib
+        document_lib
+        datahelper_lib
+        adapter_lib
+        ${PQXX_LIB}
+        ${PQ_LIB}
+        )
+
+add_executable(teacher_lib_test Teacher/Tests/teacher_tests.cc)
+target_link_libraries(teacher_lib_test ${GTEST_LIBRARIES} pthread)
+target_link_libraries(teacher_lib_test
+        teacher_lib
         )
 
 #add_executable(test_queries Query/Tests/test_queries.cpp)
