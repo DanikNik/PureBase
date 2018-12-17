@@ -128,7 +128,6 @@ void Server::process_transaction(std::shared_ptr <Socket> client) {
         notified = true;
         cond_var.notify_all();
       }
-      line = "BAD INPUT";
     });
 //
     std::thread consumer([&]() {
@@ -144,11 +143,11 @@ void Server::process_transaction(std::shared_ptr <Socket> client) {
     consumer.join();
 //
 //    command->execute();
-    std::stringstream ss;
-    ss << "response ";
-    ss << client->sd();
-    ss << " JUST A DUMPTY RESPONSE\n";
-    client->send(ss.str());
+//    std::stringstream ss;
+//    ss << "response ";
+//    ss << client->sd();
+//    ss << " JUST A DUMPTY RESPONSE\n";
+//    client->send(ss.str());
     return;
   }
   catch (const std::exception &e) {

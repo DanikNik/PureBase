@@ -8,19 +8,21 @@
 #include "../Command/command.h"
 #include "../Helper/helper.h"
 #include "../session_builder/session_builder.h"
+#include "../socket/socket.hpp"
 #include <vector>
 #include <string>
 #include <iostream>
 
 class CreateTableCommand : public Command {
  public:
-  CreateTableCommand(SessionBuilder *session, Helper *helper,
+  CreateTableCommand(SessionBuilder *session, Helper *helper, std::shared_ptr<Socket> &client,
                      std::string tableName,
                      std::string dbName,
                      std::vector<std::pair<std::string, std::string>> attributes);
   void execute() override;
  private:
   Helper *_helper;
+  std::shared_ptr<Socket> _socket;
   SessionBuilder *_session;
   std::string _tableName;
   std::string _dbName;

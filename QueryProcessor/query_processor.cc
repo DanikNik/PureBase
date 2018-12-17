@@ -3,6 +3,8 @@
 //
 
 #include "query_processor.h"
+#include "../InsertRowCommand/insert_row_command.h"
+#include "../DeleteRowCommand/delete_row_command.h"
 //TODO заменить все типы на boost optional
 
 Command *QueryProcessor::ProcessJSONToCommand(std::string query, std::shared_ptr<Socket> client) {
@@ -54,12 +56,13 @@ Command *QueryProcessor::ProcessJSONToCommand(std::string query, std::shared_ptr
       helper = new SubjectHelper();
     }
 
-    if (method == "CREATE") {
-      return new CreateTableCommand(&sba_session,
-                                    helper,
-                                    model,
-                                    "purebase",
-                                    attributes);
+    if (method == "INSERT") {
+      return new InsertRowCommand(&sba_session,
+                                  helper,
+                                  client,
+                                  model,
+                                  "purebase",
+                                  attributes);
     } else if (method == "SELECT") {
       return new SelectTableCommand(&sba_session,
                                     helper,
@@ -69,8 +72,13 @@ Command *QueryProcessor::ProcessJSONToCommand(std::string query, std::shared_ptr
                                     params,
 //                                    {"id", "name", "specialization"},
                                     attributes);
-//    } else if (method == "DELETE") {
-//      return nullptr;
+    } else if (method == "DELETE") {
+      return new DeleteRowCommand(&sba_session,
+                                  helper,
+                                  client,
+                                  model,
+                                  "purebase",
+                                  attributes);
     } else {
       return nullptr;
     }
