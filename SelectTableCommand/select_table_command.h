@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include "../socket/socket.hpp"
 
 const size_t ID = 0;
 const size_t NAME = 1;
@@ -18,7 +19,7 @@ const size_t SPECIALIZATION = 2;
 
 class SelectTableCommand : public Command {
  public:
-  SelectTableCommand(SessionBuilder *session, Helper *helper,
+  SelectTableCommand(SessionBuilder *session, Helper *helper, std::shared_ptr<Socket> &socket,
                      std::string tableName,
                      std::string dbName,
                      std::vector<std::string> params,
@@ -28,6 +29,7 @@ class SelectTableCommand : public Command {
  private:
   SessionBuilder *_session;
   Helper *_helper;
+  std::shared_ptr<Socket> _socket;
   std::string _tableName;
   std::string _dbName;
   std::vector<std::string> _params;

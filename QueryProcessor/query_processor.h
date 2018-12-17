@@ -32,6 +32,7 @@
 #include "../DropTableCommand/drop_table_command.h"
 #include "../SelectTableCommand/select_table_command.h"
 
+#include "../socket/socket.hpp"
 namespace pt = boost::property_tree;
 
 class QueryProcessor {
@@ -40,7 +41,7 @@ class QueryProcessor {
  public:
   QueryProcessor() = default;
   ~QueryProcessor() = default;
-  Command *ProcessJSONToCommand(std::string query);
+  Command *ProcessJSONToCommand(std::string query, std::shared_ptr<Socket> client);
   //умные указатели
 };
 

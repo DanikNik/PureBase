@@ -122,7 +122,7 @@ void Server::process_transaction(std::shared_ptr <Socket> client) {
     std::thread producer([&]() {
       std::this_thread::sleep_for(std::chrono::seconds(1));
       std::unique_lock <std::mutex> lock(m);
-      Command *command = parser->ProcessJSONToCommand(line);
+      Command *command = parser->ProcessJSONToCommand(line, client);
       if (command) {
         app->setCommand(command);
         notified = true;

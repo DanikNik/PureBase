@@ -1,3 +1,6 @@
+#ifndef PUREBASE_SOCKET_HEADERS_H
+#define PUREBASE_SOCKET_HEADERS_H
+
 #include <string>
 #include <unistd.h>     // close()
 #include <memory>
@@ -56,4 +59,6 @@ private:
 private:
     int m_Sd;
 };
+
+#endif //PUREBASE_SOCKET_HEADERS_H
 

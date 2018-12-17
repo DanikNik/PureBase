@@ -218,7 +218,7 @@ link_libraries(server_lib parser_lib)
 #add_subdirectory(sys/)
 
 include_directories(ConnectionHeaders)
-add_library(headers_lib STATIC ConnectionHeaders/connection_headers.h)
+add_library(headers_lib SHARED ConnectionHeaders/connection_headers.h)
 
 add_subdirectory(Client)
 link_libraries(server_lib headers_lib)

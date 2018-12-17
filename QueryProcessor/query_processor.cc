@@ -3,10 +3,9 @@
 //
 
 #include "query_processor.h"
-
 //TODO заменить все типы на boost optional
 
-Command *QueryProcessor::ProcessJSONToCommand(std::string query) {
+Command *QueryProcessor::ProcessJSONToCommand(std::string query, std::shared_ptr<Socket> client) {
   try {
 
     Permissions permissions;
@@ -64,6 +63,7 @@ Command *QueryProcessor::ProcessJSONToCommand(std::string query) {
     } else if (method == "SELECT") {
       return new SelectTableCommand(&sba_session,
                                     helper,
+                                    client,
                                     "teacher",
                                     "purebase",
                                     params,
