@@ -5,54 +5,126 @@
 #include <cstdlib>
 #include "simple_cmd_client.h"
 void Client::start() {
-  process_command();
+  try {
+    while (true) {
+      process_command();
+    }
+  } catch (std::exception& e){
+    std::cerr << e.what() << std::endl;
+    return;
+  }
 }
 
-int Client::send_file(std::string path) {
+void Client::process_command() {
+  std::string command;
+  std::cout << "> ";
+  std::cin >> command;
+  try {
+    if (command == "/connect") {
+      std::cin >> _host >> _port;
+      if (connected) {
+        handshake(DISCONNECT);
+        socket.close();
+      }
+      socket.connect(_host, _port);
+      handshake(CONNECT);
+      connected = true;
+    } else if (command == "/disconnect") {
+      if (connected) {
+        handshake(DISCONNECT);
+        socket.close();
+        connected = false;
+      } else {
+        std::cout << "YOU ARE NOT CONNECTED\n";
+      }
+    } else if (command == "/transaction") {
+      if (connected) {
+        std::string path;
+        std::cin >> path;
+        handshake(TRANSACTION);
+        send_transaction(path);
+      } else {
+        std::cout << "YOU ARE NOT CONNECTED\n";
+      }
+    } else if (command == "/exit") {
+      if (connected) {
+        handshake(DISCONNECT);
+        socket.close();
+        connected = false;
+        exit(0);
+      } else {
+        exit(0);
+      }
+//    } else if (command == "/sendfile") {
+//      if (connected) {
+//        std::string path;
+//        std::cin >> path;
+//        handshake(FILE_UPLOAD);
+//        send_file(path);
+//      } else {
+//        std::cout << "YOU ARE NOT CONNECTED\n";
+//      }
+    } else {
+      std::cout << "NO SUCH COMMAND\n";
+    }
+  } catch (std::exception &e) {
+    std::cerr << "CLIENT::PROCESS_COMMAND ERROR\n";
+    std::cerr << e.what() << std::endl;
+  }
+}
+void Client::handshake(CONNECTION_SIGNALS signal) {
+  try {
+    auto req = (CONNECTION_SIGNALS) stoi(socket.recv());
+    switch (req) {
+      case REQUEST_HEADERS:
+        socket.send(std::to_string(signal));
+        break;
+      default:
+//        love you. tupoy mudak
+        std::cout << "HANDSHAKE ERROR" << std::endl;
+        break;
+    }
+  } catch (std::exception &e) {
+    std::cerr << "CLIENT::HANDSHAKE ERROR\n";
+    std::cerr << e.what() << std::endl;
+  }
+
+}
+int Client::send_transaction(std::string path) {
   try {
     std::ifstream fin(path);
     if (fin.is_open()) {
       std::stringstream ss;
       ss << fin.rdbuf();
-
+      fin.close();
       socket.send(ss.str());
       std::cout << socket.recv() << std::endl;
-      fin.close();
     } else {
       std::cerr << "[!]no such file\n";
       return -1;
     }
-  }
-  catch (std::exception &e) {
+  } catch (std::exception &e) {
+    std::cerr << "CLIENT::SEND_TRANSACTION ERROR\n";
     std::cerr << e.what() << std::endl;
   }
   return 0;
 }
-void Client::process_command() {
-  std::string command;
-  while (true) {
-    std::cout << "> ";
-    std::cin >> command;
-    try {
-      if (command == "/connect") {
-        std::cin >> _host >> _port;
-        socket.close();
-        socket.connect(_host, _port);
-      } else if (command == "/disconnect") {
-        socket.close();
-      } else if (command == "/sendfile") {
-        std::string path;
-        std::cin >> path;
-        send_file(path);
-      } else if (command == "/exit") {
-        socket.close();
-        exit(0);
-      }
-      else {
-        std::cout << "NO SUCH COMMAND\n";
-      }
-    } catch (std::exception &e) {
-      std::cerr << e.what() << std::endl;
-    }
-  }
-}
+
+//int Client::send_file(std::string path) {
+//  try{
+//    std::ifstream fin(path, std::ios::binary);
+//    if(fin.is_open()){
+//      std::stringstream ss;
+//      ss << fin.rdbuf();
+//      fin.close();
+//      socket.send(ss.str());
+//      std::cout << socket.recv() << std::endl;
+//    } else {
+//      std::cerr << "[!] no such file\n";
+//      return -1;
+//    }
+//  } catch (std::exception& e){
+//    std::cerr << e.what() << std::endl;
+//  }
+//  return 0;
+//}

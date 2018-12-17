@@ -15,9 +15,33 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpqxx -lpq")
 find_library(PQXX_LIB pqxx REQUIRED)
 find_library(PQ_LIB pq REQUIRED)
 
+set(SUBJECT_LIB_SOURCE
+        Subject/subject.h
+        Subject/subject.cc
+        )
+
+set(TEACHER_LIB_SOURCE
+        Teacher/teacher.h
+        Teacher/teacher.cc
+        )
+
+set(VIDEO_LIB_SOURCE
+        Video/video.h
+        Video/video.cc
+        )
 set(LESSON_LIB_SOURCE
         Lesson/lesson.h
         Lesson/lesson.cc
+        )
+
+set(DOCUMENT_LIB_SOURCE
+        Document/document.h
+        Document/document.cc
+        )
+
+set(HELPER_LIB_SOURCE
+        Helper/helper.h
+        Helper/helper.cc
         )
 
 find_package(Boost REQUIRED COMPONENTS system filesystem thread)
@@ -71,7 +95,6 @@ set(ADAPTER_LIB_SOURCE
         Adapter/PostgresAdapter/PGConnection/pg_connection.h
         )
 
-add_library(lesson_lib STATIC ${LESSON_LIB_SOURCE})
 set(COMMAND_LIB_SOURCE
         Command/command.cc
         Command/command.h)
@@ -104,6 +127,21 @@ set(DELETE_DATABASE_COMMAND_LIB_SOURCE
         DeleteDBCommand/delete_db_command.cc
         DeleteDBCommand/delete_db_command.h)
 
+set(INSERT_ROW_COMMAND_LIB_SOURCE
+        InsertRowCommand/insert_row_command.cc
+        InsertRowCommand/insert_row_command.h)
+
+set(DELETE_ROW_COMMAND_LIB_SOURCE
+        DeleteRowCommand/delete_row_command.cc
+        DeleteRowCommand/delete_row_command.h)
+
+
+add_library(subject_lib STATIC ${SUBJECT_LIB_SOURCE})
+add_library(video_lib STATIC ${VIDEO_LIB_SOURCE})
+add_library(teacher_lib STATIC ${TEACHER_LIB_SOURCE})
+add_library(document_lib STATIC ${DOCUMENT_LIB_SOURCE})
+add_library(lesson_lib STATIC ${LESSON_LIB_SOURCE})
+
 add_library(datahelper_lib STATIC ${DATAHELPER_LIB_SOURCE})
 add_library(lessonhelper_lib STATIC ${LESSONHELPER_LIB_SOURCE})
 add_library(subjecthelper_lib STATIC ${SUBJECTHELPER_LIB_SOURCE})
@@ -120,6 +158,8 @@ add_library(update_table_command_lib STATIC ${UPDATE_TABLE_COMMAND_LIB_SOURCE})
 add_library(select_table_command_lib STATIC ${SELECT_TABLE_COMMAND_LIB_SOURCE})
 add_library(create_db_command_lib STATIC ${CREATE_DATABASE_COMMAND_LIB_SOURCE})
 add_library(delete_db_command_lib STATIC ${DELETE_DATABASE_COMMAND_LIB_SOURCE})
+add_library(insert_row_command_lib STATIC ${INSERT_ROW_COMMAND_LIB_SOURCE})
+add_library(delete_row_command_lib STATIC ${DELETE_ROW_COMMAND_LIB_SOURCE})
 
 link_libraries(command_lib
         application_lib
@@ -128,7 +168,15 @@ link_libraries(command_lib
         update_table_command_lib
         select_table_command_lib
         create_db_command_lib
-        delete_db_command_lib)
+        delete_db_command_lib
+        insert_row_command_lib
+        delete_row_command_lib
+        teacherhelper_lib
+        teacher_lib
+        subject_lib
+        lessonhelper_lib
+        document_lib
+        video_lib)
 
 set(SESSION_LIB_SOURCE
         session/session.h
@@ -168,7 +216,13 @@ link_libraries(server_lib parser_lib)
 #add_subdirectory(session_by_name/)
 #add_subdirectory(session_director/)
 #add_subdirectory(sys/)
+
+include_directories(ConnectionHeaders)
+add_library(headers_lib SHARED ConnectionHeaders/connection_headers.h)
+
 add_subdirectory(Client)
+link_libraries(server_lib headers_lib)
+link_libraries(client_lib headers_lib)
 ########################################################################################################################
 #BUILD TARGETS
 
@@ -181,8 +235,11 @@ target_link_libraries(PureBase
         subjecthelper_lib
         datahelper_lib
         teacherhelper_lib
+        document_lib
+        video_lib
 
         lesson_lib
+        teacher_lib
         adapter_lib
         ${PQXX_LIB}
         ${PQ_LIB}
@@ -201,6 +258,8 @@ target_link_libraries(PureBase
         select_table_command_lib
         create_db_command_lib
         delete_db_command_lib
+        insert_row_command_lib
+        delete_row_command_lib
         )
 ########################################################################################################################
 

@@ -17,6 +17,7 @@ public:
     virtual bool Update(std::string,std::vector<std::pair<std::string,std::string>>, std::vector<std::pair<std::string,std::string>>) = 0;
     virtual std::vector<std::vector<std::string>> Select(std::string, std::vector<std::string>,std::vector<std::pair<std::string,std::string>>) = 0;
     virtual bool Delete(std::string, std::vector<std::pair<std::string,std::string>>) = 0;
+    virtual std::vector<std::vector<std::string>> ShowTable(std::string) = 0;
     virtual std::string GetMaximumID(std::string) = 0;
 };
 

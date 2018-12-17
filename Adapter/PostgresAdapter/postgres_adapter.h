@@ -15,7 +15,7 @@ private:
     pqxx::connection Connect;
 public:
     //PostgresAdapter() = default;
-    PostgresAdapter():Connect("dbname = purebase user = semyon"){};
+    PostgresAdapter():Connect("dbname = purebase user = postgres"){};
 
     explicit PostgresAdapter(std::string options);
     ~PostgresAdapter() override {
@@ -30,6 +30,7 @@ public:
     std::vector<std::vector<std::string>> Select(std::string, std::vector<std::string>, std::vector<std::pair<std::string,std::string>>) override;
     bool Delete(std::string, std::vector<std::pair<std::string,std::string>>) override;
     std::string GetMaximumID(std::string) override;
+    std::vector<std::vector<std::string>> ShowTable(std::string) override;
 };
 
 
