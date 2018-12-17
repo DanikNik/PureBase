@@ -168,7 +168,13 @@ link_libraries(server_lib parser_lib)
 #add_subdirectory(session_by_name/)
 #add_subdirectory(session_director/)
 #add_subdirectory(sys/)
+
+include_directories(ConnectionHeaders)
+add_library(headers_lib STATIC ConnectionHeaders/connection_headers.h)
+
 add_subdirectory(Client)
+link_libraries(server_lib headers_lib)
+link_libraries(client_lib headers_lib)
 ########################################################################################################################
 #BUILD TARGETS
 

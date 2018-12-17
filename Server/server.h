@@ -24,6 +24,7 @@
 #include "../DataHelper/Document_Helper/document_helper.h"
 #include "../sys/sys.h"
 #include "../CreateDBCommand/create_db_command.h"
+#include "connection_headers.h"
 
 using namespace std;
 
@@ -47,7 +48,10 @@ class Server {
   boost::thread_group thr_pool;
 
   void parse_config_file(std::string filepath);
-
+  void client_work(std::shared_ptr<Socket> client);
+  void process_transaction(std::shared_ptr<Socket> client);
+  void recieve_file(std::shared_ptr<Socket> client);
+  CONNECTION_SIGNALS handshake(std::shared_ptr<Socket> client);
  public:
   Server() : port(8000),
              app(new Application()),
@@ -55,16 +59,14 @@ class Server {
              pool_size(10) {}
 
   explicit Server(int _port) : port(_port),
-                      app(new Application()),
-                      parser(new QueryProcessor()),
-                      pool_size(10) {}
+                               app(new Application()),
+                               parser(new QueryProcessor()),
+                               pool_size(10) {}
 
-  virtual ~Server(){
+  virtual ~Server() {
     io.stop();
     thr_pool.join_all();
   };
-
-  void client_work(std::shared_ptr<Socket> client);
 
   void start();
 };
