@@ -12,11 +12,16 @@
 #include <string>
 #include <iostream>
 
+const size_t ID = 0;
+const size_t NAME = 1;
+const size_t SPECIALIZATION = 2;
+
 class SelectTableCommand : public Command {
  public:
   SelectTableCommand(SessionBuilder *session, Helper *helper,
                      std::string tableName,
                      std::string dbName,
+                     std::vector<std::string> params,
                      std::vector<std::pair<std::string, std::string>> attributes);
   void execute() override;
 
@@ -25,6 +30,7 @@ class SelectTableCommand : public Command {
   Helper *_helper;
   std::string _tableName;
   std::string _dbName;
+  std::vector<std::string> _params;
   std::vector<std::pair<std::string, std::string>> _attributes;
 
 };

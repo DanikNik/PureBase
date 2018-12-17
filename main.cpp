@@ -1,10 +1,4 @@
-//#include <iostream>
-//#include "ApiEndpoint/api_endpoint.h"
-//#include <iostream>
-//#include "session_by_name.h"
-//#include "session_director.h"
-//#include "sys.h"
-
+#include "sys/sys.h"
 #include <vector>
 #include "LessonHelper/lesson_helper.h"
 #include "SubjectHelper/subject_helper.h"
@@ -14,75 +8,67 @@
 #include "DataHelper/Video_Helper/video_helper.h"
 #include "Helper/helper.h"
 #include "DataHelper/Video_Helper/video_helper.h"
-
-
-//int main(int argc, char** argv) {
-//    DocumentHelper DH("doc1");
-//    DH.Create("doc1");
-//    DH.ChangeName("doc2");
-//    DH.Select({"doc1"});//??
-//    DH.SelectByTag({"doc1"},"tag");
-//    DH.ShowTables();
-//    DH.DeleteRow();
-//    VideoHelper VH("video1");
-//    VH.Create("video1");
-//    VH.ShowTables();
-//    VH.SelectByTag({"video1"}, "tag");
-//    VH.Select({"video1"});
-//    VH.DeleteRow();
-//    VH.ChangeName("video2");
-//    VH.GetFile("filepath");
-//    VH.PutFile("filepath");
-//    SubjectHelper SH("subjectname");
-//    SH.ChangeName("subjectname2");
-//    SH.DeleteRow();
-//    SH.Select({"subjectname"});
-//    SH.ShowTables();
-//    SH.Create("subjectname3");
-//    SH.SelectByTag({"subjectname3"},"tag");
-//    TeacherHelper TH("name");
-//    TH.SelectByTag({"name"},"tag");
-//    TH.Select({"name"});
-//    TH.ShowTables();
-//    TH.Create("name");
-//    TH.DeleteRow();
-//    TH.ChangeName("name2");
-//    TH.ChangeSpecialization("slut");
-//    LessonHelper LH("lesson");
-//    LH.ChangeName("lesson2");
-//    LH.Create("lesson3");
-//    LH.ShowTables();
-//    LH.Select({"lesson"});
-//    LH.SelectByTag({"lesson"},"tag");
-//    LH.ChangeTheme("Theme");
-//    LH.ChangeTeacher(2);
-//    LH.ChangeSubject(1);
-//    LH.DeleteRow();//Косячно реализован, пока не трогать
-
-//  Sys *system_table = Sys::get_instance();
-//
-//  system_table->add_user("abcd", "Ivan", 0);
-//  system_table->add_user("qwerty", "Name", 1);
-//  system_table->add_user("thcp", "John", 5);
-//
-//  SessionType type = SBN;
-//  std::string token = "abcd";
-//
-//  SessionByName sba_session;
-//  SessionDirector director(&sba_session);
-//  director.create_session(token, type);
-//
-//  auto ses = sba_session.get_result();
-//
-//  if(sba_session.get_result()->is_connect()) {
-//    std::cout << ses->get_user_token() << " " << ses->get_user_name() << " "
-//              << ses->get_user_permissions();
-//  } else {
-//    std::cout << "Пользователя с такими токеном не существует" << std::endl;
-//  }
+#include "Server/server.h"
+#include "SelectTableCommand/select_table_command.h"
+#include "LessonHelper/lesson_helper.h"
+#include "DataHelper/Document_Helper/document_helper.h"
+#include "DataHelper/Video_Helper/video_helper.h"
+#include "session/session.h"
+#include "session_director/session_director.h"
 
 int main(int argc, char *argv[]) {
-  Server().start();
+
+  // Сценарий запроса SELECT из таболицы преподавателей
+  // Используется команда SELECT
+  // TODO создать команду InsertRowCommand(session, helper, tablename, dbname, vector<pair<string, string>>) в таблицу
+  // TODO удалить команды CreateTableCommand, DropTableCommand, DeleteDBCommand, CreateDBCommand
+  // TODO создать команду DropRowCommand(session, helper, tablename, dbname, vector<pair<string, string>>) из таблицы
+
+
+  // Создание пользователя в системной таблице
+
+  // Создали права доступа
+  Permissions permissions;
+  permissions.set_write();
+  permissions.set_read();
+
+
+  // Создали пользователя в системной таблице
+  Sys *system_table = Sys::get_instance();
+  system_table->add_user("abcd", "Ivan", permissions);
+
+  // Создаем сессию с пользователем
+  SessionType type = SBN;
+  std::string token = "abcd";
+  SessionByName sba_session;
+  SessionDirector director(&sba_session);
+  director.create_session(token, type);
+  auto ses = sba_session.get_result();
+
+  // проверяем его данные
+  if (sba_session.get_result()->is_connect()) {
+    std::cout << ses->get_user_token() << " " << ses->get_user_name() << " " << ses->get_user_permissions().can_write();
+  } else {
+    std::cout << "Пользователя с такими токеном не существует" << std::endl;
+  }
+
+  // Создаем нужный хелпер
+
+  // P.S это все к Teacher helper
+  TeacherHelper helper;
+
+  // Опции для запроса
+  std::cout << std::endl;
+  std::vector<std::pair<std::string, std::string>> attributes;
+  attributes.push_back(std::make_pair<std::string, std::string>("name", "Saneev"));
+
+  // В Select мы передаем сессию, хелпер, называние таблицы, название базы данных, параметы(то, что хотим получить)
+  // ошибки с этим отлавливаются на уровне базы данных, опции(аттрибуты, условия филтрации данных)
+  SelectTableCommand selectTableCommand(&sba_session, &helper, "teacher",
+      "purebase", {"id", "name" ,"specialization"}, attributes);
+
+  // Исполняем команду
+  selectTableCommand.execute();
 
   return 0;
 }

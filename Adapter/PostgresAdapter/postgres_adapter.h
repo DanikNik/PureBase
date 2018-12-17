@@ -15,7 +15,7 @@ private:
     pqxx::connection Connect;
 public:
     //PostgresAdapter() = default;
-    PostgresAdapter():Connect("dbname = purebase user = semyon"){};
+    PostgresAdapter():Connect("dbname = purebase user = admin"){};
 
     explicit PostgresAdapter(std::string options);
     ~PostgresAdapter() override {
