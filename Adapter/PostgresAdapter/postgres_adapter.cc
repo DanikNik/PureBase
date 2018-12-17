@@ -130,7 +130,7 @@ bool PostgresAdapter::Delete(std::string tablename, std::vector<std::pair<std::s
       query += options[i].first + " = " + wrk.quote(options[i].second);
       break;
     }
-    query += options[i].first + " = " + wrk.quote(options[i].second) + " , ";
+    query += options[i].first + " = " + wrk.quote(options[i].second) + " and ";
   }
   wrk.exec(query);
   std::cout << query << std::endl;

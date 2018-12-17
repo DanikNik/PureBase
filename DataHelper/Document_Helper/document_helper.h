@@ -22,12 +22,15 @@ public:
     explicit DocumentHelper(std::string);
     ~DocumentHelper();
     int Create(std::string) override;
+    int Create(std::vector<std::pair<std::string, std::string>> values) override;
     void ChangeName(std::string) override;
+    void ChangeName(std::vector<std::pair<std::string, std::string>>, std::string);
     std::vector<std::string> Select(std::vector<std::string>) override;
     std::vector<std::vector<std::string>> Select(std::vector<std::string>,
                                                std::vector<std::pair<std::string, std::string>>) override;
     std::vector<std::string> SelectByTag(std::vector<std::string>, std::string) override;
     void DeleteRow() override;
+    void DeleteRow(std::vector<std::pair<std::string, std::string>> options) override;
     void ShowTables() override;
     bool PutFile(std::string) override;
     FILE GetFile(std::string) override;

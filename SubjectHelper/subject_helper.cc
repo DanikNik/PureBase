@@ -36,6 +36,38 @@ int SubjectHelper::Create(std::string SubjectName) {
   return atoi(id.c_str());
 }
 
+int SubjectHelper::Create(std::vector<std::pair<std::string, std::string>> values) {
+  auto params = subject->GetParametrs();
+  std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+  AbstractAdapter *adapt;
+  std::vector<std::string> columns;
+  std::vector<std::string> vals;
+  bool is_id = false;
+  for (auto column : values) {
+    if (column.first == "id") {
+      columns.emplace_back("id");
+      vals.emplace_back(column.second);
+      is_id = true;
+    }
+    if (column.first == "name") {
+      columns.emplace_back("name");
+      vals.emplace_back(column.second);
+    }
+    if (column.first == "description") {
+      columns.emplace_back("description");
+      vals.emplace_back(column.second);
+    }
+  }
+  adapt = new PostgresAdapter();
+  std::string id = adapt->GetMaximumID(DEFAULT_SUBJECT_NAME);
+  if (!is_id) {
+    columns.emplace_back("id");
+    vals.emplace_back(id);
+  }
+  adapt->Insert(DEFAULT_SUBJECT_NAME, columns, vals);
+  return std::stoi(id);
+}
+
 void SubjectHelper::ChangeName(std::string SubjectName) {
   auto params = subject->GetParametrs();
   std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
@@ -46,6 +78,16 @@ void SubjectHelper::ChangeName(std::string SubjectName) {
   auto value = std::make_pair("id", params["ID"]);
   std::vector<std::pair<std::string, std::string>> values = {value};
   adapt->Update(DEFAULT_SUBJECT_NAME, columns, values);
+}
+
+void SubjectHelper::ChangeName(std::vector<std::pair<std::string, std::string>> param, std::string SubjectName) {
+  auto params = subject->GetParametrs();
+  std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+  AbstractAdapter *adapt;
+  adapt = new PostgresAdapter();
+  std::vector<std::pair<std::string, std::string>>
+      values(1, std::make_pair("name", SubjectName));
+  adapt->Update(DEFAULT_SUBJECT_NAME, std::move(param), values);
 }
 
 void SubjectHelper::ChangeDescription(std::string Description) {
@@ -60,6 +102,16 @@ void SubjectHelper::ChangeDescription(std::string Description) {
   adapt->Update(DEFAULT_SUBJECT_NAME, columns, values);
 }
 
+void SubjectHelper::ChangeDescription(std::vector<std::pair<std::string, std::string>> param, std::string Description) {
+  auto params = subject->GetParametrs();
+  std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+  AbstractAdapter *adapt;
+  adapt = new PostgresAdapter();
+  std::vector<std::pair<std::string, std::string>>
+      values(1, std::make_pair("Description", Description));
+  adapt->Update(DEFAULT_SUBJECT_NAME, std::move(param), values);
+}
+
 void SubjectHelper::DeleteRow() {
   auto params = subject->GetParametrs();
   std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
@@ -69,6 +121,14 @@ void SubjectHelper::DeleteRow() {
   auto option = std::make_pair("id", params["ID"]);
   std::vector<std::pair<std::string, std::string>> options = {option};
 
+  adapt->Delete(DEFAULT_SUBJECT_NAME, options);
+}
+
+void SubjectHelper::DeleteRow(std::vector<std::pair<std::string, std::string>> options) {
+  auto params = subject->GetParametrs();
+  std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+  AbstractAdapter *adapt;
+  adapt = new PostgresAdapter();
   adapt->Delete(DEFAULT_SUBJECT_NAME, options);
 }
 

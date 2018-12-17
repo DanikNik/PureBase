@@ -127,6 +127,14 @@ set(DELETE_DATABASE_COMMAND_LIB_SOURCE
         DeleteDBCommand/delete_db_command.cc
         DeleteDBCommand/delete_db_command.h)
 
+set(INSERT_ROW_COMMAND_LIB_SOURCE
+        InsertRowCommand/insert_row_command.cc
+        InsertRowCommand/insert_row_command.h)
+
+set(DELETE_ROW_COMMAND_LIB_SOURCE
+        DeleteRowCommand/delete_row_command.cc
+        DeleteRowCommand/delete_row_command.h)
+
 
 add_library(subject_lib STATIC ${SUBJECT_LIB_SOURCE})
 add_library(video_lib STATIC ${VIDEO_LIB_SOURCE})
@@ -150,6 +158,8 @@ add_library(update_table_command_lib STATIC ${UPDATE_TABLE_COMMAND_LIB_SOURCE})
 add_library(select_table_command_lib STATIC ${SELECT_TABLE_COMMAND_LIB_SOURCE})
 add_library(create_db_command_lib STATIC ${CREATE_DATABASE_COMMAND_LIB_SOURCE})
 add_library(delete_db_command_lib STATIC ${DELETE_DATABASE_COMMAND_LIB_SOURCE})
+add_library(insert_row_command_lib STATIC ${INSERT_ROW_COMMAND_LIB_SOURCE})
+add_library(delete_row_command_lib STATIC ${DELETE_ROW_COMMAND_LIB_SOURCE})
 
 link_libraries(command_lib
         application_lib
@@ -159,6 +169,8 @@ link_libraries(command_lib
         select_table_command_lib
         create_db_command_lib
         delete_db_command_lib
+        insert_row_command_lib
+        delete_row_command_lib
         teacherhelper_lib
         teacher_lib
         subject_lib
@@ -240,6 +252,8 @@ target_link_libraries(PureBase
         select_table_command_lib
         create_db_command_lib
         delete_db_command_lib
+        insert_row_command_lib
+        delete_row_command_lib
         )
 ########################################################################################################################
 

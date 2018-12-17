@@ -21,13 +21,17 @@ public:
     explicit SubjectHelper(std::string);
     ~SubjectHelper();
     int Create(std::string) override;
+    int Create(std::vector<std::pair<std::string, std::string>> values) override;
     void ChangeName(std::string) override;
+    void ChangeName(std::vector<std::pair<std::string, std::string>>, std::string);
     std::vector<std::string> Select(std::vector<std::string> param) override;
     std::vector<std::vector<std::string>> Select(std::vector<std::string>,
                                                std::vector<std::pair<std::string, std::string>>) override;
     std::vector<std::string> SelectByTag(std::vector<std::string> param, std::string tag) override;
     void DeleteRow() override;
+    void DeleteRow(std::vector<std::pair<std::string, std::string>> options) override;
     void ChangeDescription(std::string);
+    void ChangeDescription(std::vector<std::pair<std::string, std::string>>, std::string);
     void ShowTables() override;
 };
 

@@ -5,6 +5,7 @@
 #include "../Command/command.h"
 #include "../Helper/helper.h"
 #include "../session_builder/session_builder.h"
+#include "../TeacherHelper/teacher_helper.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -17,6 +18,7 @@ class UpdateTableCommand : public Command {
   UpdateTableCommand(SessionBuilder *session, Helper *helper,
                      std::string tableName,
                      std::string dbName,
+                     std::vector<std::pair<std::string, std::string>> param,
                      std::vector<std::pair<std::string, std::string>> attributes);
   void execute() override;
  private:
@@ -24,6 +26,7 @@ class UpdateTableCommand : public Command {
   Helper *_helper;
   std::string _tableName;
   std::string _dbName;
+  std::vector<std::pair<std::string, std::string>> _param;
   std::vector<std::pair<std::string, std::string>> _attributes;
 };
 

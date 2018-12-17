@@ -10,6 +10,9 @@
 #include "DataHelper/Video_Helper/video_helper.h"
 #include "Server/server.h"
 #include "SelectTableCommand/select_table_command.h"
+#include "InsertRowCommand/insert_row_command.h"
+#include "DeleteRowCommand/delete_row_command.h"
+#include "UpdateTableCommand/update_table_command.h"
 #include "LessonHelper/lesson_helper.h"
 #include "DataHelper/Document_Helper/document_helper.h"
 #include "DataHelper/Video_Helper/video_helper.h"
@@ -20,9 +23,8 @@ int main(int argc, char *argv[]) {
 
   // Сценарий запроса SELECT из таболицы преподавателей
   // Используется команда SELECT
-  // TODO создать команду InsertRowCommand(session, helper, tablename, dbname, vector<pair<string, string>>) в таблицу
   // TODO удалить команды CreateTableCommand, DropTableCommand, DeleteDBCommand, CreateDBCommand
-  // TODO создать команду DropRowCommand(session, helper, tablename, dbname, vector<pair<string, string>>) из таблицы
+  // TODO добавить реализацию в UpdateCommand
 
 
   // Создание пользователя в системной таблице
@@ -31,7 +33,6 @@ int main(int argc, char *argv[]) {
   Permissions permissions;
   permissions.set_write();
   permissions.set_read();
-
 
   // Создали пользователя в системной таблице
   Sys *system_table = Sys::get_instance();
@@ -60,15 +61,16 @@ int main(int argc, char *argv[]) {
   // Опции для запроса
   std::cout << std::endl;
   std::vector<std::pair<std::string, std::string>> attributes;
-  attributes.push_back(std::make_pair<std::string, std::string>("name", "Saneev"));
+  attributes.push_back(std::make_pair<std::string, std::string>("name", "Dinar"));
 
   // В Select мы передаем сессию, хелпер, называние таблицы, название базы данных, параметы(то, что хотим получить)
   // ошибки с этим отлавливаются на уровне базы данных, опции(аттрибуты, условия филтрации данных)
   SelectTableCommand selectTableCommand(&sba_session, &helper, "teacher",
-      "purebase", {"id", "name" ,"specialization"}, attributes);
+                                        "purebase", {"id", "name", "specialization"}, attributes);
 
   // Исполняем команду
   selectTableCommand.execute();
+
 
   return 0;
 }

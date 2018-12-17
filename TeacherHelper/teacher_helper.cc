@@ -33,7 +33,39 @@ int TeacherHelper::Create(std::string TeacherName) {
   std::string id = adapt->GetMaximumID(DEFAULT_TEACHER_NAME);
   std::vector<std::string> values = {id, TeacherName};
   adapt->Insert(DEFAULT_TEACHER_NAME, columns, values);
-  return atoi(id.c_str());
+  return std::stoi(id);
+}
+
+int TeacherHelper::Create(std::vector<std::pair<std::string, std::string>> values) {
+  auto params = teacher->GetParametrs();
+  std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+  AbstractAdapter *adapt;
+  std::vector<std::string> columns;
+  std::vector<std::string> vals;
+  bool is_id = false;
+  for (auto column : values) {
+    if (column.first == "id") {
+      columns.emplace_back("id");
+      vals.emplace_back(column.second);
+      is_id = true;
+    }
+    if (column.first == "name") {
+      columns.emplace_back("name");
+      vals.emplace_back(column.second);
+    }
+    if (column.first == "specialization") {
+      columns.emplace_back("specialization");
+      vals.emplace_back(column.second);
+    }
+  }
+  adapt = new PostgresAdapter();
+  std::string id = adapt->GetMaximumID(DEFAULT_TEACHER_NAME);
+  if (!is_id) {
+    columns.emplace_back("id");
+    vals.emplace_back(id);
+  }
+  adapt->Insert(DEFAULT_TEACHER_NAME, columns, vals);
+  return std::stoi(id);
 }
 
 void TeacherHelper::ChangeName(std::string TeacherName) {
@@ -48,6 +80,16 @@ void TeacherHelper::ChangeName(std::string TeacherName) {
   adapt->Update(DEFAULT_TEACHER_NAME, columns, values);
 }
 
+void TeacherHelper::ChangeName(std::vector<std::pair<std::string, std::string>> param, std::string TeacherName) {
+  auto params = teacher->GetParametrs();
+  std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+  AbstractAdapter *adapt;
+  adapt = new PostgresAdapter();
+  std::vector<std::pair<std::string, std::string>>
+      values(1, std::make_pair("name", TeacherName));
+  adapt->Update(DEFAULT_TEACHER_NAME, std::move(param), values);
+}
+
 void TeacherHelper::ChangeSpecialization(std::string Description) {
   auto params = teacher->GetParametrs();
   std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
@@ -60,6 +102,17 @@ void TeacherHelper::ChangeSpecialization(std::string Description) {
   adapt->Update(DEFAULT_TEACHER_NAME, columns, values);
 }
 
+void TeacherHelper::ChangeSpecialization(std::vector<std::pair<std::string, std::string>> param,
+                                         std::string Description) {
+  auto params = teacher->GetParametrs();
+  std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+  AbstractAdapter *adapt;
+  adapt = new PostgresAdapter();
+  std::vector<std::pair<std::string, std::string>>
+      values(1, std::make_pair("specialization", Description));
+  adapt->Update(DEFAULT_TEACHER_NAME, std::move(param), values);
+}
+
 void TeacherHelper::DeleteRow() {
   auto params = teacher->GetParametrs();
   std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
@@ -69,6 +122,14 @@ void TeacherHelper::DeleteRow() {
   auto option = std::make_pair("id", params["ID"]);
   std::vector<std::pair<std::string, std::string>> options = {option};
 
+  adapt->Delete(DEFAULT_TEACHER_NAME, options);
+}
+
+void TeacherHelper::DeleteRow(std::vector<std::pair<std::string, std::string>> options) {
+  auto params = teacher->GetParametrs();
+  std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
+  AbstractAdapter *adapt;
+  adapt = new PostgresAdapter();
   adapt->Delete(DEFAULT_TEACHER_NAME, options);
 }
 
@@ -97,7 +158,7 @@ std::vector<std::string> TeacherHelper::Select(std::vector<std::string> parametr
 }
 
 std::vector<std::vector<std::string>> TeacherHelper::Select(std::vector<std::string> parametrs,
-                                               std::vector<std::pair<std::string, std::string>> options) {
+                                                            std::vector<std::pair<std::string, std::string>> options) {
   auto params = teacher->GetParametrs();
   std::string init_string = "dbname = " + params["DB_NAME"] + " user = " + params["USER"];
   AbstractAdapter *adapt;
