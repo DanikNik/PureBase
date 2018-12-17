@@ -33,6 +33,12 @@ using namespace std;
 // TODO: *refers to upper* add shutdown function
 // TODO add handshake to authorize
 
+struct BoostThreadPool{
+
+};
+// TODO отдельная реализация
+
+
 class Server {
  private:
   int port;
@@ -50,7 +56,7 @@ class Server {
   void parse_config_file(std::string filepath);
   void client_work(std::shared_ptr<Socket> client);
   void process_transaction(std::shared_ptr<Socket> client);
-  void recieve_file(std::shared_ptr<Socket> client);
+//  void recieve_file(std::shared_ptr<Socket> client);
   CONNECTION_SIGNALS handshake(std::shared_ptr<Socket> client);
  public:
   Server() : port(8000),

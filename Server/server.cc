@@ -1,4 +1,5 @@
 #include "server.h"
+#include "time.h"
 
 void Server::start() {
   try {
@@ -40,8 +41,12 @@ void Server::parse_config_file(std::string filepath) {
   }
 }
 
+//под каждый тип сообщения добавить свою абстракцию
+//паттерн can-handle handle
+
 CONNECTION_SIGNALS Server::handshake(std::shared_ptr <Socket> client) {
   try {
+    usleep(5);
     client->send(std::to_string(REQUEST_HEADERS));
     auto recv = (CONNECTION_SIGNALS) stoi(client->recv());
     switch (recv) {
@@ -68,6 +73,11 @@ CONNECTION_SIGNALS Server::handshake(std::shared_ptr <Socket> client) {
   }
 };
 
+
+//под каждый тип сообщения добавить свою абстракцию
+//паттерн can-handle handle
+
+
 void Server::client_work(std::shared_ptr <Socket> client) {
   client->setRcvTimeout(/*sec*/200, /*microsec*/0);
   auto initial = handshake(client);
@@ -80,9 +90,9 @@ void Server::client_work(std::shared_ptr <Socket> client) {
         case TRANSACTION:
           process_transaction(client);
           break;
-//        case FILE_UPLOAD:
+        case FILE_UPLOAD:
 //          recieve_file(client);
-//          break;
+          break;
         case DISCONNECT:
           client->close();
           flag = false;
@@ -103,9 +113,12 @@ void Server::client_work(std::shared_ptr <Socket> client) {
   std::cerr << "END OF CONVERSATION WITH CLIENT " << client->sd() << std::endl;
 }
 
+//single responsibility
+
 void Server::process_transaction(std::shared_ptr <Socket> client) {
   try {
     std::string line = client->recv();
+
     std::thread producer([&]() {
       std::this_thread::sleep_for(std::chrono::seconds(1));
       std::unique_lock <std::mutex> lock(m);
@@ -117,7 +130,7 @@ void Server::process_transaction(std::shared_ptr <Socket> client) {
       }
       line = "BAD INPUT";
     });
-
+//
     std::thread consumer([&]() {
       std::unique_lock <std::mutex> lock(m);
       while (!notified) {
@@ -126,10 +139,11 @@ void Server::process_transaction(std::shared_ptr <Socket> client) {
       app->checkQueue();
       notified = false;
     });
-
+//
     producer.join();
     consumer.join();
-
+//
+//    command->execute();
     std::stringstream ss;
     ss << "response ";
     ss << client->sd();

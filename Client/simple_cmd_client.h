@@ -25,7 +25,7 @@ class Client {
   void handshake(CONNECTION_SIGNALS signal);
 
   int send_transaction(std::string path);
-  int send_file(std::string path);
+//  int send_file(std::string path);
  public:
   Client() = default;
   explicit Client(std::string host, int port) : _host(std::move(host)), _port(port) {}

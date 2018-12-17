@@ -105,7 +105,7 @@ std::map<std::string,std::string> Teacher::GetParametrs() {
     params["ID"] = teacher_id;
     params["TEACHER"] = teacher_name;
     params["DB_NAME"] = db_name;
-    params["DB_TYPE"] = db_type;
+    //params["DB_TYPE"] = db_type;
     params["TABLE_NAME"] = table_name;
     params["USER"] = user_name;
     return params;

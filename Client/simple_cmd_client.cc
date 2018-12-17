@@ -76,7 +76,8 @@ void Client::handshake(CONNECTION_SIGNALS signal) {
   try {
     auto req = (CONNECTION_SIGNALS) stoi(socket.recv());
     switch (req) {
-      case REQUEST_HEADERS:socket.send(std::to_string(signal));
+      case REQUEST_HEADERS:
+        socket.send(std::to_string(signal));
         break;
       default:
 //        love you. tupoy mudak

@@ -67,7 +67,7 @@ std::vector<std::vector<std::string>> PostgresAdapter::Select(std::string tablen
       query += options[i].first + " = " + wrk.quote(options[i].second);
       break;
     }
-    query += options[i].first + " = " + wrk.quote(options[i].second) + " , ";
+    query += options[i].first + " = " + wrk.quote(options[i].second) + " and ";
   }
   query += ";";
   //std::cout << query << std::endl;
