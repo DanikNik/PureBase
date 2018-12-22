@@ -37,7 +37,7 @@ class Client {
   void exit_client();
 
   int send_transaction(std::string path);
-//  int send_file(std::string path);
+  int send_file(std::string path);
 };
 
 #endif //PUREBASE_SIMPLE_CMD_CLIENT_H
