@@ -87,33 +87,46 @@ void Client::connect() {
   }
 }
 void Client::disconnect() {
-  if (connected) {
-    std::string path;
-    std::cin >> path;
-    handshake(TRANSACTION);
-    send_transaction(path);
-  } else {
-    std::cout << "YOU ARE NOT CONNECTED\n";
+  try {
+    if (connected) {
+      std::string path;
+      std::cin >> path;
+      handshake(TRANSACTION);
+      send_transaction(path);
+    } else {
+      std::cout << "YOU ARE NOT CONNECTED\n";
+    }
+  } catch(...){
+    std::cout << "ooops\n";
   }
 }
 void Client::transaction() {
-  if (connected) {
-    std::string path;
-    std::cin >> path;
-    handshake(TRANSACTION);
-    send_transaction(path);
-  } else {
-    std::cout << "YOU ARE NOT CONNECTED\n";
+  try {
+    if (connected) {
+      std::string path;
+      std::cin >> path;
+      handshake(TRANSACTION);
+      send_transaction(path);
+    } else {
+      std::cout << "YOU ARE NOT CONNECTED\n";
+    }
+  } catch(...){
+    std::cout << "ooops\n";
   }
 }
 void Client::exit_client() {
-  if (connected) {
-    handshake(DISCONNECT);
-    socket.close();
-    connected = false;
-    exit(0);
-  } else {
-    exit(0);
+  try {
+    if (connected) {
+      handshake(DISCONNECT);
+      socket.close();
+      connected = false;
+      exit(0);
+    } else {
+      exit(0);
+    }
+  } catch(...){
+    std::cout << "ooops\n";
+    exit(1);
   }
 }
 
