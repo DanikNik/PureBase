@@ -9,7 +9,7 @@ void Client::start() {
     while (true) {
       process_command();
     }
-  } catch (std::exception& e){
+  } catch (std::exception &e) {
     std::cerr << e.what() << std::endl;
     return;
   }
@@ -21,49 +21,13 @@ void Client::process_command() {
   std::cin >> command;
   try {
     if (command == "/connect") {
-      std::cin >> _host >> _port;
-      if (connected) {
-        handshake(DISCONNECT);
-        socket.close();
-      }
-      socket.connect(_host, _port);
-      handshake(CONNECT);
-      connected = true;
+      connect();
     } else if (command == "/disconnect") {
-      if (connected) {
-        handshake(DISCONNECT);
-        socket.close();
-        connected = false;
-      } else {
-        std::cout << "YOU ARE NOT CONNECTED\n";
-      }
+      disconnect();
     } else if (command == "/transaction") {
-      if (connected) {
-        std::string path;
-        std::cin >> path;
-        handshake(TRANSACTION);
-        send_transaction(path);
-      } else {
-        std::cout << "YOU ARE NOT CONNECTED\n";
-      }
+      transaction();
     } else if (command == "/exit") {
-      if (connected) {
-        handshake(DISCONNECT);
-        socket.close();
-        connected = false;
-        exit(0);
-      } else {
-        exit(0);
-      }
-//    } else if (command == "/sendfile") {
-//      if (connected) {
-//        std::string path;
-//        std::cin >> path;
-//        handshake(FILE_UPLOAD);
-//        send_file(path);
-//      } else {
-//        std::cout << "YOU ARE NOT CONNECTED\n";
-//      }
+      exit_client();
     } else {
       std::cout << "NO SUCH COMMAND\n";
     }
@@ -76,8 +40,7 @@ void Client::handshake(CONNECTION_SIGNALS signal) {
   try {
     auto req = (CONNECTION_SIGNALS) stoi(socket.recv());
     switch (req) {
-      case REQUEST_HEADERS:
-        socket.send(std::to_string(signal));
+      case REQUEST_HEADERS:socket.send(std::to_string(signal));
         break;
       default:
 //        love you. tupoy mudak
@@ -108,6 +71,46 @@ int Client::send_transaction(std::string path) {
     std::cerr << e.what() << std::endl;
   }
   return 0;
+}
+void Client::connect() {
+  std::cin >> _host >> _port;
+  if (connected) {
+    handshake(DISCONNECT);
+    socket.close();
+  }
+  socket.connect(_host, _port);
+  handshake(CONNECT);
+  connected = true;
+}
+void Client::disconnect() {
+  if (connected) {
+    std::string path;
+    std::cin >> path;
+    handshake(TRANSACTION);
+    send_transaction(path);
+  } else {
+    std::cout << "YOU ARE NOT CONNECTED\n";
+  }
+}
+void Client::transaction() {
+  if (connected) {
+    std::string path;
+    std::cin >> path;
+    handshake(TRANSACTION);
+    send_transaction(path);
+  } else {
+    std::cout << "YOU ARE NOT CONNECTED\n";
+  }
+}
+void Client::exit_client() {
+  if (connected) {
+    handshake(DISCONNECT);
+    socket.close();
+    connected = false;
+    exit(0);
+  } else {
+    exit(0);
+  }
 }
 
 //int Client::send_file(std::string path) {
