@@ -78,9 +78,13 @@ void Client::connect() {
     handshake(DISCONNECT);
     socket.close();
   }
-  socket.connect(_host, _port);
-  handshake(CONNECT);
-  connected = true;
+  try {
+    socket.connect(_host, _port);
+    handshake(CONNECT);
+    connected = true;
+  } catch(...){
+    std::cout << "ooops\n";
+  }
 }
 void Client::disconnect() {
   if (connected) {
