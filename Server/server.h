@@ -33,9 +33,9 @@ using namespace std;
 // TODO: *refers to upper* add shutdown function
 // TODO add handshake to authorize
 
-struct BoostThreadPool{
-
-};
+//struct BoostThreadPool{
+//
+//};
 // TODO отдельная реализация
 
 
