@@ -73,7 +73,7 @@ int Client::send_transaction(std::string path) {
   return 0;
 }
 void Client::connect() {
-  std::cin >> _host >> _port;
+//  std::cin >> _host >> _port;
   if (connected) {
     handshake(DISCONNECT);
     socket.close();
