@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
 #include <iostream>
+#include "simple_cmd_client.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +29,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Client client;
 };
 
 #endif // MAINWINDOW_H
